@@ -1,0 +1,25 @@
+<div class="uikit">
+  <main class="uikit__main" [ngClass]="{'expand': isSidebarCollapsed == true}">
+    <section id="bem" class="uikit__section active">
+      <app-bem-naming></app-bem-naming>
+    </section>
+    <section id="grid" class="uikit__section">
+      <app-flexbox-grid></app-flexbox-grid>
+    </section>
+    <section id="typology" class="uikit__section">
+      <app-typology></app-typology>
+    </section>
+    <section id="form" class="uikit__section">
+      <app-form-elements></app-form-elements>
+    </section>
+    <section id="ui-components" class="uikit__section">
+      <app-ui-components></app-ui-components>
+    </section>
+  </main>
+  <aside class="uikit__side" [ngClass]="{'collapsed': isSidebarCollapsed == true}">
+    <img src="assets/img/conversation.png" width="150" alt="Conversation Logo" class="uikit-logo">
+    
+    <div id="uikit-nav" class="uikit-nav"></div>
+  </aside>
+  <div class="collapse-button" [ngClass]="{'position-left': isSidebarCollapsed == true}" (click)="collapseSidebar()">☰</div>
+</div>

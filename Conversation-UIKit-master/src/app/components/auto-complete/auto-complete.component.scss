@@ -1,0 +1,534 @@
+/****  floating-Lable style start ****/
+.floating-label {
+    position: relative;
+    margin-bottom: 15px;
+    .arrow-icon {
+        position: absolute;
+        right: 18px;
+        top: 18px;
+    }
+}
+
+.floating-input {
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    border: 1px solid rgba(109, 135, 144, 0.3);
+    border-radius: 3px;
+    background-color: #ffffff;
+    padding-left: 12px;
+    color: #1c323f;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 18px;
+    &:hover {
+        border: 1px solid #6d8790;
+        label {
+            color: #203b4c;
+        }
+    }
+    &:focus {
+        outline: none;
+        border: 1px solid #219fcf;
+
+        label {
+            top: -9px;
+            left: 12px;
+            font-size: 13px;
+            color: #219fcf;
+        }
+    }
+}
+
+.floating-label-selected {
+    position: relative;
+    margin-bottom: 15px;
+    .arrow-icon {
+        position: absolute;
+        right: 10px;
+        top: 9px;
+    }
+    .floating-input--selected {
+        cursor: pointer;
+        box-sizing: border-box;
+        height: 40px;
+        width: 100%;
+        border: 1px solid rgba(109, 135, 144, 0.3);
+        border-radius: 3px;
+        background-color: #ffffff;
+        padding-left: 12px;
+        color: #1c323f;
+        font-family: 'DM Sans';
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 18px;
+        outline: none;
+        border: 1px solid #219fcf;
+        label {
+            top: -9px;
+            left: 12px;
+            font-size: 13px;
+            color: #219fcf;
+        }
+    }
+    .float-label--selected {
+        position: absolute;
+        pointer-events: none;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+        z-index: 0;
+        top: -9px;
+        left: 12px;
+        font-size: 13px;
+        color: #219fcf;
+        &:after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            height: 1px;
+            top: 9px;
+            left: -0.2em;
+            right: -0.2em;
+            z-index: -1;
+            background: #fff;
+        }
+    }
+}
+
+.floating-input--hover {
+    &:hover {
+        border: 1px solid rgba(109, 135, 144, 0.3);
+    }
+}
+.floating-input--normal {
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    border: 1px solid rgba(109, 135, 144, 0.3);
+    border-radius: 3px;
+    background-color: #ffffff;
+    padding-left: 12px;
+    color: #1c323f;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 18px;
+    &:hover {
+        border: 1px solid #6d8790;
+        label {
+            color: #203b4c;
+        }
+    }
+    &:focus {
+        outline: none;
+        border: 1px solid #219fcf;
+        label {
+            top: -9px;
+            left: 12px;
+            font-size: 13px;
+            color: #219fcf;
+        }
+    }
+}
+
+.float-label {
+    color: #6d8790;
+    position: absolute;
+    pointer-events: none;
+    left: 12px;
+    top: 11px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    z-index: 0;
+
+    &:after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        height: 1px;
+        top: 9px;
+        left: -0.2em;
+        right: -0.2em;
+        z-index: -1;
+        background: #fff;
+    }
+}
+
+.float-label--normal {
+    color: #6d8790;
+    position: absolute;
+    pointer-events: none;
+    left: 12px;
+    top: 11px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    z-index: 0;
+
+    &:after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        height: 1px;
+        top: 9px;
+        left: -0.2em;
+        right: -0.2em;
+        z-index: -1;
+        background: #fff;
+    }
+}
+
+
+.floating-input:hover ~ label {
+    color: #203b4c;
+}
+.floating-input:focus ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+    color: #219fcf;
+    &:hover {
+        color: #219fcf;
+    }
+}
+
+.floating-input--normal:hover ~ label {
+    color: #203b4c;
+}
+.floating-input--normal:focus ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+    color: #219fcf;
+}
+
+
+.floating-input--normal:not(:placeholder-shown) ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+}
+
+.floating-input:not(:placeholder-shown) ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+}
+
+.floating-input--error:not(:placeholder-shown) ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+}
+
+html {
+    font-family: 'Helvetica Neue', Helvetica, 'Noto Sans', sans-serif, Arial,
+        sans-serif;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #949494;
+    background-color: #ffffff;
+}
+/***   Body style end  ***/
+
+/***   daniel - Fork me friend - style   ***/
+.floating-credit {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 13px;
+    font-family: arial, sans-serif;
+}
+.floating-credit a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+.floating-credit a:hover {
+    border-bottom: 1px dotted #f8f8f8;
+}
+.floating-heading {
+    position: fixed;
+    color: #aaa;
+    font-size: 20px;
+    font-family: arial, sans-serif;
+}
+
+.non-cursor {
+    cursor: default !important;
+}
+
+.disabled {
+    color: #6d8790;
+    &:hover {
+        input {
+            border: 1px solid rgba(109, 135, 144, 0.3);
+        }
+        label {
+            color: #6d8790;
+        }
+    }
+}
+
+.autoCompleteModal {
+    
+    // width: calc(49% - 24px);
+    position: relative;
+    margin-top: -13px;
+    z-index: 200;
+    width: calc(100%);
+    width: 100%;
+    // height: 325px;
+    max-height: 325px;
+    z-index: 200;
+    border-radius: 10px;
+    border: 1px solid rgba(109,135,144,0.15);
+    -webkit-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
+    box-shadow: 0 2px 2px 0 rgba(109,135,144,0.06), 0 15px 25px 0 rgba(109,135,144,0.45);
+    background-color: #FFFFFF;
+    padding-bottom: 5px;
+
+    height: 100%;
+
+    .search-bar{
+                
+        // position: absolute;
+        width: calc( 100% - 17px);
+        background: white;
+        height: 32px;
+        display: flex;
+        border: 1px solid rgba(109,135,144,0.2);
+        border-radius: 5px;
+        margin-left: 6.5px;
+        margin-top: 6.5px;
+        
+    
+        .search-bar__left{
+            display: inline-flex;
+            height: 29px;
+            width: calc( 100% - 10px);
+            background-color: white;
+
+    
+            & > img{
+                height: 21px;
+                width: 21px;
+                display: inline-block;
+                padding-top: 8px;
+            }
+    
+            & > input{
+                box-sizing: border-box;
+                color: black;
+                font-family: "DM Sans";
+                font-size: 14px;
+                letter-spacing: 0;
+                line-height: 18px;
+                padding-left: 11px;
+                background: transparent;
+                border: none;
+                width: calc( 100% - 10px);
+                padding-top : 6px;
+                
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .autoCompleteModal__body {
+        overflow-y: auto;
+        overflow-x: hidden;
+        // height: 280px;
+        max-height: 280px;
+        height: calc(100% - 38px);
+        .content {
+            .real {
+                cursor: pointer;
+                padding-left: 15px;
+                background-color: white;
+                padding-top: 8px;
+                padding-bottom:15px;
+                .content__header {
+                    color: #1C323F !important;
+                    font-family: "DM Sans";
+                    font-size: 14px;
+                    font-weight: bold;
+                    letter-spacing: 0;
+                    display: flex;
+            
+                }
+                .content__body {
+                    p{
+                        margin-top: 0px;
+                        opacity: 0.7;
+                        color: #1C323F;
+                        font-family: "DM Sans";
+                        font-size: 12px;
+                        letter-spacing: 0;
+                        height: 8px;
+                    }
+                    h1 {
+
+                        width: 147px;
+                        opacity: 0.7;
+                        color: #1C323F;
+                        font-family: "DM Sans";
+                        font-size: 12px;
+                        font-weight: bold;
+                        letter-spacing: 0;
+                        height: 10px;
+                    }
+                    h1:hover {
+                        text-decoration: underline;
+                    }
+                }
+                .unlinkbutton {
+                    text-decoration: underline;
+                    // height: 16px;
+                    width: 36px;
+                    margin-top: -20px;
+                    color: #0099D3;
+                    font-family: "DM Sans";
+                    font-size: 12px;
+                    font-weight: bold;
+                    letter-spacing: 0;
+                    line-height: 0px;
+                    text-align: right;
+                    float: right;
+                    margin-right: 9px;
+                    height: 12px;
+                    padding-top: 19px;
+                    padding-bottom: 10px;
+                    &:hover {
+                        color: rgb(31, 115, 149);
+                    }
+                }
+            }
+            .real:hover {
+                background-color:rgba(33,159,207,0.2);
+                .content__edit{
+                    visibility: visible;
+                }
+            }
+            
+            
+            
+        }
+        
+    }
+}
+::placeholder {
+    opacity: 0.4;
+    color: #1C323F; /* Firefox */
+    // padding-left: 11px;
+    padding-top: 17px;
+    height: 20px;
+    width: 48px;
+    opacity: 0.4;
+    color: #1C323F;
+    font-family: "DM Sans";
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    opacity: 0.4;
+    // padding-left: 11px;
+    padding-top: 17px;
+    color: #1C323F;
+    height: 20px;
+    width: 48px;
+    opacity: 0.4;
+    color: #1C323F;
+    font-family: "DM Sans";
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    opacity: 0.4;
+    color: #1C323F;
+    // padding-left: 11px;
+    padding-top: 17px;
+    height: 20px;
+    width: 48px;
+    opacity: 0.4;
+    color: #1C323F;
+    font-family: "DM Sans";
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+
+  ::placeholder {
+    opacity: 0.4;
+    color: #1C323F; /* Firefox */
+    // padding-left: 11px;
+    padding-top: 17px;
+    height: 20px;
+    width: 48px;
+    opacity: 0.4;
+    color: #1C323F;
+    font-family: "DM Sans";
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    opacity: 0.4;
+    // padding-left: 11px;
+    padding-top: 17px;
+    color: #1C323F;
+    height: 20px;
+    width: 48px;
+    opacity: 0.4;
+    color: #1C323F;
+    font-family: "DM Sans";
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    opacity: 0.4;
+    color: #1C323F;
+    // padding-left: 11px;
+    padding-top: 17px;
+    height: 20px;
+    width: 48px;
+    opacity: 0.4;
+    color: #1C323F;
+    font-family: "DM Sans";
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }

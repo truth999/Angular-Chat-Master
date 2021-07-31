@@ -1,0 +1,87 @@
+<div *ngIf="clicked == false" class="filterbutton" (click)="showFilterList()">
+    <!--<div class="filterbutton__content">-->
+        <img  src="assets/svg/filterbutton-icon.svg" />
+        <span>Filter</span>
+    <!--</div>-->
+</div>
+<div *ngIf="clicked == true" class="filterbutton" [ngClass]="{'clicked': clicked}" (click)="closeFilterList()">
+    <img  src="assets/svg/filterbutton-close-icon.svg" />
+    <span>Close</span>
+</div>
+<div class="filterMenu" *ngIf="clicked">
+    <div class="filterMenu__left">
+        <div class="header">
+            By Time Range
+        </div>
+        <div class="body">
+            <div class="item">
+                <input type="radio" id="today" name="byTimeRange" value="today" [(ngModel)]="filterValues.time.value"> <label for="today">Today</label>
+            </div>
+            <div class="item">
+                <input type="radio" id="previousday" name="byTimeRange" value="previousday" [(ngModel)]="filterValues.time.value"> <label for="previousday">Previous Day</label><br>
+            </div>
+            <div class="item">
+                <input type="radio" id="thisweek" name="byTimeRange" value="thisweek" [(ngModel)]="filterValues.time.value"> <label for="thisweek">This Week</label><br>
+            </div>
+            <div class="item">
+                <input type="radio" id="previouswork" name="byTimeRange" value="previouswork" [(ngModel)]="filterValues.time.value"> <label for="previouswork">Previous Week</label><br>
+            </div>
+            <div class="item">
+                <input type="radio" id="thismonth" name="byTimeRange" value="thismonth" [(ngModel)]="filterValues.time.value"> <label for="thismonth">This Month</label><br>
+            </div>
+            <div class="item">
+                <input type="radio" id="previousweek" name="byTimeRange" value="previousweek" [(ngModel)]="filterValues.time.value"> <label for="previousweek">Previous Week</label><br>
+            </div>
+            <div class="item">
+                <input type="radio" id="last7days" name="byTimeRange" value="last7days" [(ngModel)]="filterValues.time.value"> <label for="last7days">Last 7 Days</label><br>
+            </div>
+            <div class="item">
+                <input type="radio" id="last30days" name="byTimeRange" value="last30days" [(ngModel)]="filterValues.time.value"> <label for="last30days">Last 30 Days</label><br>
+            </div>
+        </div>
+    </div>
+    <div class="filterMenu__middle">
+        <div class="header">
+            By Channel
+        </div>
+        <div class="body">
+            <div class="item">
+                <input type="checkbox" id="whatsapp" value="whatsapp" [(ngModel)]="filterValues.channel.whatsapp"> <label for="whatsapp">Whatsapp</label>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="facebookmessenger" value="facebookmessenger" [(ngModel)]="filterValues.channel.facebookMessenger"> <label for="facebookmessenger">Facebook Messenger</label><br>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="sms" value="sms" [(ngModel)]="filterValues.channel.sms"> <label for="sms" >SMS</label><br>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="webchat" value="webchat" [(ngModel)]="filterValues.channel.webchat"> <label for="webchat">Webchat</label><br>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="skype" value="skype" [(ngModel)]="filterValues.channel.skype"> <label for="skype">Skype</label><br>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="msteams" value="msteams" [(ngModel)]="filterValues.channel.msteams"> <label for="msteams">MS Teams</label><br>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="hangout" value="hangout" [(ngModel)]="filterValues.channel.hangout"> <label for="hangout">Hangout</label><br>
+            </div>
+        </div>
+    </div>
+    <div class="filterMenu__right">
+        <div class="header">
+            By Type
+        </div>
+        <div class="body">
+            <div class="item">
+                <input type="checkbox" id="chat" value="chat" [(ngModel)]="filterValues.type.chat"> <label for="chat">Chat</label>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="voicecall" value="voicecall" [(ngModel)]="filterValues.type.voicecall"> <label for="voicecall">Voice Call</label><br>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="email" value="email" [(ngModel)]="filterValues.type.email"> <label for="email">Email</label><br>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,182 @@
+<div class="transcript">
+    <div class="transcript__sender">
+        <div class="sender__info">
+            <span>From:</span>
+            <span class="from-email">{{ email }};</span>
+        </div>
+        <div class="sender__action">
+            <div
+                class="reply_button"
+                (click)="reply('reply')"
+            >
+                <div class="button__img">
+                    <img src="assets/svg/reply-white-icon.svg" />
+                </div>
+                <div class="button__text">
+                    Reply
+                </div>
+            </div>
+            <div class="replyAll_button" (click)="reply('replyAll')">
+                <img src="assets/svg/replyAll-icon.svg" />
+
+            </div>
+            <div class="forward_button" (click)="reply('forward')">
+                <img src="assets/svg/forward-icon.svg" />
+            </div>
+        </div>
+    </div>
+    <div class="expand__line">
+    </div>
+    <div
+        class="TOCC"
+        *ngIf="currentEmail.emailContent.headers.to.length >= 0"
+    >
+        <div class="tocc__header">
+            <div class="to">
+                To:&nbsp;&nbsp; <p *ngFor="let email of currentEmail.emailContent.headers.to;">
+                    {{email.name}}<{{email.id}}>;&nbsp;</p>
+            </div>
+        </div>
+    </div>
+    <div
+        class="TOCC"
+        *ngIf="currentEmail.emailContent.headers.cc.length >= 0"
+    >
+        <div class="tocc__header">
+            <div class="cc">
+                Cc:&nbsp;&nbsp; <p *ngFor="let email of currentEmail.emailContent.headers.cc;">{{email.email}};&nbsp;
+                </p>
+            </div>
+        </div>
+    </div>
+    <div
+        class="TOCC"
+        *ngIf="currentEmail.emailContent.headers.cc.length >= 0"
+    >
+        <div class="tocc__header">
+            <div class="cc">
+                Bcc:&nbsp;&nbsp; <p *ngFor="let email of currentEmail.emailContent.headers.bcc;">{{email.email}};&nbsp;
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="Subject-line">
+        <div class="header">
+            <div class="main">
+                Subject:&nbsp;&nbsp; <p> {{ message_subject }}</p>
+            </div>
+        </div>
+    </div>
+    <div
+        class="translate_action"
+        *ngIf="is_translate_mode"
+    >
+        <div class="translation_mark">
+            <img  src="assets/svg/translation-black-mark.svg" />
+        </div>
+        <div class="original_language">
+            English
+        </div>
+        <div class="to_icon">
+            <img  src="assets/svg/right-direction-icon.svg" />
+        </div>
+        <div class="target_language">
+            <div
+                class="content"
+                (click)="selectLanguage()"
+                (mouseenter)="hoverInSelectLanguageButton()"
+                (mouseleave)="hoverOutSelectLanguageButton()"
+            >
+                {{ translate_language }}
+                <img  *ngIf="!show_select_language" style="margin-left: 4px; margin-bottom: 1px;" src="assets/svg/arrow-down-icon.svg" />
+                <img  *ngIf="show_select_language" style="margin-left: 4px; margin-bottom: 1px;" src="assets/svg/arrow-up-icon.svg" />
+            </div>
+
+            <div
+                class="select_language_form"
+                *ngIf="show_select_language"
+            >
+                <app-select-language-form
+                    [selectedLanguage]="translate_language"
+                    (changeLanguage)="changeTranslateLanguage($event)"
+                    (mouseenter)="hoverInSelectLanguageForm()"
+                    (mouseleave)="hoverOutSelectLanguageForm()"
+                ></app-select-language-form>
+            </div>
+        </div>
+
+        <div
+            class="view_original_message_action"
+            (click)="viewOriginalMessage()"
+        >
+            View Original Message
+        </div>
+        <div
+            class="x"
+            (click)="viewOriginalMessage()"
+        >
+            <img  class="normal" src="assets/svg/close-icon.svg" />
+            <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+        </div>
+
+    </div>
+    <div class="transcript__title">
+        <!--<div
+            class="content"
+            *ngIf="!is_translate_mode"
+        >
+            {{ message_title }}
+        </div>
+        <div
+            class="content"
+            *ngIf="is_translate_mode"
+        >
+            {{ translated_message_title }}
+        </div>-->
+        <div class="time">
+            {{ date }}
+            
+        </div>
+        <div
+                class="transcript__translate"
+                *ngIf="!is_translate_mode"
+                (click)="translateMessage()"
+            >
+                <img src="assets/svg/translation-mark.svg" />
+                <p>Translate</p>
+            </div>
+    </div>
+
+    <div
+        class="temp_for_design"
+        *ngIf="is_translate_mode"
+    ></div>
+    <div
+        class="transcript__message"
+        *ngIf="!is_translate_mode"
+        [innerHTML]="message_content"
+    >
+    </div>
+    <div
+        class="transcript__message"
+        *ngIf="is_translate_mode"
+        [innerHTML]="translated_message_content"
+    >
+    </div>
+    <div class="attachment">
+        <a
+            *ngFor="let attachment of currentEmail.emailContent.attachments"
+            [href]="attachment.href + '/' + attachment.name"
+            target="_blank"
+        > {{attachment.name}}<br></a>
+    </div>
+    <div>
+        <app-emailfooter-action
+            *ngIf="!is_defer"
+            (callbackFunction)="handleFooter($event)"
+        ></app-emailfooter-action>
+        <app-defer-email-footer
+            *ngIf="is_defer"
+            (callbackFunction)="handleFooter($event)"
+        > </app-defer-email-footer>
+        <app-emailreply-template *ngIf="emailTranscript.isReply"> </app-emailreply-template>

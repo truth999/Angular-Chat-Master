@@ -1,0 +1,41 @@
+
+<div class="wrapup-before">
+    <div class = "x" (click)="goBack()">
+        <img  class="normal" src="assets/svg/close-icon.svg" />
+        <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+    </div>
+    <div class="header">
+        Make sure you have met below criteria before wrapping up the {{ type }}.
+    </div>
+    <div class="setting">
+        <div class="item">
+            <img  style="margin-right: 10px; margin-bottom: -1px" class="hover" src="assets/svg/wrapup-item-icon.svg" /> 
+            Have you responded to the {{ type }}?    
+        </div>
+        <div class="item">
+            <img  style="margin-right: 10px; margin-bottom: -1px" class="hover" src="assets/svg/wrapup-item-icon.svg" /> 
+            Is there anything else you can help them with?  
+        </div>
+        <div class="item">
+            <img  style="margin-right: 10px; margin-bottom: -1px" class="hover" src="assets/svg/wrapup-item-icon.svg" />  
+            Did you wish them a nice day?  
+        </div>
+    </div>
+    <div class="action">
+
+        <div class="back-button" (click)="goBack()">
+            <div class="content">
+                Go Back
+            </div>
+        </div>
+        <div class="wrapup-button" (click)="wrapUp()">
+            <div class="content">
+                <img  style="margin-right: 5px;" src="assets/svg/wrapup-dialog-confirm-icon.svg" />  
+
+                <span>
+                    Wrap Up
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="autoCompleteModal">
+    <div class="search-bar">
+        <div class="search-bar__left">    
+            <input [(ngModel)]="searchText" type="text" id="_search" placeholder="Search"/>
+            <img src="../../assets/icons/search gray.svg">
+        </div>
+    </div>
+    <div class="autoCompleteModal__body" *ngIf="type=='normal'">
+        <div class="content" *ngFor = "let list of lists; let index = index" (click)="autoComplete(list, index)">
+            <div class="real" *ngIf="list.name.toLowerCase().includes(searchText.toLowerCase())">
+                <div class="content__header">
+                    {{ list.name }}
+                </div>
+                <div class="unlinkbutton" (click)="unlink()" *ngIf = "index == currentIndex">
+                        Unlink
+                </div>
+                <div class="content__body">
+                    <p>{{ list.title }}</p>
+                    <h1>{{list.type}}, Tiket No: {{list.ticketNo}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="autoCompleteModal__body" *ngIf="type=='Info'">
+        <div class="content" *ngFor = "let list of data; let index = index" (click)="autoComplete(list, index)">
+            <div class="real" *ngIf="list.name.toLowerCase().includes(searchText.toLowerCase()) && list.type == 'string'">
+                <div class="content__header">
+                    
+                    {{ list.name }}
+                </div>
+                <div class="unlinkbutton" (click)="unlink()" *ngIf = "index == currentIndex">
+                        Unlink
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="autoCompleteModal__body" *ngIf="type=='InfoLinkedTo'">
+        <div class="content" *ngFor = "let list of activeRequests; let index = index" (click)="autoComplete(list, index)">
+            <div class="real" *ngIf="list.name.toLowerCase().includes(searchText.toLowerCase())">
+                <div class="content__header">
+                    
+                    {{ list.name }}
+                </div>
+                <div class="unlinkbutton" (click)="unlink()" *ngIf = "index == currentIndex">
+                        Unlink
+                </div>
+                <div class="content__body">
+                    <p>{{ list.type }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="autoCompleteModal__body" *ngIf="type=='WrapupCode'">
+        <div class="content" *ngFor = "let list of data; let index = index" (click)="autoComplete(list, index)">
+            <div class="real" *ngIf="list.name.toLowerCase().includes(searchText.toLowerCase())">
+                <div class="content__header">
+                    
+                    {{ list.name }}
+                </div>
+                <div class="unlinkbutton" (click)="unlink()" *ngIf = "index == currentIndex">
+                        Unlink
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="autoCompleteModal__body" *ngIf="type=='WrapupCodeName'">
+        <div class="content" *ngFor = "let list of data; let index = index" (click)="autoComplete(list, index)">
+            <div class="real" *ngIf="list.name.toLowerCase().includes(searchText.toLowerCase())">
+                <div class="content__header">
+                    
+                    {{ list.name }}
+                </div>
+                <div class="unlinkbutton" (click)="unlink()" *ngIf = "index == currentIndex">
+                        Unlink
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="autoCompleteModal__body" *ngIf="type=='WrapupCodeRelated'">
+        <div class="content" *ngFor = "let list of data; let index = index" (click)="autoComplete(list, index)">
+            <div class="real" *ngIf="list.name.toLowerCase().includes(searchText.toLowerCase())">
+                <div class="content__header">
+                    {{ list.name }}
+                </div>
+                <div class="unlinkbutton" (click)="unlink()" *ngIf = "index == currentIndex">
+                        Unlink
+                </div>
+                <div class="content__body">
+                    <p>{{ list.label }}</p>
+                    <h1>{{list.id}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="autoCompleteModal__body" *ngIf="type=='FromEmailAutocomplete'">
+        <div class="content" *ngFor = "let list of data; let index = index" (click)="autoComplete(list, index)">
+            <div class="real" *ngIf="list.name.toLowerCase().includes(searchText.toLowerCase())">
+                <div class="content__header">
+                    {{ list.name }}
+                </div>
+                <div class="content__body">
+                    <h1>{{list.email}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="autoCompleteModal__body" *ngIf="type=='QueueList'">
+        <div class="content" *ngFor = "let list of data; let index = index" (click)="autoComplete(list, index)">
+            <div class="real" *ngIf="list.name.toLowerCase().includes(searchText.toLowerCase())">
+                <div class="content__header">
+                    {{ list.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

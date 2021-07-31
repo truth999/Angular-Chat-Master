@@ -1,0 +1,43 @@
+<div class="newIntentPage">
+    <div class="topbar">
+        <div class="backButton" (click)="close()">
+            <img style="margin-right: 8.07px" src="assets/svg/real-back-icon.svg" />
+            Back
+        </div>
+        <div class = "x" (click)="close()">
+            <img  class="normal" src="assets/svg/close-icon.svg" />
+            <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+        </div>
+    </div>
+    <div class="content">
+        <div class="header">
+            Create New Intent
+        </div>
+        <div class="description">
+            Use the search feature in the previous page to make sure the intent you are creating is not already available in the system.
+        </div>
+        <div class="dataInput">
+            <div class="AIName">
+                <app-float-input [(inputModel)]="aiName" [inputLabel]="'AI Name'"  [type]="'normal'"></app-float-input>
+            </div>
+            <div class="FriendlyName">
+                <app-float-input [(inputModel)]="friendlyName" [inputLabel]="'Friendly Name'" [type]="'normal'"></app-float-input>
+            </div>
+            <div class="Comment">
+                <app-float-input [(inputModel)]="comment" [inputLabel]="'Comment'"  [type]="'textarea'"></app-float-input>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="btns">
+            <div class="cancel" (click)="close()">
+                <img src="assets/svg/cancel-icon.svg" />
+                <span>{{ 'Cancel' | translate }}</span>
+            </div>
+            <div  class="addButton" (click)="addIntent()">
+                <img src="assets/svg/confirm-icon.svg" />
+                <span>Add New Intent </span>
+            </div>
+        </div>
+    </div>
+</div>

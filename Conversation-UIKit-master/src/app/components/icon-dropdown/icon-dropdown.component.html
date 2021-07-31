@@ -1,0 +1,28 @@
+<div class="icon-dropdown">
+    <a href="javascript:;" class="tool-bar-button tool-bar-button__user" [ngClass]="{'clicked': isMenuShow}" (click)="showMenu()" (mouseenter)="hoverInButton()" (mouseleave)="hoverOutButton()">
+        <img class="normal" src="../../assets/img/nav-user-icon.svg">
+        <img class="hover" src="../../assets/img/nav-user-hover-icon.svg">
+    </a>
+    <ul class="" (mouseenter)="hoverInMenu()" (mouseleave)="hoverOutMenu()" *ngIf="isMenuShow">
+        <li class="multi-level-dropdown__status multi-level-dropdown__gray" (click)="showTimeline()">
+            <span>Timeline</span>
+        </li>
+        <li class="multi-level-dropdown__status multi-level-dropdown__danger" 
+         >
+            <span>Log Out</span>
+            <span style="float: right;">
+                <img src="../../assets/img/right-direction-icon.svg">
+            </span>
+            <ul >
+                <li class="multi-level-dropdown__status multi-level-dropdown__gray"
+                >
+                    <span>End of the day</span>
+                </li>        
+                <li class="multi-level-dropdown__status multi-level-dropdown__gray"
+                 >
+                    <span>Meetig</span>
+                </li>  
+            </ul>
+        </li>
+    </ul>
+</div>

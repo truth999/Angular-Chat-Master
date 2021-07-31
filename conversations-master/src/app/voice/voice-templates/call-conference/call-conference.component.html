@@ -1,0 +1,219 @@
+<div class="toagency-session__body">
+    <div class="conference_call">
+
+        <div class="number">
+            <h4>
+                {{this.name}}
+            </h4>
+            <!--<p > {{ this.dialNumber }}</p>-->
+            <input
+                type="text"
+                (keypress)="keyPress($event)"
+                class="form-control"
+                [(ngModel)]="dialNumber"
+            >
+        </div>
+        <div>
+            <div
+                class="contacts"
+                (click)="onContacts()"
+                #contactsButton
+            >
+                <div class="contacts__image">
+                    <img src="assets/svg/contact-icon.svg" />
+                </div>
+
+                Contacts
+                <div class="contacts__collapse">
+                    <img src="assets/svg/arrow-down-icon.svg" />
+                </div>
+                <div
+                    #contactsForm
+                    class='contactSearchForm'
+                    *ngIf="search_modal_show"
+                >
+                    <app-dial-search-modal
+                        (callbackFunction)="phoneNumberAutoComplete($event)"
+                        (mouseleave)="contactsFormleave()"
+                        (mouseenter)="contactsFromenter()"
+                        *ngIf="search_modal_show"
+                    ></app-dial-search-modal>
+                </div>
+            </div>
+
+        </div>
+        <div
+            class="content"
+            *ngIf="currentVoice.btns.makecall == true"
+        >
+            <div
+                class="number-button"
+                (click)="numberButtonClick(1)"
+            >
+                <div class="button__number">
+                    1
+                </div>
+                <div class="button__character">
+
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick(2)"
+            >
+                <div class="button__number">
+                    2
+                </div>
+                <div class="button__character">
+                    ABC
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick(3)"
+            >
+                <div class="button__number">
+                    3
+                </div>
+                <div class="button__character">
+                    DEF
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick(4)"
+            >
+                <div class="button__number">
+                    4
+                </div>
+                <div class="button__character">
+                    GHI
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick(5)"
+            >
+                <div class="button__number">
+                    5
+                </div>
+                <div class="button__character">
+                    JKL
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick(6)"
+            >
+                <div class="button__number">
+                    6
+                </div>
+                <div class="button__character">
+                    MNO
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick(7)"
+            >
+                <div class="button__number">
+                    7
+                </div>
+                <div class="button__character">
+                    PQRS
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick(8)"
+            >
+                <div class="button__number">
+                    8
+                </div>
+                <div class="button__character">
+                    TUV
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick(9)"
+            >
+                <div class="button__number">
+                    9
+                </div>
+                <div class="button__character">
+                    WXYZ
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick('*')"
+            >
+                <div class="button__number">
+                    *
+                </div>
+                <div class="button__character">
+
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick(0)"
+            >
+                <div class="button__number">
+                    0
+                </div>
+                <div class="button__character">
+
+                </div>
+            </div>
+            <div
+                class="number-button"
+                (click)="numberButtonClick('#')"
+            >
+                <div class="button__number">
+                    #
+                </div>
+                <div class="button__character">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <app-voice-footer
+        [name]="name"
+        [dialNumber]="dialNumber"
+        [currentPage]="'ConferenceCallPage'"
+    ></app-voice-footer>
+</div>
+
+
+
+<!-- <div class="toagency-session__footer">
+    <div class="btns">
+        <div class="cancel" [ngClass]="{ 'two-cols': (currentVoice.btns.conf == false) }">
+            <img src="assets/svg/cancel-icon.svg" />
+            <span>{{ 'Cancel Conference' | translate }}</span>
+        </div>
+        <div class="dial" (click)="dial()" *ngIf="currentVoice.btns.conf == true">
+            <img src="assets/svg/dial-number-icon.svg" />
+            <span>Dial Number </span>
+        </div>
+        <div *ngIf="wrapup_enable" class="right" [ngClass]="{ 'two-cols': (currentVoice.btns.conf == false) }">
+            <button class="wrap-up-chat_button active" (click)="wrapup()">
+                <img  src="assets/svg/wrapup-button-icon.svg" />
+                <b>Wrap Up Call</b>
+            </button>
+        </div>
+        <div *ngIf="!wrapup_enable two-cols" class="right" [ngClass]="{ 'two-cols': (currentVoice.btns.conf == false) }" (click)="endInteraction()">
+            <button class="wrap-up-chat_button active">
+                <img  src="assets/svg/endinteraction-button-icon.svg" />
+                <b>End Interaction</b>
+            </button>
+        </div>
+    </div>
+</div>
+ -->

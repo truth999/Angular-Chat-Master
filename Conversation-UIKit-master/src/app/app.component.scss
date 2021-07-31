@@ -1,0 +1,22 @@
+.collapse-button {
+    position: fixed;
+    top: 7px;
+    left: 210px;
+    // background-color: black;
+    // color: white;
+    cursor: pointer;
+    font-size: 21px;
+    &.position-left {
+        left: 5px;
+    }
+}
+
+.expand {
+    max-width: none;
+    padding: initial !important;
+    padding-left: 30px !important;
+}
+
+.collapsed {
+    display: none;
+}

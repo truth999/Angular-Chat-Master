@@ -1,0 +1,72 @@
+<div class="transcript-page" [ngClass]="{'forVoice': type == 'voice'}">
+    <div class="action" [ngClass]="{'active': isHeaderActive}">
+        <div class="action__backbutton" (click)='close()'>
+            <img style="margin-right: 8.07px" src="assets/svg/real-back-icon.svg" />
+            <p>
+                Back
+            <p>
+        </div>
+
+    </div>
+    <div class="transcript" (scroll)="onScroll($event)">
+        <!--<div class="expand__line">  
+        </div>-->
+        <div class="transcript__sender">
+            From: {{ from_email }}
+        </div>
+        <div class="expand__line" *ngIf="isTranslateModeFromEmail == true"></div>
+        <app-translate-action-bar *ngIf="isTranslateModeFromEmail == true" [for]="'From'" (callbackFunction)="handleTranslateBar($event)"></app-translate-action-bar>
+        
+        <div class="transcript__title">
+              <div class="content">
+                {{ from_title }}
+              </div>
+              <div class="time">
+                {{ from_date }}
+              </div>
+        </div>
+        <div class="transcript__translate" (click)="Translate('From')" *ngIf="isTranslateModeFromEmail == false">
+            <img src="assets/svg/translation-mark.svg" />
+            <p>Translate</p>
+        </div>
+        <div  class="transcript__message">
+            {{ isTranslateModeFromEmail ? translated_from_message : from_message }}
+        </div>
+        <!--<div class="transcript__screenshot">
+
+            <div class="screenshot">
+                <img src="../../assets/icons/screenshot.svg">
+            </div>
+            <div class="footer">
+               
+
+
+                <p>Screen Sho...
+                </p>
+            </div>
+        </div>-->
+    <div>
+    <div class="transcript-send">
+        <div class="transcript__sender">
+            To: {{ to_email }}
+        </div>
+        <div class="expand__line" *ngIf="isTranslateModeToEmail == true"></div>
+        <app-translate-action-bar *ngIf="isTranslateModeToEmail == true" [for]="'To'" (callbackFunction)="handleTranslateBar($event)"></app-translate-action-bar>
+        <div class="transcript__title">
+              <div class="content">
+                {{ to_title }}
+              </div>
+              <div class="time">
+                {{ to_date }}
+              </div>
+        </div>
+        <div class="transcript__translate" (click)="Translate('To')" *ngIf="isTranslateModeToEmail == false">
+            <img src="assets/svg/translation-mark.svg" />
+            <p>Translate</p>
+        </div>
+        <div  class="transcript__message">
+            {{ isTranslateModeToEmail ? translated_to_message : to_message }}
+        </div>
+        
+    <div>
+</div>

@@ -1,0 +1,17 @@
+<div class="add-note-template">
+    <div class="toolbar">
+        <div class="add-note-button" *ngIf="noteText != '' && type != 'Comment'" (click)="add()">
+            {{ type }}
+        </div>
+        <div class="add-note-button" *ngIf="noteText != '' && type == 'Comment'" (click)="add()">
+            Add
+        </div>
+       <div class="cancel-button" (click)="cancel()">
+            Cancel
+        </div>
+    </div>
+    <div class="add-note-textinput">
+        <textarea *ngIf="type != 'Comment'" [(ngModel)]="noteText" type="text" class="form-control" id="" placeholder="Type your note here..."></textarea>
+        <textarea *ngIf="type == 'Comment'" [(ngModel)]="noteText" type="text" class="form-control" id="" placeholder="Type your comment here..."></textarea>
+    </div>
+</div>

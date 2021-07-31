@@ -1,0 +1,52 @@
+<div
+    class="translate_action"
+>
+    <div class="translation_mark">
+        <img  src="assets/svg/translation-black-mark.svg" />
+    </div>
+    <div class="original_language">
+        English
+    </div>
+    <div class="to_icon">
+        <img  src="assets/svg/right-direction-icon.svg" />
+    </div>
+    <div class="target_language">
+        <div
+            class="content"
+            (click)="selectLanguage()"
+            (mouseenter)="hoverInSelectLanguageButton()"
+            (mouseleave)="hoverOutSelectLanguageButton()"
+        >
+            {{ translate_language }}
+            <img  *ngIf="!show_select_language" style="margin-left: 4px; margin-bottom: 1px;" src="assets/svg/arrow-down-icon.svg" />
+            <img  *ngIf="show_select_language" style="margin-left: 4px; margin-bottom: 1px;" src="assets/svg/arrow-up-icon.svg" />
+        </div>
+
+        <div
+            class="select_language_form"
+            *ngIf="show_select_language"
+        >
+            <app-select-language-form
+                [selectedLanguage]="translate_language"
+                (changeLanguage)="changeTranslateLanguage($event)"
+                (mouseenter)="hoverInSelectLanguageForm()"
+                (mouseleave)="hoverOutSelectLanguageForm()"
+            ></app-select-language-form>
+        </div>
+    </div>
+
+    <div
+        class="view_original_message_action"
+        (click)="viewOriginalMessage()"
+    >
+        View Original Message
+    </div>
+    <div
+        class="x"
+        (click)="viewOriginalMessage()"
+    >
+        <img  class="normal" src="assets/svg/close-icon.svg" />
+        <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+    </div>
+
+</div>

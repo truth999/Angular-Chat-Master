@@ -1,0 +1,19 @@
+<!-- <app-actions-tab class="actions-bar"></app-actions-tab> -->
+<div class="main-body">
+    <span class="trending-intents">{{ 'trending_intents' | translate }}</span>
+    <div class="intent-body">
+        <span
+            class="intent-tag"
+            *ngFor="let intent of totalIntents | slice: (totalIntents.length - 4)"
+        >{{intent.name}}<span class="intent-num">{{intent.count}}</span></span>
+    </div>
+    <div
+        class="scroll-area"
+        [ngStyle]="{'height': length === 0? '600px': openArDetail? '460px': '550px'}"
+    >
+        <app-card-queue
+            *ngFor="let item of Queues"
+            [item]="item"
+        ></app-card-queue>
+    </div>
+</div>

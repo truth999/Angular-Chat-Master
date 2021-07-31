@@ -1,0 +1,56 @@
+<div class="schedule-callback-page">
+    <div class="phoneNumberToCall">
+        <div class="enterManually">
+            <app-float-input
+                [(inputModel)]="nameToCall"
+                [inputLabel]="'Name'"
+                [type]="'normal'"
+            ></app-float-input>
+            <app-float-input
+                [(inputModel)]="numberToCall"
+                [inputLabel]="'Number'"
+                [type]="'normal'"
+            ></app-float-input>
+        </div>
+    </div>
+    <div class="timeToCall">
+        <div class="specificDateTime">
+            <app-float-input
+                [(inputModel)]="dateToCall"
+                [inputLabel]="'Date - Calender'"
+                [type]="'date'"
+            ></app-float-input>
+            <app-float-input
+                [(inputModel)]="timeToCall"
+                [inputLabel]="'Time'"
+                [type]="'time'"
+            ></app-float-input>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="btns">
+        <div
+            class="cancel"
+            (click)="cancelSchedule()"
+        >
+            <img src="assets/svg/cancel-icon.svg" />
+            <span>{{ 'Cancel' | translate }}</span>
+        </div>
+        <button
+            class="discard_button"
+            (click)="discardSchedule()"
+        >
+            <img src="assets/svg/discard-icon.svg" />
+            <span>Discard</span>
+        </button>
+        <div
+            class="saveButton"
+            (click)="saveSchedule()"
+        >
+            <img src="assets/svg/confirm-icon.svg" />
+            <span>Save Schedule </span>
+        </div>
+    </div>
+</div>

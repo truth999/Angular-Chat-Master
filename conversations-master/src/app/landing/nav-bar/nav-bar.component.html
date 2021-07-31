@@ -1,0 +1,52 @@
+<div class="tool-bar">
+    <div class="tool-bar__left">
+        <span class="tool-bar-button">
+            <img src="../../assets/icons/logo.svg">
+        </span>
+        <a href="javascript:;" class="tool-bar-button tool-bar-button__home" (click)="goToHome()">
+           <img class="normal" src="../../assets/svg/nav-home-icon.svg">
+           <img class="hover" src="../../assets/svg/nav-home-hover-icon.svg">
+        </a>
+        <a href="javascript:;" class="tool-bar-button tool-bar-button__search" (click)="searchBarShow()">
+            <img class="normal" src="../../assets/svg/nav-search-icon.svg">
+            <img class="hover" src="../../assets/svg/nav-search-hover-icon.svg">
+        </a>
+        <a href="javascript:;" class="tool-bar-button tool-bar-button__warning" (click)="viewErrorHistories()">
+            <img class="normal" src="../../assets/svg/nav-warning-icon.svg">
+            <img class="hover" src="../../assets/svg/nav-warning-hover-icon.svg">
+        </a>
+        <a href="javascript:;" class="tool-bar-button tool-bar-button__user" [ngClass]="{'clicked': isMenuShow}" (click)="showMenu()" (mouseenter)="hoverInButton()" (mouseleave)="hoverOutButton()">
+            <img class="normal" src="../../assets/svg/nav-user-icon.svg">
+            <img class="hover" src="../../assets/svg/nav-user-hover-icon.svg">
+        </a>
+        <ul class="" (mouseenter)="hoverInMenu()" (mouseleave)="hoverOutMenu()" *ngIf="isMenuShow">
+            <li class="multi-level-dropdown__status multi-level-dropdown__gray" (click)="showTimeline()">
+                <span>Timeline</span>
+            </li>
+            <li class="multi-level-dropdown__status multi-level-dropdown__danger" 
+             >
+                <span>Log Out</span>
+                <span style="float: right;">
+                    <img src="../../assets/svg/right-direction-icon.svg">
+                </span>
+                <ul >
+                    <li class="multi-level-dropdown__status multi-level-dropdown__gray" (click)="logout()"
+                    >
+                        <span>End of the day</span>
+                    </li>        
+                    <li class="multi-level-dropdown__status multi-level-dropdown__gray" (click)="logout()"
+                     >
+                        <span>Meetig</span>
+                    </li>  
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="tool-bar__right">
+        <channel [type]="'chat'" class="channel-list" #mldbc_chat></channel>
+        <channel [type]="'voice'" class="channel-list" #mldbc_voice></channel>
+        <channel [type]="'email'" class="channel-list" #mldbc_email></channel>
+    </div>
+    <app-search-bar [isVisible]="isSearchVisible" (searchEvent)="searchEventFunc($event)">
+    </app-search-bar>
+</div>

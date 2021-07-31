@@ -1,0 +1,32 @@
+<div class="manual-link">
+
+    <div class="manual-link__body">
+        <div class = "x" (click)="close()">
+            <img  class="normal" src="assets/svg/close-icon.svg" />
+            <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+
+        </div>
+        <form class="form">      
+            <h3>Manual Link</h3>
+            <div class="two-input">
+                <app-float-input #linkedto *ngIf="!isAutoCompleteForm" [(inputModel)]="linked_to" [inputLabel]="'Linked to'" (click)="showAutoCompleteForm()" [place_holder]="'Established'" [type]="'dropdown'" (mouseleave)="linkedtoInputleave()" (mouseenter)="linkedtoInputenter()"></app-float-input>
+                <app-float-input #linkedto *ngIf="isAutoCompleteForm" [(inputModel)]="linked_to" [inputLabel]="'Linked to'" (click)="showAutoCompleteForm()" [place_holder]="'Established'" [type]="'dropup'" (mouseleave)="linkedtoInputleave()" (mouseenter)="linkedtoInputenter()"></app-float-input>
+                <div class="autocomplete" *ngIf="isAutoCompleteForm">
+                    <app-input-autocomplete #menu (callbackFunction)="autoCompleteLinkedTo($event)" [type]="'InfoLinkedTo'" [currentIndex]="linked_to_currentId" *ngIf="isAutoCompleteForm" (mouseleave)="autocompleteFormleave()" (mouseenter)="autocompleteFormenter()"> </app-input-autocomplete>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="manual-link__footer">
+        <div class="btns">
+            <div class="cancel" (click)="close()">
+                <img src="assets/svg/cancel-icon.svg" />
+                <span>{{ 'cancel' | translate }}</span>
+            </div>
+            <div class="save" (click)="manualLink()">
+                <img src="assets/svg/confirm-icon.svg" />
+                <span>Manual Link</span>
+            </div>
+        </div>
+    </div>
+</div>

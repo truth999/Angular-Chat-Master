@@ -1,0 +1,63 @@
+<div class="conference_progress">
+    <div class="header">
+        Transfer In Progress
+    </div>
+    <div class="progresses">
+        <div
+            class="progress"
+            *ngFor="let call of calls; index as index;"
+        >
+            <div
+                class="content"
+                *ngIf="call.type == 'transfer'"
+            >
+                <div class="progress__details">
+                    <div
+                        class="status--holding"
+                        *ngIf="call.status == 'holding'"
+                    >
+                        On Hold {{ call.holdTime | formatTime}}
+                    </div>
+                    <div
+                        class="status--talking"
+                        *ngIf="call.status == 'talking'"
+                    >
+                        Taking {{ call.talkingTime | formatTime }}
+                    </div>
+                    <div class="name">
+                        {{ call.destname }}
+                    </div>
+                    <div class="number">
+                        {{ call.phoneNumber }}
+                    </div>
+                </div>
+                <!--<div class="progress__action">
+                    <div class="action--holding" *ngIf="call.status == 'holding'">
+                        <div class="retrieve_button" (click)="retrieve(index)">
+                            <img src="assets/svg/small-button-retrieve-icon.svg" />
+                        </div>
+                    </div>
+                    <div class="action--talking" *ngIf="call.status == 'talking'">
+                        <div class="wrapup_button" (click)="wrapup(index)">
+                            <img src="assets/svg/small-button-wrapup-icon.svg" />
+                        </div>
+                        <div class="pause_button" (click)="pause(index)">
+                            <img  class="hover" src="assets/svg/small-button-pause-icon.svg" />
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <app-voice-footer
+        [currentPage]="'CallTransferProgressPage'"
+        (callbackFunction)="completeTransfer($event)"
+    ></app-voice-footer>
+</div>
+
+<!-- <app-transfer-progress-footer (callbackFunction)="completeTransfer($event)"></app-transfer-progress-footer> -->

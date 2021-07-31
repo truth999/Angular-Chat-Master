@@ -1,0 +1,103 @@
+.discard-template {
+    position: fixed;
+    z-index: 200000;
+    bottom: 0;
+    box-sizing: border-box;
+    height: 284px;
+    width: calc(100% - 9px);
+    border: 1px solid rgba(109,135,144,0.15);
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 -2px 2px 0 rgba(109,135,144,0.06), 0 -15px 25px 0 rgba(109,135,144,0.15);
+    .x {
+        position: absolute;
+        right: 16px;
+        top: 14px;
+        cursor: pointer;
+        .normal { display: block; }
+        .hover { display: none; }
+        &:hover {
+            .normal { display: none; }
+            .hover { display: block; }
+        }
+    }
+    .template-image {
+        margin-top:42.5px;
+        height: 85px;
+        width: 85px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .template-letter {
+        height: 60px;
+        width: 460px;
+        color: #1C323F;
+        font-family: "DM Sans";
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: -0.3px;
+        line-height: 30px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 12px;
+    }
+    .action {
+        position: fixed;
+        bottom: 0px;
+        display: flex;
+        width: calc(100% - 9px);
+        .goback_button {
+            width: 50%;
+            box-sizing: border-box;
+            height: 40px;
+            border: 1px solid #E3E5E5;
+            border-radius: 0 0 0 10px;
+            background-color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            vertical-align: middle;
+            align-items: center;
+
+            cursor: pointer;
+            &:hover {
+                background-color: #BDCCD2;
+            }
+            .button__content {
+                height: 18px;
+                opacity: 0.7;
+                color: #1C323F;
+                font-family: "DM Sans";
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0;
+                line-height: 18px;
+            }
+        }
+        .discard_button {
+            width: 50%;
+            height: 40px;
+            box-sizing: border-box;
+            border-radius: 0 0 10px 0;
+            background-color: rgba(216,82,89,0.2);
+            display: flex;
+            justify-content: center;
+            vertical-align: middle;
+            align-items: center;
+          
+            cursor: pointer;
+            .button__content {
+                height: 18px;
+                color: #D4000B;
+                font-family: "DM Sans";
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0;
+                line-height: 18px;
+            }
+            &:hover {
+                background:rgba(216,82,89,0.3);
+            }
+        }
+    }
+}

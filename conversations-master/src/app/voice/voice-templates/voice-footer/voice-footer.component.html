@@ -1,0 +1,325 @@
+<div class="footer">
+    <div
+        class="center"
+        (mouseenter)="hoverinFooter()"
+        (mouseleave)="hoveroutFooter()"
+        *ngIf="(currentPage != 'NewVoicePage') && (currentPage != 'IncomingCallPage')"
+    >
+        <ul
+            class="DropMenuEs"
+            *ngIf="isEsmenuShow"
+            #DropMenuEs
+        >
+            <li
+                class="DropMenuEs__line"
+                (click)="textCustomer()"
+            >
+                <a>
+                    <span class="mainicon">
+                        <img
+                            class="normal"
+                            src="assets/svg/esmenu-call-customer-icon.svg"
+                        />
+                        <img
+                            class="hover"
+                            src="assets/svg/esmenu-call-customer-hover-icon.svg"
+                        />
+                    </span>
+
+                    {{ 'Text Customer' | translate }}
+                </a>
+            </li>
+            <li
+                class="DropMenuEs__line"
+                (click)="emailCustomer()"
+            >
+                <a>
+                    <span class="mainicon">
+                        <img
+                            style="margin-top: 2px;"
+                            class="normal"
+                            src="assets/svg/esmenu-email-customer-icon.svg"
+                        />
+                        <img
+                            style="margin-top: 2px;"
+                            class="hover"
+                            src="assets/svg/esmenu-email-customer-hover-icon.svg"
+                        /></span>
+                    {{ 'Email Customer' | translate }}
+                </a>
+            </li>
+            <li
+                class="DropMenuEs__line"
+                (click)="manualLink()"
+            >
+                <a>
+                    <span class="mainicon">
+                        <img
+                            class="normal"
+                            src="assets/svg/esmenu-manually-link-icon.svg"
+                        />
+                        <img
+                            class="hover"
+                            src="assets/svg/esmenu-manually-link-hover-icon.svg"
+                        />
+                    </span>
+                    {{ 'Manually Link' | translate }}
+                </a>
+            </li>
+            <li
+                class="DropMenuEs__line"
+                (mouseover)="showSubMenu()"
+                (mouseleave)="hideSubMenu()"
+            >
+                <a>
+                    <span class="mainicon">
+                        <img
+                            style="margin-top: 2px;"
+                            class="normal"
+                            src="assets/svg/esmenu-transfer-chat-icon.svg"
+                        />
+                        <img
+                            style="margin-top: 2px;"
+                            class="hover"
+                            src="assets/svg/esmenu-transfer-chat-hover-icon.svg"
+                        />
+                    </span>
+                    {{ 'Transfer Call' | translate }}
+                    <span class="subicon">
+                        <img src="assets/svg/right-direction-icon.svg" />
+                    </span>
+                </a>
+
+                <ul
+                    class="DropMenuEs__line__submenu"
+                    *ngIf="is_right_menu"
+                    #DropMenuEs__line__submenu
+                >
+                    <li
+                        class="submenu__item"
+                        (click)="showEscalateQueue()"
+                    >
+                        <img
+                            style=" margin-right: 11px"
+                            class="normal"
+                            src="assets/svg/essubmenu-to-queue.svg"
+                        />
+                        <img
+                            style=" margin-right: 11px"
+                            class="hover"
+                            src="assets/svg/essubmenu-to-queue-hover.svg"
+                        />
+                        {{ 'To Queue' | translate }}
+                    </li>
+                    <li
+                        class="submenu__item"
+                        (click)="showEscalateSupervisor()"
+                    >
+                        <img
+                            style=" margin-right: 11px"
+                            class="normal"
+                            src="assets/svg/essubmenu-to-supervisor.svg"
+                        />
+                        <img
+                            style=" margin-right: 11px"
+                            class="hover"
+                            src="assets/svg/essubmenu-to-supervisor-hover.svg"
+                        />
+                        {{ 'To Supervisor' | translate }}
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        <button
+            class="escalate_button"
+            [ngClass]="{'clicked' : isEsmenuShow}"
+            (click)="showEscalateMenu()"
+        >
+            <img src="assets/svg/escalate-button-icon.svg" />
+            <span>Escalate</span>
+            <img
+                *ngIf="!isEsmenuShow"
+                style="margin-left: 34px"
+                src="assets/svg/up-arrow-icon.svg"
+            />
+            <img
+                *ngIf="isEsmenuShow"
+                style="margin-left: 34px"
+                src="assets/svg/down-arrow-icon.svg"
+            />
+        </button>
+    </div>
+    <button
+        (click)="accept_call()"
+        class="incoming-call-accept__button"
+        *ngIf="(currentVoice.btns.answer == true) && (currentPage == 'IncomingCallPage')"
+    >
+        <img src="assets/svg/confirm-icon.svg" />
+        <span>Accept Call</span>
+    </button>
+
+    <button
+        class="hold_button"
+        *ngIf="(currentVoice.btns.hold == true) && (currentPage == 'CallTranscriptPage'  || currentPage == 'MergedCallsScreen') && !(emailTranscript.isHolded)"
+        (click)="holdCall()"
+    >
+        <img src="assets/svg/call-hold-icon.svg" />
+        <span>Hold</span>
+    </button>
+
+    <button
+        class="retreive_button"
+        *ngIf="(currentVoice.btns.retrieve == true) && (currentPage == 'CallTranscriptPage'  || currentPage == 'MergedCallsScreen') && (emailTranscript.isHolded)"
+        (click)="retrieveCall()"
+    >
+        <img src="assets/svg/call-retrieve-icon.svg" />
+        <span>Retrieve</span>
+    </button>
+
+    <div
+        class="dial_conference_button"
+        *ngIf="(currentVoice.btns.dtmf == true) && (currentPage == 'ConferenceCallPage')"
+        (click)="dialConferenceCall()"
+    >
+        <img src="assets/svg/dial-number-icon.svg" />
+        <span>Dial Number </span>
+    </div>
+
+    <div
+        class="dial_transfer_button"
+        *ngIf="(currentVoice.btns.dtmf == true) && (currentPage == 'CallTransferPage')"
+        (click)="showCallMenu()"
+        (mouseenter)="hoverInMenu()"
+        (mouseleave)="hoverOutMenu()"
+    >
+        <img src="assets/svg/dialphone-icon.svg" />
+
+        <span>Dial Number </span>
+        <p class="collapse">
+            <img src="assets/svg/downarrow-white-icon.svg" />
+        <p>
+
+        <ul
+            class="DropMenuCo"
+            *ngIf="is_show_call_menu"
+        >
+            <li class="">
+                <img
+                    class="normal"
+                    src="assets/svg/dialmenu-speak-to-agent-icon.svg"
+                />
+                <img
+                    class="hover"
+                    src="assets/svg/dialmenu-speak-to-agent-hover-icon.svg"
+                />
+                <span>{{ 'Speak to Agent' | translate }}</span>
+            </li>
+            <li
+                (click)="directTransfer()"
+                class=""
+            >
+                <img
+                    class="normal"
+                    src="assets/svg/dialmenu-direct-transfer.svg"
+                />
+                <img
+                    class="hover"
+                    src="assets/svg/dialmenu-direct-transfer-hover.svg"
+                />
+                <span>{{ 'Direct Transfer' | translate }}</span>
+            </li>
+
+        </ul>
+    </div>
+
+    <div
+        class="dial_new_voice_button"
+        (click)="newVoiceDial()"
+        *ngIf="(currentVoice.btns.dtmf == true) && (currentPage == 'NewVoicePage')"
+    >
+        <img src="assets/svg/dial-number-icon.svg" />
+        <span>Dial Number</span>
+    </div>
+
+    <div
+        class="complete-transfer_button"
+        *ngIf="(currentVoice.btns.xfer_complete == true) && (currentPage == 'CallTransferProgressPage')"
+        (click)="completeTransfer()"
+    >
+        <div class="content">
+            <img src="assets/svg/confirm-icon.svg" />
+            <p>Complete Transfer</p>
+        </div>
+    </div>
+
+    <div
+        class="merge-call_button"
+        *ngIf="(currentVoice.btns.conf_complete == true) && (currentPage == 'CallConferenceProgressPage')"
+        (click)="mergeCalls()"
+    >
+        <div class="content">
+            <img src="assets/svg/merge-call-icon.svg" />
+            <span>Merge Calls({{ conferenceCallCount }})</span>
+        </div>
+    </div>
+
+    <div
+        class="save-schedule_button"
+        *ngIf="(currentPage == 'ScheduleCallbackListPage')"
+        (click)="addScheduleCallback()"
+    >
+        <div class="content">
+            <img src="assets/svg/dialphone-icon.svg" />
+            <span>Add Schedule</span>
+        </div>
+    </div>
+
+    <button
+        class="end-interaction_button"
+        *ngIf="currentVoice.btns.endcall == true"
+        (click)="endInteraction()"
+    >
+        <img src="assets/svg/endinteraction-button-icon.svg" />
+        <b>End Interaction</b>
+    </button>
+</div>
+<app-wrapup-before
+    *ngIf="wrapup_status == 1"
+    [type]="'call'"
+    (callbackFunction)="handleWrapup($event)"
+> </app-wrapup-before>
+<app-wrapup-chat
+    *ngIf="wrapup_status == 2"
+    (callbackFunction)="handleWrapup($event)"
+> </app-wrapup-chat>
+
+<app-escalate
+    *ngIf="show_escalate"
+    [escalate_type]="escalate_type"
+    [closeEscalate]="closeEscalate"
+></app-escalate>
+<app-manually-link-form
+    *ngIf="isShowManuallyLinkForm"
+    (callbackFunction)="handleManuallyLinkForm($event)"
+></app-manually-link-form>
+<app-to-agency
+    *ngIf="show_agency"
+    (callbackFunction)="AgencyCallback($event)"
+></app-to-agency>
+<app-direct-transfer
+    *ngIf="show_agency_transfer"
+    [callbackFunction]="AgencyTransferCallback"
+></app-direct-transfer>
+<app-agency-transfer-progress
+    *ngIf="show_agency_transfer_progress"
+    [callbackFunction]="AgencyTransferProgressCallback"
+> </app-agency-transfer-progress>
+<div class="alert">
+    <app-custom-alert
+        *ngIf="show_alert"
+        [alert_type]="'success'"
+        [alert_message]="alert_message"
+        (callbackFunction)="closeAlert($event)"
+    ></app-custom-alert>
+</div>

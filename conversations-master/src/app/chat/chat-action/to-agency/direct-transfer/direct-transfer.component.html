@@ -1,0 +1,47 @@
+<div class="directTransfer-session">
+
+    <div class="directTransfer-session__body" >
+        <div class = "x" (click)="doAction('CLOSE AGENCY TRANSFER')">
+            <img  class="normal" src="assets/svg/close-icon.svg" />
+            <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+
+        </div>
+        <form class="form">      
+            <h2>
+                Transfer Initiated
+            </h2>
+            <h3 >
+                <div class="phonePulse">
+                    <div class="phonePulse__container">
+                        <div class="item">
+                            <img  class="hover" src="assets/svg/calling-screen-phone-icon.svg" />
+                        </div>
+                        <div class="circle" style="animation-delay: 0s"></div>
+                        <div class="circle" style="animation-delay: 0.5s"></div>
+                        <div class="circle" style="animation-delay: 1s"></div>
+                        <div class="circle" style="animation-delay: 1.5s"></div>
+                        <div class="circle" style="animation-delay: 2s"></div>
+                    </div>
+                </div>
+            </h3>
+            
+            <div class="number">
+                <h4 >
+                    <span>{{ name }}</span>
+                </h4>
+                <p >  {{ phone_number }}</p>
+                <h5>
+                    Calling...
+                </h5>
+            </div>
+        </form>
+    </div>
+    <div class="directTransfer-session__footer">
+        <div class="btns">
+            <div class="cancel" (click)="doAction('CLOSE AGENCY TRANSFER')" >
+                <img src="assets/svg/cancel-icon.svg" />
+                <span>{{ 'Cancel Dial' | translate }}</span>
+            </div>
+        </div>
+    </div>
+</div>

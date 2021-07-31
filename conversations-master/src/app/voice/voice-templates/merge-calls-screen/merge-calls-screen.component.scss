@@ -1,0 +1,27 @@
+.body {
+    .mergeText {
+        color: #1c323f;
+        font-family: 'DM Sans';
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: -0.4px;
+        line-height: 30px;
+        text-align: center;
+        margin-top: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mergedTime {
+        color: #6d8790;
+        font-family: 'DM Sans';
+        font-size: 18px;
+        letter-spacing: 0;
+        line-height: 30px;
+        text-align: center;
+    }
+}
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: calc(100% - 8px);
+}

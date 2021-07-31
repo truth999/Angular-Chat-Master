@@ -1,0 +1,170 @@
+.directTransfer-session {
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 8px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 15px rgba(50, 50, 50, 0.75);
+    z-index: 5;
+
+    .directTransfer-session__body {
+        background-color: #ffffff;
+        overflow-y: scroll;
+        .x {
+            position: relative;
+            float: right;
+            cursor: pointer;
+            color: black;
+
+            top: 13px;
+            // right: 13.5px;
+            .normal {
+                display: block;
+            }
+            .hover {
+                display: none;
+            }
+            &:hover {
+                .normal {
+                    display: none;
+                }
+                .hover {
+                    display: block;
+                }
+            }
+        }
+        .transferProgressForm {
+            .transferProgressForm__header {
+                h2 {
+                    margin-top: 15px;
+                    height: 30px;
+                    color: #1c323f;
+                    font-family: 'DM Sans';
+                    font-size: 20px;
+                    letter-spacing: 0;
+                    line-height: 30px;
+                    text-align: center;
+                }
+            }
+            .transferProgressForm__content {
+                display: flex;
+                justify-content: center;
+                margin-top: 45px;
+                padding-top: 18px;
+                padding-left: 15px;
+                // padding-bottom: 15.5px;
+                padding-right: 15px;
+                height: 93px;
+                border-radius: 4px;
+                margin-bottom: 60px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 403px;
+                background: rgb(243, 248, 245);
+                .transferProgressForm__content__details {
+                    .time {
+                        height: 0px;
+                        width: 92px;
+                        color: #459950;
+                        font-family: 'DM Sans';
+                        font-size: 11px;
+                        font-weight: bold;
+                        letter-spacing: 0;
+                        line-height: 14px;
+                    }
+                    .name {
+                        height: 0px;
+                        color: #517785;
+                        font-family: 'DM Sans';
+                        font-size: 14px;
+                        letter-spacing: 0;
+                        line-height: 18px;
+                    }
+                    .number {
+                        height: 0px;
+                        width: 143px;
+                        color: #1c323f;
+                        font-family: 'DM Sans';
+                        font-size: 20px;
+                        letter-spacing: 0.5px;
+                        line-height: 26px;
+                    }
+                }
+                .transferProgressFrom__content__action {
+                    vertical-align: middle;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    margin-left: 98px;
+                    display: flex;
+
+                    .wrapup_button {
+                        box-sizing: border-box;
+                        cursor: pointer;
+                        height: 28.8px;
+                        width: 28.8px;
+                        margin-right: 15.2px;
+                        padding-top: 7px;
+                        padding-left: 6.2px;
+                        border-radius: 14.4px;
+                        background-color: #dd5050;
+                        box-shadow: 0 5px 5px 0 rgba(109, 135, 144, 0.1);
+                        margin-right: 5px;
+                        &:hover {
+                            background-color: rgb(194, 0, 10);
+                        }
+                    }
+                    .pause_button {
+                        box-sizing: border-box;
+                        padding-left: 9.8px;
+                        padding-top: 6px;
+                        // margin-right: 15.2px;
+                        cursor: pointer;
+                        height: 28.8px;
+                        width: 28.8px;
+                        border-radius: 14.4px;
+                        background-color: #e79d43;
+                        box-shadow: 0 5px 5px 0 rgba(109, 135, 144, 0.1);
+                        &:hover {
+                            background-color: rgb(206, 136, 52);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .directTransfer-session__footer {
+        .btns {
+            display: flex;
+            flex-direction: row;
+            cursor: pointer;
+
+            .completeButton {
+                box-sizing: border-box;
+                height: 40px;
+                width: 100%;
+                // border: 1px solid #E3E5E5;
+                border-radius: 0 0 0 10px;
+                background-color: #219fcf;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                span {
+                    margin-left: 5.92px;
+                    color: #ffffff;
+                    font-family: 'DM Sans';
+                    font-size: 14px;
+                    font-weight: 500;
+                    letter-spacing: 0;
+                    line-height: 18px;
+                }
+                &:hover {
+                    background-color: #03729e;
+                }
+            }
+        }
+    }
+}

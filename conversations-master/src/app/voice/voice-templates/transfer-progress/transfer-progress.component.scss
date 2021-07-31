@@ -1,0 +1,183 @@
+.conference_progress {
+    .header {
+        height: 30px;
+        color: #1c323f;
+        font-family: 'DM Sans';
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: -0.4px;
+        line-height: 30px;
+        text-align: center;
+        margin-bottom: 25px;
+        margin-top: 31px;
+    }
+    .progresses {
+        .progress {
+            .content {
+                display: flex;
+                justify-content: space-between;
+                // height: 79px;
+                width: 403px;
+                margin-left: auto;
+                margin-right: auto;
+                box-sizing: border-box;
+                padding-top: 19px;
+                padding-left: 15px;
+                background-color: rgb(243, 248, 245);
+                padding-bottom: 15px;
+                .progress__details {
+                    .status--holding {
+                        height: 14px;
+                        width: 96px;
+                        color: #dd5050;
+                        font-family: 'DM Sans';
+                        font-size: 11px;
+                        font-weight: bold;
+                        letter-spacing: 0;
+                        line-height: 14px;
+                    }
+                    .status--talking {
+                        height: 14px;
+                        width: 92px;
+                        color: #459950;
+                        font-family: 'DM Sans';
+                        font-size: 11px;
+                        font-weight: bold;
+                        letter-spacing: 0;
+                        line-height: 14px;
+                    }
+                    .name {
+                        margin-top: 2px;
+                        height: 18px;
+                        width: 250px;
+                        color: #517785;
+                        font-family: 'DM Sans';
+                        font-size: 14px;
+                        letter-spacing: 0;
+                        line-height: 18px;
+                    }
+                    .number {
+                        height: 26px;
+                        width: 250px;
+                        color: #1c323f;
+                        font-family: 'DM Sans';
+                        font-size: 20px;
+                        letter-spacing: 0.5px;
+                        line-height: 26px;
+                    }
+                }
+                .progress__action {
+                    display: flex;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    .action--holding {
+                        .retrieve_button {
+                            box-sizing: border-box;
+                            padding-top: 6px;
+                            padding-left: 10.8px;
+                            cursor: pointer;
+                            height: 28.8px;
+                            width: 28.8px;
+                            border-radius: 14.4px;
+                            background-color: #459950;
+                            box-shadow: 0 5px 5px 0 rgba(109, 135, 144, 0.1);
+                            &:hover {
+                                background-color: rgb(61, 132, 77);
+                            }
+                        }
+                    }
+                    .action--talking {
+                        display: flex;
+                        .wrapup_button {
+                            box-sizing: border-box;
+                            cursor: pointer;
+                            height: 28.8px;
+                            width: 28.8px;
+                            padding-top: 7px;
+                            padding-left: 6.2px;
+                            border-radius: 14.4px;
+                            background-color: #dd5050;
+                            box-shadow: 0 5px 5px 0 rgba(109, 135, 144, 0.1);
+                            margin-right: 5px;
+                            &:hover {
+                                background-color: rgb(194, 0, 10);
+                            }
+                        }
+                        .pause_button {
+                            box-sizing: border-box;
+                            padding-left: 9.8px;
+                            padding-top: 6px;
+                            cursor: pointer;
+                            height: 28.8px;
+                            width: 28.8px;
+                            border-radius: 14.4px;
+                            background-color: #e79d43;
+                            box-shadow: 0 5px 5px 0 rgba(109, 135, 144, 0.1);
+                            &:hover {
+                                background-color: rgb(206, 136, 52);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .action {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+        display: flex;
+        width: 403px;
+        .addCall {
+            cursor: pointer;
+            box-sizing: border-box;
+            height: 42px;
+            width: 197px;
+            border: 1px solid rgba(109, 135, 144, 0.2);
+            border-radius: 5px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 4px 0 rgba(109, 135, 144, 0.1);
+            padding-left: 35px;
+            padding-right: 30px;
+            padding-top: 12px;
+            margin-right: 12px;
+            color: #6d8790;
+            font-family: 'DM Sans';
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: -0.2px;
+            line-height: 18px;
+            text-align: center;
+            &:hover {
+                background-color: rgb(233, 246, 251);
+            }
+        }
+        .mergeCall {
+            cursor: pointer;
+            box-sizing: border-box;
+            height: 42px;
+            width: 197px;
+            border: 1px solid #219fcf;
+            border-radius: 5px;
+            background-color: #219fcf;
+            box-shadow: 0 4px 4px 0 rgba(109, 135, 144, 0.1);
+            padding-left: 41px;
+            padding-top: 11px;
+            color: #ffffff;
+            font-family: 'DM Sans';
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: -0.2px;
+            line-height: 18px;
+            &:hover {
+                background-color: rgb(32, 137, 179);
+            }
+        }
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: calc(100% - 8px);
+}

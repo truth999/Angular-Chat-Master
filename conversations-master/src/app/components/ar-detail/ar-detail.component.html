@@ -1,0 +1,41 @@
+<div class="ar-detail">
+    <div class="top-section">
+        <div style="display: flex; flex-direction: row; align-items: center; width: 50%;">
+            <div class="hilda-palmer">{{name}}</div>
+            <a style="margin-top: 3px">
+                <img src="../../assets/icons/Shape.svg">
+            </a>
+        </div>
+        <div
+            style="display: flex; flex-direction: row; align-items: center; justify-content: flex-end; margin-right: 4px;">
+            <div class="phone-number">{{id}}</div>
+            <a>
+                <!--<img src="../../assets/icons/Icon - WhatsApp.svg">-->
+                <img
+                    style="width: 24px; height: 24px;"
+                    src="{{'../../../assets/icons/' + filterType + '-small-icon.svg'}}"
+                />
+            </a>
+        </div>
+
+    </div>
+    <div class="below-section">
+        <div style="display: flex; flex-direction: row;">
+            <div
+                class="rectangle"
+                *ngFor="let intent of topFourIntents;"
+                (click)="showIntent()"
+            ><span>{{ intent.aiName | translate }}</span></div>
+            <div
+                class="rectangle1"
+                (click)="createIntent()"
+            ><span>+ {{ 'new_intent' | translate }}</span></div>
+        </div>
+        <a
+            style="cursor: pointer; margin-top: 3px; margin-right: 2px;"
+            (click)="showIntent()"
+        >
+            <img src="../../assets/icons/Path.svg">
+        </a>
+    </div>
+</div>

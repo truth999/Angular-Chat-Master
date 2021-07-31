@@ -1,0 +1,26 @@
+<!-- <app-actions-tab class="actions-bar"></app-actions-tab> -->
+<div class="help-main">
+    <img
+        src="../../../assets/img/helper.png"
+        alt="helper"
+        class="helper-image"
+    />
+    <div class="helper-name">{{ agent.user_name }}</div>
+    <div class="supervisor">{{ agent.user_dn }}</div>
+    <div class="button-group">
+        <div class="blue-button">
+            <img
+                class="normal"
+                src="assets/svg/help-call-icon.svg"
+            />
+            <span>{{ 'call' | translate }}</span>
+        </div>
+        <div class="blue-button">
+            <img
+                class="normal"
+                src="assets/svg/help-email-icon.svg"
+            />
+            <span>{{ 'email' | translate }}</span>
+        </div>
+    </div>
+</div>

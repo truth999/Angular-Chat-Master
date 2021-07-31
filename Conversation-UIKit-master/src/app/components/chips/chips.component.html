@@ -1,0 +1,118 @@
+<div class="container">
+    <div class="history-history">
+        <div class="history__image">
+            <img  src="assets/img/history-email-icon.svg" />
+        </div>
+        <div class="history__body">
+            <div class="header">
+                Email
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="item__title">
+                        Ticket No.
+                    </div>
+                    <div class="item__content--normal">
+                        3853
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item__title">
+                        Activity
+                    </div>
+                    <div class="item__content--normal">
+                        Email
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item__title">
+                        Agent
+                    </div>
+                    <div class="item__content--normal">
+                        Siva
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item__title">
+                        Notes
+                    </div>
+                    <div class="item__content--normal">
+                        3 Session Notes
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item__title">
+                        Intent
+                    </div>
+                    <div class="item__content--normal">
+                       Payment
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item__title">
+                        Duration
+                    </div>
+                    <div class="item__content--normal">
+                        30mins
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item__title">
+                        Status
+                    </div>
+                    <div class="item__content--normal">
+                        Completed
+                    </div>
+                </div>
+            </div>
+            <div class="expand">
+                <div class="expand__line">
+                    
+                </div>
+                <div *ngIf="expanded == false" class="expand__button" (click)="expand()">
+                    <div>
+                        Expand
+                        <img src="assets/img/history-expand-icon.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+    <div  class="history-expanded" [ngClass]="{'showMore' : expanded}" >
+        <div class="header">
+            <div class="header__note">
+                Note (3)
+            </div>
+        </div>
+        <div class="body">
+            <div class="item" *ngFor="let note of notes">
+                <div class="item-image">
+                    <img  src="assets/img/history-item-icon.svg" />
+                </div>
+                <div class="item-content">
+                    <div class="content__title">
+                        {{ note.user }}
+                    </div>
+                    <div class="content__time">
+                        {{ note.date }}
+                    </div>
+                    <div class="content__data">
+                        {{ note.info }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="collapse1" >
+                <div class="collapse__line">           
+                </div>
+                <div class="collapse__button" (click)="collapse()">
+                    <div>
+                        Collapse
+                        <img  src="assets/img/history-collapse-icon.svg" />
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

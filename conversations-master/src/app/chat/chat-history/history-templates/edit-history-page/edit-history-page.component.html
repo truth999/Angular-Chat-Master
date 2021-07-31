@@ -1,0 +1,95 @@
+<div class="edit-history-page" [ngClass]="{'forVoice' : type=='voice'}">
+    <div class="action" [ngClass]="{'active': isHeaderActive}">
+        <div class="action__backbutton" (click)='close()'>
+            <img style="margin-right: 8.07px" src="assets/svg/real-back-icon.svg" />
+            <p>
+                Back
+            <p>
+        </div>
+
+    </div>
+    <div class="content" (scroll)="onScroll($event)">
+        <div class="content__datetime">
+            <div class="firstline">
+                    <div class="two-input__left">
+                        <!--<span>Date</span>
+                        <input class="input" type="text" placeholder="Subject" name="subject" value="{{date}}" required>-->
+                        <app-float-input [(inputModel)]="date" [inputLabel]="'Subject'" [type]="'normal'"></app-float-input> 
+                    </div>
+                    <div class="associated-input">
+                        <app-float-input [(inputModel)]="time" [inputLabel]="'Time'" [type]="'normal'"></app-float-input> 
+                    </div>
+            </div>
+        </div>
+        <div class="content__subject">
+            <div class="two-input__left">
+                <app-float-input [(inputModel)]="subject" [inputLabel]="'Subject'" [type]="'normal'"></app-float-input> 
+            </div>
+        </div>
+        <div class="content__intent">
+            <div class="associated-input">
+                <app-float-input [(inputModel)]="intent" [inputLabel]="'Intent'" [type]="'dropdown'" (click)="showIntentAutoComplete()" (mouseleave)="intentInputleave()" (mouseenter)="intentInputenter()"></app-float-input> 
+                 <div class="autoComplete">
+                    <app-input-autocomplete #menu (callbackFunction)="autoCompleteIntent($event)" [currentIndex]="intent_currentId" *ngIf="isIntentAutoCompleteForm" (mouseleave)="autoCompleteFormleave()" (mouseenter)="autoCompleteFormEnter()"> </app-input-autocomplete>
+                </div>
+            </div>
+            <div class="associated-input">
+                <app-float-input [(inputModel)]="related_to" [inputLabel]="'Related to'" [type]="'dropdown'" (click)="showRelatedToAutoComplete()" (mouseleave)="relatedtoInputleave()" (mouseenter)="relatedtoInputenter()"></app-float-input> 
+                <div class="autoComplete">
+                    <app-input-autocomplete #menu (callbackFunction)="autoCompleteRelatedTo($event)" [currentIndex]="related_to_currentId" *ngIf="isRelatedtoAutoCompleteForm" (mouseleave)="autoCompleteFormleave()" (mouseenter)="autoCompleteFormEnter()"> </app-input-autocomplete>
+                </div>
+            </div>
+        </div>
+        <div class="content__emailcontent">
+            <div class="two-input__left">
+                <span>Email Content</span>
+                <textarea class="input" type="textarea" placeholder="Subject" name="subject" >
+FROM: {{ from }}
+
+SENT: {{ sent }}
+
+TO: {{ to }}
+
+SUBJECT: {{ subject }}
+
+{{ message }}
+
+NOTICE: {{ notice }}
+                </textarea>
+            </div>
+        </div>
+        <div class="content__session">
+            <div class="two-input__left">
+                <span>Session Notes</span>
+                <textarea class="input" type="textarea" placeholder="Subject" name="subject" >{{ session_notes }}</textarea>
+            </div>
+        </div>
+        <div class="content__wrapupcode">
+            <div class="associated-input">
+                <app-float-input [(inputModel)]="wrap_up_code" [inputLabel]="'Wrap Up code'" [type]="'dropdown'" (click)="showWrapupAutoComplete()" (mouseleave)="wrapupInputleave()" (mouseenter)="wrapupInputenter()"></app-float-input> 
+                <div class="autoComplete">
+                    <app-input-autocomplete #menu (callbackFunction)="autoCompleteWrapup($event)" [currentIndex]="wrapup_currentId" *ngIf="isWrapupAutoCompleteForm" (mouseleave)="autoCompleteFormleave()" (mouseenter)="autoCompleteFormEnter()"> </app-input-autocomplete>
+                </div>
+            </div>
+        </div>
+        <div class="content__wrapupcomment">
+            <div class="associated-input">
+                <app-float-input [(inputModel)]="wrap_up_comment" [inputLabel]="'Wrap Up Comment'" [type]="'normal'"></app-float-input> 
+                
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+            <div class="btns">
+                <div  class="cancel" (click)='close()'>
+                    <img src="assets/svg/cancel-icon.svg" />
+                     <span>{{ 'cancel' | translate }}</span>
+                </div>
+                <div  class="save" (click)='close()'>
+                   <img src="assets/svg/confirm-icon.svg" />
+                    <span>Save Edits</span>
+                </div>
+            </div>
+    </div>
+
+</div>

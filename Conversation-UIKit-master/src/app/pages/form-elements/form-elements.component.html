@@ -1,0 +1,1130 @@
+<div class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h1>Form elements</h1>
+    </div>
+  </div>
+  
+  
+  <div id="form-input" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Input</h2>
+      <p>Default text input.</p>
+    </div>
+    <div class="uikit-example">
+      <div
+          class="floating-label"
+      >
+          <input
+              class="floating-input--normal"
+              placeholder=" "
+          >
+          <label class="float-label">Default</label>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{default_text_input_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+           {{default_text_input_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+       </code></pre>
+      </div>
+    </div>
+    
+    <div class="uikit-wysiwyg">
+      <h3>Readonly state</h3>
+      <p>Text input has a readonly attribute which disables ability to edit value.</p>
+    </div>
+    <div class="uikit-example">
+      <div
+          class="floating-label disabled"
+      >
+          <input
+              class="floating-input--normal non-cursor disabled"
+              placeholder=" "
+              disabled="true"
+          >
+          <label class="float-label--normal">Readonly</label>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{readonly_state_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{readonly_state_css}}
+         </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+        </code></pre>
+      </div>
+    </div>
+    
+    <div class="uikit-wysiwyg">
+      <h3>Placeholder</h3>
+      <p>Usage of the placeholder attribute.</p>
+    </div>
+    <div class="uikit-example">
+      <div
+          class="floating-label"
+      >
+          <input
+              class="floating-input--normal"
+              placeholder=" "
+          >
+          <label class="float-label">Placeholder</label>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{placeholder_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{placeholder_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+        </code></pre>
+      </div>
+    </div>
+    
+    <div class="uikit-wysiwyg">
+      <h3>Search field</h3>
+      <p>Text input with search icon.</p>
+    </div>
+    <div class="uikit-example">
+      <div class="search-input">
+        <div class="search-input__content">
+              <input type="text" placeholder="Search"/>
+              <img src="assets/img/search_gray.svg">
+          </div>
+      </div>
+    </div>
+    
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{search_field_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{search_field_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+        </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-wysiwyg">
+      <h3>Invalid state</h3>
+      <p>Text input has an invalid state to visually indicate validation error.</p>
+    </div>
+    <div class="uikit-example">
+      <div
+          class="floating-label"
+      >
+          <input
+              class="floating-input--error"
+              placeholder=" "
+          >
+          <label class="float-label--error">Invalid State</label>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{invalid_state_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{invalid_state_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+               
+        </code></pre>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- time input-->
+
+  <div id="form-timeinput" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Time Input</h2>
+      <p>Time Input</p>
+    </div>
+    
+    <div class="uikit-example">
+      <div
+          class="floating-label"
+      >
+          <input
+              class="floating-input--normal"
+              placeholder=" "
+              type="time"
+          >
+          <label class="float-label--normal">Time Input</label>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+              {{time_input_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+              {{time_input_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+               
+        </code></pre>
+      </div>
+    </div>
+  </div>
+
+ <!-- end time input -->
+
+  <!-- Date input-->
+
+  <div id="form-dateinput" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Date Input</h2>
+      <p>Date Input</p>
+    </div>
+    
+    <div class="uikit-example">
+      <div
+          class="floating-label"
+      >
+          <input
+              class="floating-input--normal"
+              placeholder=" "
+              type="date"
+          >
+          <label class="float-label--normal">Date Input</label>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+              {{date_input_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+              {{date_input_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+               
+        </code></pre>
+      </div>
+    </div>
+
+  </div>
+
+ <!-- end date input -->
+
+  <!-- drop down-->
+
+  <div id="form-dropdown" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Dropdown</h2>
+      <p>Contacts Dropdown</p>
+    </div>
+    
+      <div class="uikit-example">
+        <app-contacts-dropdown></app-contacts-dropdown>
+      </div>
+
+      <div class="grid-row grid-row--jcb mt--100">
+          <div class="grid-col grid-col--4 ">
+            <h5>HTML</h5>
+            <pre class="uikit-source mt--025"><code>
+                {{contacts_dropdown_html}}
+          </code></pre>
+          </div>
+          <div class="grid-col grid-col--4">
+            <h5>CSS(SCSS)</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{contacs_dropdown_css}}
+          </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+            <h5>JS(TypeScript)</h5>
+          <pre class="uikit-source mt--025"><code>
+         </code></pre>
+        </div>
+    </div>
+  </div>
+
+ <!-- end dropdown -->
+
+  <!-- start autocomplete -->
+  <div id="form-autocomplete" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Autocomplete</h2>
+      <p>Autocomplete</p>
+    </div>
+    <div class="uikit-example">
+        <app-auto-complete></app-auto-complete>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{autocomplete_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{autocomplete_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{autocomplete_script}}
+       </code></pre>
+      </div>
+    </div>
+  </div>
+ <!-- end autocomplete -->
+
+ <!-- start checkbox -->
+ <div id="form-checkbox" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Check Box</h2>
+      <p>Check Box</p>
+    </div>
+    <div class="uikit-example">
+        <app-check-box></app-check-box>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{checkbox_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{checkbox_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{checkbox_script}}
+       </code></pre>
+      </div>
+    </div>
+  </div>
+ <!-- end checkbox -->
+
+ <!-- start radio button -->
+ <div id="form-radiobutton" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Radio Button</h2>
+      <p>Radio Button</p>
+    </div>
+    <div class="uikit-example">
+        <div class="radio-group">
+            <div class="radio-group__item">
+                <input type="radio" id="today" name="byTimeRange" value="today"> <label for="today">Today</label>
+            </div>
+            <div class="radio-group__item">
+                <input type="radio" id="previousday" name="byTimeRange" value="previousday"> <label for="previousday">Previous Day</label><br>
+            </div>
+            <div class="radio-group__item">
+                <input type="radio" id="thisweek" name="byTimeRange" value="thisweek"> <label for="thisweek">This Week</label><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{radio_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{radio_button_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+       </code></pre>
+      </div>
+    </div>
+  </div>
+ <!-- end radio button -->
+
+
+
+ <!-- Buttons -->
+ <div id="uicomponents-buttons" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Buttons</h2>
+    </div>
+    <div class="uikit-example">
+      <div class="btns">
+          <div class="btns__cancel">
+              <img src="assets/img/cancel-icon.svg" />
+              <span>Cancel</span>
+          </div>
+          <div  class="btns__confirm">
+              <img src="assets/img/confirm-icon.svg" />
+              <span>Add New Intent </span>
+          </div>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{buttons_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{buttons_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+        </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-example">
+        <div
+        #footer
+        class="footer-actions"
+    >
+        <div
+            class="left"
+        >
+            <button
+                data-popover-open="#co-browse__dropdown"
+                class="co-browse_button"
+            >
+                <img src="assets/img/footer-cobrowse-icon.svg" />
+                <span>CoBrowse</span>
+
+                <img
+                    class="up-icon"
+                    style="margin-left: 34px"
+                    src="assets/img/up-arrow-icon.svg"
+                />
+                <img
+                    class="down-icon"
+                    style="margin-left: 34px"
+                    src="assets/img/down-arrow-icon.svg"
+                />
+            </button>
+        </div>
+        <div class="center">
+            <button
+                class="escalate_button"
+                data-popover-open="#es__dropdown"
+            >
+                <img src="assets/img/escalate-button-icon.svg" />
+                <span>Escalate</span>
+                <img
+                    class="up-icon"
+                    style="margin-left: 34px"
+                    src="assets/img/up-arrow-icon.svg"
+                />
+                <img
+                    class="down-icon"
+                    style="margin-left: 34px"
+                    src="assets/img/down-arrow-icon.svg"
+                />
+            </button>
+        </div>
+        <div
+            class="right"
+        >
+            <button class="wrap-up-chat_button active">
+                <img src="assets/img/endinteraction-button-icon.svg" />
+                <b>End Interaction</b>
+            </button>
+        </div>
+    </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{cobrowse_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{cobrowse_button_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+       </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-example">
+      <div
+          class="footer-actions"
+      >
+          <div class="left">
+              <button
+                  class="escalate_button"
+                  data-popover-open="#es__dropdown1"
+              >
+                  <img src="assets/img/escalate-button-icon.svg" />
+                  <span>Escalate</span>
+                  <img
+                      class="up-icon"
+                      style="margin-left: 34px"
+                      src="assets/img/up-arrow-icon.svg"
+                  />
+                  <img
+                      class="down-icon"
+                      style="margin-left: 34px"
+                      src="assets/img/down-arrow-icon.svg"
+                  />
+              </button>
+          </div>
+          <div class="center">
+            <button class="hold_button" data-popover-open="#retrieve-button">
+                <img  src="assets/img/call-hold-icon.svg" />
+                <span>Hold</span>
+            </button>
+            <button class="retreive_button"  id="retrieve-button" data-popover-close="#retrieve-button">
+                <img  src="assets/img/call-retrieve-icon.svg" />
+                <span>Retrieve</span>
+            </button>
+          </div>
+          <div
+              class="right"
+          >
+              <button class="wrap-up-chat_button active">
+                  <img src="assets/img/endinteraction-button-icon.svg" />
+                  <b>End Interaction</b>
+              </button>
+          </div>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{footer_actions_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{footer_actions_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+        </code></pre>
+      </div>
+    </div>
+    
+
+    <div class="uikit-example">
+      <div class="tool-bar">
+          <div class="tool-bar__left">
+              <span class="tool-bar-button">
+                  <img src="assets/img/logo.svg">
+              </span>
+              <a href="javascript:;" class="tool-bar-button tool-bar-button__home">
+                <img class="normal" src="assets/img/nav-home-icon.svg">
+                <img class="hover" src="assets/img/nav-home-hover-icon.svg">
+              </a>
+              <a href="javascript:;" class="tool-bar-button tool-bar-button__search">
+                  <img class="normal" src="assets/img/nav-search-icon.svg">
+                  <img class="hover" src="assets/img/nav-search-hover-icon.svg">
+              </a>
+              <a href="javascript:;" class="tool-bar-button tool-bar-button__warning">
+                  <img class="normal" src="assets/img/nav-warning-icon.svg">
+                  <img class="hover" src="assets/img/nav-warning-hover-icon.svg">
+              </a>
+              <a href="javascript:;" class="tool-bar-button tool-bar-button__user" data-popover-open="#user-menu">
+                  <img class="normal" src="assets/img/nav-user-icon.svg">
+                  <img class="hover" src="assets/img/nav-user-hover-icon.svg">
+              </a>
+              <ul class="popover" id="user-menu">
+                  <li class="multi-level-dropdown__status multi-level-dropdown__gray">
+                      <span>Timeline</span>
+                  </li>
+                  <li class="multi-level-dropdown__status multi-level-dropdown__danger" 
+                  >
+                      <span>Log Out</span>
+                      <span style="float: right;">
+                          <img src="assets/img/right-direction-icon.svg">
+                      </span>
+                      <ul >
+                          <li class="multi-level-dropdown__status multi-level-dropdown__gray"
+                          >
+                              <span>End of the day</span>
+                          </li>        
+                          <li class="multi-level-dropdown__status multi-level-dropdown__gray"
+                          >
+                              <span>Meetig</span>
+                          </li>  
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{tool_bar_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{tool_bar_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{toolbar_script}}
+
+        </code></pre>
+      </div>
+    </div>
+  </div>
+ <!-- end Buttons -->
+
+
+  <div id="form-button" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Buttons States & Color Styles</h2>
+      <p>Blue Button</p>
+    </div>
+    <div class="uikit-example">
+        <div class="button blue">
+          <span>Blue Button</span>
+        </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{blue_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{blue_button_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+        </code></pre>
+      </div>
+    </div>
+    
+    <div class="uikit-wysiwyg">
+      <h3>Green Button</h3>
+    </div>
+    <div class="uikit-example">
+        <div class="button green">
+          <span>Green Button</span>
+        </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{green_button_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            
+
+
+        </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-wysiwyg">
+      <h3>Orange Button</h3>
+    </div>
+    <div class="uikit-example">
+        <div class="button orange">
+          <span>Orange Button</span>
+        </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{orange_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{orange_button_css}}
+
+
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+        </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-wysiwyg">
+      <h3>Red Button</h3>
+    </div>
+    <div class="uikit-example">
+        <div class="button red">
+          <span>Red Button</span>
+        </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{red_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{red_button_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            
+
+
+        </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-wysiwyg">
+      <h3>White1 Button</h3>
+    </div>
+    <div class="uikit-example">
+        <div class="button white1">
+          <span>White1 Button</span>
+        </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{white1_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{white1_button_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            
+
+
+        </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-wysiwyg">
+      <h3>White2 Button</h3>
+    </div>
+    <div class="uikit-example">
+        <div class="button white2">
+          <span>White2 Button</span>
+        </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{white2_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{white2_button_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            
+
+
+        </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-wysiwyg">
+      <h3>Blue Outline Button</h3>
+    </div>
+    <div class="uikit-example">
+        <div class="button outline-blue">
+          <span>Blue Outline</span>
+        </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{blue_outline_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+            {{blue_outline_button_css}}
+       </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            
+
+
+        </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-wysiwyg">
+      <h3>Green Outline Button</h3>
+    </div>
+    <div class="uikit-example">
+        <div class="button outline-green">
+          <span>Green Outline</span>
+        </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{green_outline_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{green_outline_button_css}}
+          </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            
+
+
+        </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-wysiwyg">
+      <h3>Red Outline Button</h3>
+    </div>
+    <div class="uikit-example">
+        <div class="button outline-red">
+          <span>Red Outline</span>
+        </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{red_outline_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{red_outline_css}}
+      </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            
+
+
+        </code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- start button with image -->
+  <div id="form-buttonwithimage" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Button With Image</h2>
+      <p></p>
+    </div>
+    <div class="uikit-example">
+      <div class="cancel-button">
+          <img src="assets/img/cancel-icon.svg" />
+          <span>Cancel</span>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{cancel_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{cancel_button_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+      </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-example">
+      <div  class="confirm-button">
+        <img src="assets/img/confirm-icon.svg" />
+        <span>Add New Intent </span>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{confirm_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{confirm_button_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+      </code></pre>
+      </div>
+    </div>
+
+    <div class="uikit-example">
+      <app-filter-button></app-filter-button>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{filter1_button_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{filter1_button_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+          {{filter1_button_script}}
+      </code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- end button with image -->
+
+  <!-- start icons -->
+ <div id="form-icons" class="uikit__subsection">
+    <div class="uikit-wysiwyg">
+      <h2>Icons</h2>
+      <p></p>
+    </div>
+    <div class="uikit-example">
+      <div class="icons">
+        <img class="icon" src="assets/icons/Agent.png"/>
+        <img class="icon" src="assets/icons/AI.png"/>
+        <img class="icon" src="assets/icons/chat.png"/>
+        <img class="icon" src="assets/icons/email.png"/>
+        <img class="icon" src="assets/icons/voice.png"/>
+      </div>
+    </div>
+
+    <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4 ">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+            {{icons_html}}
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+            {{icons_css}}
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+       </code></pre>
+      </div>
+    </div>
+  </div>
+ <!-- end icons -->
+
+ <!-- Multi Select  -->
+ <div id="uicomponents-multiselect" class="uikit__subsection">
+  <div class="uikit-wysiwyg">
+      <h2>Multi Select</h2>
+  </div>
+  <div class="uikit-example">
+      <app-multi-select></app-multi-select>
+  </div>
+
+  <div class="grid-row grid-row--jcb mt--100">
+      <div class="grid-col grid-col--4 ">
+        <h5>HTML</h5>
+        <pre class="uikit-source mt--025"><code>
+          {{multiselect_html}}
+      </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+        <h5>CSS(SCSS)</h5>
+      <pre class="uikit-source mt--025"><code>
+          {{multiselect_css}}
+      </code></pre>
+    </div>
+    <div class="grid-col grid-col--4">
+        <h5>JS(TypeScript)</h5>
+      <pre class="uikit-source mt--025"><code>
+          {{multiselect_script}}
+      </code></pre>
+    </div>
+  </div>
+</div>
+<!-- Multi select End -->

@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+a {
+    color: #000F37;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button  {
+    border: 1px solid rgba(109, 135, 144, 0.2) !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    border-radius: 10px !important;
+    color: #1c323f !important;
+    cursor:  pointer !important;
+    &:hover {
+        background-color: #dfe9ed !important;
+        background: #dfe9ed !important;
+        border: 1px solid rgba(109, 135, 144, 0.2) !important;
+        color: #1c323f !important;
+    }
+  }
+
+  .dataTables_wrapper {
+    color: #1c323f !important;
+    font-family: 'DM Sans' !important;
+    .dataTables_length {
+        select {
+            box-sizing: border-box !important;
+            border: 1px solid rgba(109, 135, 144, 0.2) !important;
+            border-radius: 5px !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 4px 0 rgba(109, 135, 144, 0.1) !important;
+            color: #1c323f !important;
+            font-family: 'DM Sans' !important;
+            font-size: 14px !important;
+            letter-spacing: 0 !important;
+            line-height: 18px !important;
+            -webkit-appearance: none !important;
+            padding-left: 8px !important;
+            background-color: white !important;
+            width: 52px !important;
+            cursor: pointer;
+            //Use png at assets/selectArrow.png for the arrow on the right
+            //Set the background color to a BadAss Green color
+            background: url(/assets/img/dropdown_arrow.svg) no-repeat scroll
+                calc(100% - 10px) center/8px auto white !important;
+        }
+    }
+  }
+
+  .DataTables_Table_0_filter {
+      input {
+        box-sizing: border-box !important;
+        color: black !important;
+        font-family: "DM Sans" !important;
+        font-size: 14px !important;
+        letter-spacing: 0 !important;
+        line-height: 18px !important;
+        border: none !important;
+        width: 186px !important;
+        padding-top : 6px !important;
+        padding-left: 11px !important;
+        
+        &:focus {
+            outline: none !important;
+        }
+      }
+  }

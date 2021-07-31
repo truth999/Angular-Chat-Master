@@ -1,0 +1,109 @@
+
+    <div class="uikit__subsection">
+      <div class="uikit-wysiwyg">
+        <h1>BEM naming</h1>
+        <p>BEM is a highly useful, powerful, and simple naming convention that makes front-end code easier to read and understand, easier to work with, easier to scale, more robust and explicit, and a lot more strict. You will not be surprised to hear that BEM is an abbreviation of the key elements of the methodology — Block, Element and Modifier.</p>
+      </div>
+    </div>
+    
+    
+    <div id="bem-block" class="uikit__subsection">
+      <div class="uikit-wysiwyg">
+        <h2>Block</h2>
+        <p>Encapsulates a standalone entity that is meaningful on its own. While blocks can be nested and interact with each other, semantically they remain equal; there is no precedence or hierarchy. Holistic entities without DOM representation (such as controllers or models) can be blocks as well.</p>
+        <p>Block names may consist of Latin letters, digits, and dashes. To form a CSS class, add a short prefix for namespacing: <code>.block</code>.</p>
+      </div>
+
+      <div class="grid-row grid-row--jcb mt--100">
+          <div class="grid-col grid-col--4">
+            <h5>HTML</h5>
+            <pre class="uikit-source mt--025"><code>
+&lt;div class="block"&gt;&lt;/div&gt;
+            </code></pre>
+          </div>
+          <div class="grid-col grid-col--4">
+            <h5>CSS(SCSS)</h5>
+          <pre class="uikit-source mt--025"><code></code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+            <h5>JS(TypeScript)</h5>
+          <pre class="uikit-source mt--025"><code>
+
+          </code></pre>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div id="bem-element" class="uikit__subsection">
+      <div class="uikit-wysiwyg">
+        <h2>Element</h2>
+        <p>Parts of a block and have no standalone meaning. Any element is semantically tied to its block.</p>
+        <p>Element names may consist of Latin letters, digits, dashes and underscores. CSS class is formed as block name plus two underscores plus element name: <code>.block__elem</code></p>
+      </div>
+
+      <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+&lt;div class="block"&gt;
+&lt;div class="block__elem"&gt;&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+
+
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+
+
+        </code></pre>
+      </div>
+      </div>
+    </div>
+    
+    
+    <div id="bem-modifier" class="uikit__subsection">
+      <div class="uikit-wysiwyg">
+        <h2>Modifier</h2>
+        <p>Flags on blocks or elements. Use them to change appearance, behaviour or state.</p>
+        <p>Modifier names may consist of Latin letters, digits, dashes. CSS class is formed as block’s or element’s name plus two underscore: <code>.block--mod</code> or <code>.block__elem--mod</code>.</p>
+      </div>
+
+      <div class="grid-row grid-row--jcb mt--100">
+        <div class="grid-col grid-col--4">
+          <h5>HTML</h5>
+          <pre class="uikit-source mt--025"><code>
+&lt;div class="block block--primary"&gt;
+&lt;div class="block__elem block__elem--active"&gt;&lt;/div&gt;
+&lt;div class="block__elem"&gt;&lt;/div&gt;
+&lt;div class="block__elem"&gt;&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        </div>
+        <div class="grid-col grid-col--4">
+          <h5>CSS(SCSS)</h5>
+        <pre class="uikit-source mt--025"><code>
+
+
+
+        </code></pre>
+      </div>
+      <div class="grid-col grid-col--4">
+          <h5>JS(TypeScript)</h5>
+        <pre class="uikit-source mt--025"><code>
+            
+
+
+        </code></pre>
+      </div>
+      </div>
+    </div>

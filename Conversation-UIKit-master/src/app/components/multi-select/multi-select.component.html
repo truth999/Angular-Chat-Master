@@ -1,0 +1,59 @@
+<div class="from">
+    <div
+        class="from__center"
+        (keydown.space)="$event.preventDefault()"
+    >
+        <div
+            class="from__input"
+            (mouseleave)="autocompleteFormleave()"
+            (mouseenter)="autocompleteFormenter()"
+        >
+            <!-- <div
+                contenteditable="plaintext-only"
+                class="form-control"
+                (click)="showFromEmailAutocomplete()"
+                (input)="fromEmail=$event.target.innerHTML"
+                [innerHTML]='fromEmailTemp'
+            >
+            </div> -->
+            <div
+                class="floating-label"
+                (click)="showFromEmailAutocomplete()"
+            >
+                <input
+                    class="floating-input--normal"
+                    placeholder=" "
+                    type="text"
+                    [(ngModel)]="fromEmailTemp"
+                >
+                <label class="float-label--normal">Multi Select</label>
+                <div class="arrow-icon">
+                    <img src="assets/img/arrow-down-icon.svg" />
+                </div>
+            </div>
+            <div class="autocomplete">
+
+                <div class="autoCompleteModal" *ngIf="isFromEmailAutoComplete">
+                    <div class="search-bar">
+                        <div class="search-bar__left">    
+                            <input [(ngModel)]="searchText" type="text" id="_search" placeholder="Search"/>
+                            <img src="../../assets/img/search gray.svg">
+                        </div>
+                    </div>
+                    <div class="autoCompleteModal__body">
+                        <div class="content" *ngFor = "let list of fromEmailAddressList; let index = index" (click)="autoCompleteFromEmail(list)">
+                            <div class="real" *ngIf="list.name.toLowerCase().includes(searchText.toLowerCase())">
+                                <div class="content__header">
+                                    {{ list.name }}
+                                </div>
+                                <div class="content__body">
+                                    <h1>{{list.email}}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="wrapup_chat">
+    <div class = "x" (click)="closeConfirm()">
+        <img  class="normal" src="assets/svg/close-icon.svg" />
+        <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+    </div>
+    <div class="wrapup__header">
+        Wrapping Up
+    </div>
+    <div class="wrapup__body">
+        <div class="subject">
+            <app-float-input [inputModel]="subject" [inputLabel]="'Subject'"  [type]="'normal'" ></app-float-input>
+            
+        </div>
+        <div class="wrapup">
+            <app-float-input [inputModel]="wrap_up_code" [inputLabel]="'Wrap Up Code'"  [type]="'dropdown'" (click)="showWrapupAutoComplete()" (mouseleave)="wrapupInputleave()" (mouseenter)="wrapupInputenter()"></app-float-input>
+            <div class="autoComplete">
+                <app-input-autocomplete #menu (callbackFunction)="autoCompleteWrapup($event)" [data]="wrapUpReasonCodes" [type]="'WrapupCode'" [currentIndex]="wrapup_currentId" *ngIf="isWrapupAutoCompleteForm" (mouseleave)="autoCompleteFormleave()" (mouseenter)="autoCompleteFormEnter()"> </app-input-autocomplete>
+            </div>
+        </div>
+        <div class="name">
+            <app-float-input [inputModel]="name" [inputLabel]="'Name'" [type]="'dropdown'" (click)="showNameAutoComplete()" (mouseleave)="nameInputleave()" (mouseenter)="nameInputenter()"></app-float-input>
+            <div class="autoComplete">
+                    <app-input-autocomplete #menu (callbackFunction)="autoCompleteName($event)" [data]="associatedVals" [type]="'WrapupCodeName'" [currentIndex]="name_currentId" *ngIf="isNameAutoCompleteForm" (mouseleave)="autoCompleteFormleave()" (mouseenter)="autoCompleteFormEnter()"> </app-input-autocomplete>
+            </div>
+        </div>
+        <div class="related_to">
+            <app-float-input [inputModel]="related_to" [inputLabel]="'Related To'"  [type]="'dropdown'" (click)="showRelatedToAutoComplete()" (mouseleave)="relatedtoInputleave()" (mouseenter)="relatedtoInputenter()"></app-float-input>
+            <div class="autoComplete">
+                    <app-input-autocomplete #menu (callbackFunction)="autoCompleteRelatedTo($event)" [data]="relatedVals" [type]="'WrapupCodeRelated'" [currentIndex]="related_to_currentId" *ngIf="isRelatedtoAutoCompleteForm" (mouseleave)="autoCompleteFormleave()" (mouseenter)="autoCompleteFormEnter()"> </app-input-autocomplete>
+            </div>
+        </div>
+        <div class="wrapupcomments">
+            <app-float-input [inputModel]="wrapup_comments" [inputLabel]="'Wrap Up comments'"  [type]="'textarea'"></app-float-input>
+        </div>
+    </div>
+   <div class="setting">
+        <app-check-box [label]="'Set my status to Not Ready after this wrap up'" [type]="'label_blue'"></app-check-box>
+   </div>
+    <div class="resolve_close_button" (click)="confirm()">
+        <div class="content">
+            <img src="assets/svg/confirm-icon.svg" />
+            <span>Resolve & Close Ticket</span>
+        </div>
+    </div>
+</div>

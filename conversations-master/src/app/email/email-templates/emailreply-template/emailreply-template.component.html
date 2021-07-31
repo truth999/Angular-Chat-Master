@@ -1,0 +1,508 @@
+<div
+    class="alert"
+    *ngIf="blockedWordsCheck == true"
+>
+    <app-custom-alert
+        [alert_type]="'danger'"
+        [alert_message]="alert_message"
+        (callbackFunction)="closeAlert($event)"
+    ></app-custom-alert>
+</div>
+<div
+    class="reply-page"
+    (keyup.enter)="recognizeEmail($event)"
+    (keydown.enter)="$event.preventDefault()"
+    (keyup.space)="recognizeEmail($event)"
+>
+    <div class="pageContent">
+        <div class="from">
+            <div
+                class="from__center"
+                (keydown.space)="$event.preventDefault()"
+            >
+                <div
+                    class="from__text"
+                    [ngClass]="{'new': openedRequest.callStatus == 'new'}"
+                >
+                    From:
+                </div>
+                <div
+                    class="from__input"
+                    (mouseleave)="autocompleteFormleave()"
+                    (mouseenter)="autocompleteFormenter()"
+                >
+                    <div
+                        contenteditable="plaintext-only"
+                        class="form-control"
+                        (focus)="setFocusInput('from')"
+                        (click)="showFromEmailAutocomplete()"
+                        (input)="fromEmail=$event.target.innerHTML"
+                        [innerHTML]='fromEmailTemp'
+                    >
+                    </div>
+                    <div class="autocomplete">
+                        <app-input-autocomplete
+                            #menu
+                            (callbackFunction)="autoCompleteFromEmail($event)"
+                            [data]="fromEmailAddressList"
+                            [type]="'FromEmailAutocomplete'"
+                            *ngIf="isFromEmailAutoComplete"
+                        > </app-input-autocomplete>
+                    </div>
+                </div>
+            </div>
+            <div class="from__right ">
+                <div class="ccbcc">
+                    <div
+                        class="cc"
+                        (click)="showCC()"
+                    >
+                        Cc
+                    </div>
+                    <div
+                        class="bcc"
+                        (click)="showBCC()"
+                    >
+                        Bcc
+                    </div>
+                </div>
+                <div
+                    #emailContactsForm
+                    class="phoneButton"
+                    (mouseenter)="hoverInContactsButton()"
+                    (mouseleave)="hoverOutContactsButton()"
+                    (click)="showContacts()"
+                    [ngClass]="{'clicked': isShowContacts}"
+                >
+                    <img src="assets/svg/contact-icon.svg" />
+                </div>
+            </div>
+
+        </div>
+        <div
+            class="header"
+            (keydown.space)="$event.preventDefault()"
+        >
+            <div
+                class="header__left"
+                (click)="showReplyMethodMenu()"
+                (mouseenter)="buttonhoverStatus()"
+                (mouseleave)="buttonhoveroutStatus()"
+            >
+                <div class="backbutton">
+                    <img
+                        style="margin-right: 4px;"
+                        *ngIf="replyMethod == 'reply'"
+                        src="assets/svg/reply-icon.svg"
+                    />
+                    <img
+                        *ngIf="replyMethod == 'replyAll'"
+                        src="assets/svg/button-replyAll-icon.svg"
+                    />
+                    <img
+                        *ngIf="replyMethod == 'forward'"
+                        src="assets/svg/button-forward-icon.svg"
+                    />
+
+                </div>
+
+            </div>
+            <div class="header__center">
+                To:
+                <div
+                    contenteditable="plaintext-only"
+                    class="form-control"
+                    (click)="setFocusInput('to')"
+                    (input)="toEmail=$event.target.innerHTML"
+                    [innerHTML]='toEmailTemp'
+                    id="toInput"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapiatlise="off"
+                    spellcheck="false"
+                    #toInput
+                >
+                </div>
+            </div>
+        </div>
+        <div
+            class="CCBCC"
+            *ngIf="is_cc_show"
+            (keydown.space)="$event.preventDefault()"
+        >
+            <div
+                class="ccbcc__closeButton"
+                (click)="closeCC()"
+            >
+                <img
+                    style="margin-top: -4px;"
+                    class="normal"
+                    src="assets/svg/close-icon.svg"
+                />
+                <img
+                    style="margin-top: -4px;"
+                    class="hover"
+                    src="assets/svg/close-hover-icon.svg"
+                />
+            </div>
+            <div class="ccbcc__header">
+                CC:&nbsp;
+            </div>
+            <div class="ccbcc__input">
+                <div
+                    contenteditable="plaintext-only"
+                    class="form-control"
+                    (click)="setFocusInput('cc')"
+                    (input)="toCC=$event.target.innerHTML"
+                    [innerHTML]='toCCTemp'
+                >
+                </div>
+            </div>
+        </div>
+        <div
+            class="CCBCC"
+            *ngIf="is_bcc_show"
+            (keydown.space)="$event.preventDefault()"
+        >
+            <div
+                class="ccbcc__closeButton"
+                (click)="closeBCC()"
+            >
+                <img
+                    style="margin-top: -4px;"
+                    class="normal"
+                    src="assets/svg/close-icon.svg"
+                />
+                <img
+                    style="margin-top: -4px;"
+                    class="hover"
+                    src="assets/svg/close-hover-icon.svg"
+                />
+            </div>
+            <div class="ccbcc__header">
+                BCC:&nbsp;
+            </div>
+            <div class="ccbcc__input">
+                <div
+                    contenteditable="plaintext-only"
+                    class="form-control"
+                    (click)="setFocusInput('bcc')"
+                    (input)="toBCC=$event.target.innerHTML"
+                    [innerHTML]='toBCCTemp'
+                >
+                </div>
+            </div>
+        </div>
+        <div class="subject">
+            <div class="subject__text">
+                Subject:
+            </div>
+            <div class="subject__input">
+                <textarea
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="emailSubject"
+                    autosize
+                    [minRows]="1"
+                ></textarea>
+            </div>
+        </div>
+        <div
+            class="translate_action"
+            *ngIf="is_translate_mode"
+        >
+            <div class="translation_mark">
+                <img src="assets/svg/translation-black-mark.svg" />
+            </div>
+            <div class="original_language">
+                English
+            </div>
+            <div class="to_icon">
+                <img src="assets/svg/right-direction-icon.svg" />
+            </div>
+            <div class="target_language">
+                <div
+                    class="content"
+                    (click)="selectLanguage()"
+                    (mouseenter)="hoverInSelectLanguageButton()"
+                    (mouseleave)="hoverOutSelectLanguageButton()"
+                >
+                    {{ translate_language }}
+                    <img
+                        *ngIf="!show_select_language"
+                        style="margin-left: 4px; margin-bottom: 1px;"
+                        src="assets/svg/arrow-down-icon.svg"
+                    />
+                    <img
+                        *ngIf="show_select_language"
+                        style="margin-left: 4px; margin-bottom: 1px;"
+                        src="assets/svg/arrow-up-icon.svg"
+                    />
+                </div>
+
+                <div
+                    class="select_language_form"
+                    *ngIf="show_select_language"
+                >
+                    <app-select-language-form
+                        [selectedLanguage]="translate_language"
+                        (changeLanguage)="changeTranslateLanguage($event)"
+                        (mouseenter)="hoverInSelectLanguageForm()"
+                        (mouseleave)="hoverOutSelectLanguageForm()"
+                    ></app-select-language-form>
+                </div>
+            </div>
+
+            <div
+                class="view_original_message_action"
+                (click)="viewOriginalMessage()"
+            >
+                View Original Message
+            </div>
+            <div
+                class="x"
+                (click)="viewOriginalMessage()"
+            >
+                <img
+                    class="normal"
+                    src="assets/svg/close-icon.svg"
+                />
+                <img
+                    class="hover"
+                    src="assets/svg/close-hover-icon.svg"
+                />
+            </div>
+
+        </div>
+
+        <div class="contentMain">
+            <div
+                class="content__message"
+                [ngClass]="{'new': openedRequest.callStatus == 'new'}"
+            >
+                <quill-editor
+                    customToolbarPosition="bottom"
+                    [(ngModel)]="editorModel"
+                    format="object"
+                >
+                    <div
+                        [ngClass]="{'hide-toolbar': !show_toolbar}"
+                        quill-editor-toolbar
+                    >
+                        <span class="ql-formats">
+                            <select class="ql-font">
+                                <option
+                                    selected
+                                    value="DM_Sans"
+                                >DM Sans</option>
+                                <option value="serif">Serif</option>
+                                <option value="roboto">Roboto</option>
+                            </select>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>
+                            <button class="ql-strike"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <select class="ql-size">
+                                <option value="small"></option>
+                                <option selected></option>
+                                <option value="large"></option>
+                                <option value="huge"></option>
+                            </select>
+                        </span>
+                        <span class="ql-formats">
+                            <select
+                                class="ql-color"
+                                [title]="'Color'"
+                            >
+                            </select>
+                        </span>
+                        <span class="ql-formats">
+                            <select
+                                class="ql-align"
+                                [title]="'Aligment'"
+                            >
+                                <option selected></option>
+                                <option value="center"></option>
+                                <option value="right"></option>
+                                <option value="justify"></option>
+                            </select>
+                        </span>
+                        <span class="ql-formats">
+                            <button
+                                class="ql-list"
+                                value="ordered"
+                            ></button>
+                            <button
+                                class="ql-list"
+                                value="bullet"
+                            ></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button
+                                type="button"
+                                class="ql-indent"
+                                value="-1"
+                            ></button>
+                            <button
+                                type="button"
+                                class="ql-indent"
+                                value="+1"
+                            ></button>
+                        </span>
+
+                    </div>
+                </quill-editor>
+            </div>
+            <div
+                class="attachment"
+                *ngIf="attachments.length != 0"
+            >
+                <div
+                    class="attachmentItem"
+                    *ngFor="let attachment of attachmentsDisplay; let index = index;"
+                >
+                    <div class="normalAttachment" *ngIf="attachment.type == 'data'">
+                        <a
+                            [href]="'https://localhost:8000/' + attachment.name"
+                            target="_blank"
+                        >
+                            {{attachment.name}}
+                        </a>
+                        <div
+                            class="attachment-remove-button"
+                            (click)="removeAttachment(index)"
+                        >
+                            <img
+                                class="normal"
+                                src="assets/svg/close-icon.svg"
+                            />
+                            <img
+                                class="hover"
+                                src="assets/svg/close-hover-icon.svg"
+                            />
+                        </div>
+                    </div>
+                    <div class="imageAttachment" *ngIf="attachment.type == 'image'">
+                        <div class="screenshot">
+                            <img [src]="attachment.url">
+                        </div>
+                        <div class="footer">
+                            <img src="../../assets/svg/attachment-image-icon.svg">
+                            <p>{{ attachment.name }}</p>
+                            <div
+                                class="attachment-remove-button"
+                                (click)="removeAttachment(index)"
+                            >
+                                <img
+                                    class="normal"
+                                    src="assets/svg/close-icon.svg"
+                                />
+                                <img
+                                    class="hover"
+                                    src="assets/svg/close-hover-icon.svg"
+                                />
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div
+                class="original_message_content"
+                *ngIf="isShowReceivedMessage == true"
+            >
+                <div class="separate_line"></div>
+                <div
+                    class="message_header"
+                    *ngIf="replyMethod == 'forward'"
+                >
+                    --------- Forward message ---------<br>
+                    From: {{ currentEmail.emailContent.headers.from.name}}
+                    <{{currentEmail.emailContent.headers.from.id}}><br>
+                        Sent: {{ currentEmail.emailContent.headers.decodedTime}}<br>
+                        To: {{ toEmail }}<br>
+                        Subject: {{currentEmail.emailContent.headers.subject}}<br>
+                </div>
+                <div
+                    class="message_header"
+                    *ngIf="replyMethod != 'forward'"
+                >
+                    On {{ currentEmail.emailContent.headers.decodedTime}} {{
+                    currentEmail.emailContent.headers.from.name}}<{{currentEmail.emailContent.headers.from.id}}> wrote:
+                </div>
+                <div
+                    class="message_content"
+                    *ngIf="!is_translate_mode"
+                    [innerHTML]="currentEmail.emailContent.bodyHtml"
+                >
+                </div>
+                <div class="attachment">
+                    <a
+                        *ngFor="let attachment of currentEmail.emailContent.attachments"
+                        [href]="attachment.href + '/' + attachment.name"
+                        target="_blank"
+                    > {{attachment.name}}<br></a>
+                </div>
+            </div>
+            <div
+                class="content__toolbutton"
+                (click)="showReceivedMessage()"
+                *ngIf="openedRequest.callStatus !== 'new'"
+            >
+                <img
+                    style="margin-left: 4px; width:4px;"
+                    src="assets/svg/more-button-dot-icon.svg"
+                />
+                <img
+                    style="margin-left: 3px; width: 4px;"
+                    src="assets/svg/more-button-dot-icon.svg"
+                />
+                <img
+                    style="margin-left: 3px; width: 4px;"
+                    src="assets/svg/more-button-dot-icon.svg"
+                />
+            </div>
+
+            <div class="email__action">
+                <div class="saved__info">
+                    {{ saved__info }}
+                </div>
+            </div>
+            <div
+                class="translate"
+                *ngIf="!is_translate_mode"
+                (click)="translateMessage()"
+            >
+                <div class="transcript__translate">
+                    <img src="assets/svg/translation-mark.svg" />
+                    <p>Translate</p>
+                </div>
+            </div>
+            <app-emailreply-footer
+                (toggleToolbar)="toggleToolbar($event)"
+                (callbackFunction)="handleFooter($event)"
+                [blockedWordsCheck]="blockedWordsCheck"
+                [(attachment)]="attachments"
+            ></app-emailreply-footer>
+        </div>
+        <app-email-discard-template
+            (callbackFunction)="handleDiscardTemplate($event)"
+            *ngIf="isDiscard"
+        > </app-email-discard-template>
+    </div>
+
+    <div
+        class="contactsForm"
+        *ngIf="isShowContacts"
+    >
+        <app-email-contacts-form
+            (callbackFunction)="emailAutocomplete($event)"
+            (mouseenter)="hoverInContactsForm()"
+            (mouseleave)="hoverOutContactsForm()"
+        > </app-email-contacts-form>
+    </div>
+    <div>

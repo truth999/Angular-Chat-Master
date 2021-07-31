@@ -1,0 +1,294 @@
+<div
+    #footer
+    class="footer-actions"
+    (mouseenter)="hoverStatus()"
+    (mouseleave)="hoveroutStatus()"
+>
+    <div
+        class="left"
+        *ngIf="openedRequest.type != 'email' && isCobrowseEnabled == true"
+    >
+        <ul
+            class="DropMenuCo"
+            *ngIf="isComenuShow"
+            #DropMenuCo
+        >
+            <li class="">
+                <img
+                    class="normal"
+                    src="assets/svg/footer-menu-agent-cobrowse-icon.svg"
+                />
+                <img
+                    class="active"
+                    src="assets/svg/footer-menu-agent-cobrowse-hover-icon.svg"
+                />
+                <span>{{ 'Agent CoBrowse' | translate }}</span>
+            </li>
+            <li
+                class=""
+                (click)="showCoBrowse()"
+            >
+                <img
+                    class="normal"
+                    src="assets/svg/footer-menu-customer-cobrowse-icon.svg"
+                />
+                <img
+                    class="active"
+                    src="assets/svg/footer-menu-customer-cobrowse-hover-icon.svg"
+                />
+                <span>{{ 'Customer CoBrowse' | translate }}</span>
+            </li>
+        </ul>
+        <button
+            #CoMenuButton
+            class="co-browse_button"
+            [ngClass]="{'clicked': isComenuShow}"
+            (click)="toggleDropdownComenu()"
+        >
+
+            <img src="assets/svg/footer-cobrowse-icon.svg" />
+            <span>CoBrowse</span>
+
+            <img
+                *ngIf="!isComenuShow"
+                style="margin-left: 34px"
+                src="assets/svg/up-arrow-icon.svg"
+            />
+            <img
+                *ngIf="isComenuShow"
+                style="margin-left: 34px"
+                src="assets/svg/down-arrow-icon.svg"
+            />
+        </button>
+    </div>
+    <div class="center">
+        <ul
+            class="DropMenuEs"
+            *ngIf="isEsmenuShow"
+            #DropMenuEs
+        >
+            <li
+                class="DropMenuEs__line"
+                (click)="callCustomer()"
+            >
+                <a>
+                    <span class="mainicon">
+                        <img
+                            class="normal"
+                            src="assets/svg/esmenu-call-customer-icon.svg"
+                        />
+                        <img
+                            class="hover"
+                            src="assets/svg/esmenu-call-customer-hover-icon.svg"
+                        />
+                    </span>
+
+                    <span>{{ 'Call Customer' | translate }}</span>
+                </a>
+            </li>
+            <li
+                class="DropMenuEs__line"
+                (click)="emailCustomer()"
+            >
+                <a>
+                    <span class="mainicon">
+                        <img
+                            style="margin-top: 2px;"
+                            class="normal"
+                            src="assets/svg/esmenu-email-customer-icon.svg"
+                        />
+                        <img
+                            style="margin-top: 2px;"
+                            class="hover"
+                            src="assets/svg/esmenu-email-customer-hover-icon.svg"
+                        />
+                    </span>
+                    <span>{{ 'Email Customer' | translate }}</span>
+                </a>
+            </li>
+            <li
+                class="DropMenuEs__line"
+                (click)="manualLink()"
+            >
+                <a>
+                    <span class="mainicon">
+                        <img
+                            class="normal"
+                            src="assets/svg/esmenu-manually-link-icon.svg"
+                        />
+                        <img
+                            class="hover"
+                            src="assets/svg/esmenu-manually-link-hover-icon.svg"
+                        />
+                    </span>
+                    <span>{{ 'Manually Link' | translate }}</span>
+                </a>
+            </li>
+            <li
+                class="DropMenuEs__line"
+                (mouseover)="showSubMenu()"
+                (mouseleave)="hideSubMenu()"
+            >
+                <a>
+                    <span class="mainicon">
+                        <img
+                            style="margin-top: 2px;"
+                            class="normal"
+                            src="assets/svg/esmenu-transfer-chat-icon.svg"
+                        />
+                        <img
+                            style="margin-top: 2px;"
+                            class="hover"
+                            src="assets/svg/esmenu-transfer-chat-hover-icon.svg"
+                        />
+                    </span>
+                    <span>{{ 'Transfer Chat' | translate }}</span>
+                    <span class="subicon">
+                        <img src="assets/svg/right-direction-icon.svg" />
+                    </span>
+                </a>
+
+                <ul
+                    class="DropMenuEs__line__submenu"
+                    *ngIf="is_right_menu"
+                    #DropMenuEs__line__submenu
+                >
+                    <li
+                        class="submenu__item"
+                        (click)="showEscalateQueue()"
+                    >
+                        <img
+                            style=" margin-right: 11px"
+                            class="normal"
+                            src="assets/svg/essubmenu-to-queue.svg"
+                        />
+                        <img
+                            style=" margin-right: 11px"
+                            class="hover"
+                            src="assets/svg/essubmenu-to-queue-hover.svg"
+                        />
+                        <span>{{ 'To Queue' | translate }}</span>
+                    </li>
+                    <li
+                        class="submenu__item"
+                        (click)="showEscalateSupervisor()"
+                    >
+                        <img
+                            style=" margin-right: 11px"
+                            class="normal"
+                            src="assets/svg/essubmenu-to-supervisor.svg"
+                        />
+                        <img
+                            style=" margin-right: 11px"
+                            class="hover"
+                            src="assets/svg/essubmenu-to-supervisor-hover.svg"
+                        />
+                        <span>{{ 'To Supervisor' | translate }}</span>
+                    </li>
+                    <li
+                        class="submenu__item"
+                        (click)="showAgency()"
+                    >
+                        <img
+                            style=" margin-right: 11px"
+                            class="normal"
+                            src="assets/svg/essubmenu-to-agent.svg"
+                        />
+                        <img
+                            style=" margin-right: 11px"
+                            class="hover"
+                            src="assets/svg/essubmenu-to-agent-hover.svg"
+                        />
+                        <span>{{ 'To Agent' | translate }}</span>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        <button
+            #EsMenuButton
+            class="escalate_button"
+            [ngClass]="{'clicked': isEsmenuShow}"
+            (click)="toggleDropdownEsmenu()"
+        >
+            <img src="assets/svg/escalate-button-icon.svg" />
+            <span>Escalate</span>
+            <img
+                *ngIf="!isEsmenuShow"
+                style="margin-left: 34px"
+                src="assets/svg/up-arrow-icon.svg"
+            />
+            <img
+                *ngIf="isEsmenuShow"
+                style="margin-left: 34px"
+                src="assets/svg/down-arrow-icon.svg"
+            />
+        </button>
+    </div>
+    <div
+        *ngIf="wrapup_enable"
+        class="right"
+    >
+        <button
+            class="wrap-up-chat_button active"
+            (click)="wrapup()"
+        >
+            <img src="assets/svg/wrapup-button-icon.svg" />
+            <b>Wrap Up Chat</b>
+        </button>
+    </div>
+    <div
+        *ngIf="!wrapup_enable"
+        class="right"
+        (click)="endInteraction()"
+    >
+        <button class="wrap-up-chat_button active">
+            <img src="assets/svg/endinteraction-button-icon.svg" />
+            <b>End Interaction</b>
+        </button>
+    </div>
+</div>
+<app-escalate
+    *ngIf="show_escalate"
+    [escalate_type]="escalate_type"
+    [closeEscalate]="closeEscalate"
+></app-escalate>
+<app-co-browse
+    *ngIf="show_cobrowse"
+    [closeCobrowse]="closeCobrowse"
+></app-co-browse>
+<app-manually-link-form
+    *ngIf="isShowManuallyLinkForm"
+    (callbackFunction)="handleManuallyLinkForm($event)"
+></app-manually-link-form>
+<app-to-agency
+    *ngIf="show_agency"
+    (callbackFunction)="AgencyCallback($event)"
+    [type]="agencyType"
+></app-to-agency>
+<app-direct-transfer
+    *ngIf="show_agency_transfer"
+    [callbackFunction]="AgencyTransferCallback"
+></app-direct-transfer>
+<app-agency-transfer-progress
+    *ngIf="show_agency_transfer_progress"
+    [callbackFunction]="AgencyTransferProgressCallback"
+> </app-agency-transfer-progress>
+
+<app-wrapup-before
+    *ngIf="wrapup_status == 1"
+    [type]="'chat'"
+    (callbackFunction)="handleWrapup($event)"
+> </app-wrapup-before>
+<app-wrapup-chat
+    *ngIf="wrapup_status == 2"
+    (callbackFunction)="handleWrapup($event)"
+> </app-wrapup-chat>
+<div class="alert">
+    <app-custom-alert
+        *ngIf="show_alert"
+        [alert_type]="'success'"
+        [alert_message]="alert_message"
+        (callbackFunction)="closeAlert($event)"
+    ></app-custom-alert>
+</div>

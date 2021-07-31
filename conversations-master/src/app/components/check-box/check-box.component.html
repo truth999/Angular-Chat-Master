@@ -1,0 +1,15 @@
+<div class="setting_checkbox"  (click) = "toggleInput()">
+    <div class="icon__unselected"  *ngIf = "setting_status == false">
+        <img src="assets/svg/checkbox-icon-unselected.svg" />
+    </div>
+    <div class="icon__selected"  *ngIf = "setting_status == true">
+        <img src="assets/svg/checkbox-icon-selected.svg" />
+    </div>
+    <div class="content--blue" *ngIf="type == 'label_blue'">
+        {{ label }}
+    </div>
+    <div class="content--normal" *ngIf="type == 'normal'">
+        {{ label }}
+    </div>
+
+</div>

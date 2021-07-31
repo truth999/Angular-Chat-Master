@@ -1,0 +1,24 @@
+<div class="modal-dropdown">
+    <div class="select-projects-section">
+        <label>Select Project/Projects</label>
+        <select name="projects" [(ngModel)]="selectedProjects" id="projects" multiple="multiple">
+            <option value="Billing">Billing</option>
+            <option value="Inventory">Inventory</option>
+            <option value="Loan">Loan</option>
+        </select>
+    </div>
+    <div class="group-name-section">
+        <label>Group Name</label>
+        <div class="group-name-input">
+            <input type="text" [(ngModel)]="groupName">
+            <select [(ngModel)]="groupAction">
+                <option value="readOnly">Read Only</option>
+                <option value="canEdit">Can Edit</option>
+                <option value="canEditDelete">Can Edit/Delete</option>
+            </select>
+        </div>
+    </div>
+    <div class="action-section">
+        <button class="action-button">SAVE</button>
+    </div>
+</div>

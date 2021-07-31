@@ -1,0 +1,16 @@
+table {
+    color: #1c323f !important;
+    font-family: 'DM Sans' !important;
+    tbody {
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        line-height: 30px !important;
+        tr {
+            cursor: pointer;
+            &:hover {
+                background-color: #e6f3f7 !important;
+                color: #0095da !important;
+            }
+        }
+    }  
+}

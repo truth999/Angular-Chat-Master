@@ -1,0 +1,28 @@
+<div class="cobrowse-session">
+
+    <div class="cobrowse-session__body">
+        <div class = "x" (click)="close()">
+            <img  class="normal" src="assets/svg/close-icon.svg" />
+            <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+
+        </div>
+        <form class="form">      
+            <h3>To start Co-Browsing, please enter the session <br/>ID provided by the customer</h3>
+            <div class="two-input">
+                <app-float-input [(inputModel)]="session_id" [inputLabel]="'Session ID'" [type]="'normal'"></app-float-input> 
+            </div>
+        </form>
+    </div>
+    <div class="cobrowse-session__footer">
+        <div class="btns">
+            <div class="cancel" (click)="close()">
+                <img src="assets/svg/cancel-icon.svg" />
+                <span>{{ 'cancel' | translate }}</span>
+            </div>
+            <div class="save" (click)="close()">
+                <img src="assets/svg/confirm-icon.svg" />
+                <span>Join Session</span>
+            </div>
+        </div>
+    </div>
+</div>

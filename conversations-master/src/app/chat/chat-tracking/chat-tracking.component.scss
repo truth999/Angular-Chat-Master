@@ -1,0 +1,71 @@
+.tracking_tabs {
+    width: calc(100%);
+    position: relative;
+    display: flex;
+    height: 38px;
+    background-color: #ffffff;
+    margin-top: 3px;
+    box-shadow: 0 2px 12px 0 rgba(17, 30, 38, 0.1),
+        0 2px 18px 0 rgba(4, 45, 69, 0.31);
+    overflow: hidden;
+    z-index: 2;
+    .tab_item {
+        // width: 25%;
+        flex-basis: 100%;
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+
+        .tab__content {
+            margin-top: 4px;
+            padding-top: 6px;
+            color: #517785;
+            font-family: 'DM Sans';
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            line-height: 18px;
+            text-align: center;
+            height: 30px;
+            // width: 98px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 5px;
+        }
+
+        .tab__content--active {
+            margin-top: 4px;
+            padding-top: 6px;
+            color: #219fcf;
+            font-family: 'DM Sans';
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            line-height: 18px;
+            text-align: center;
+            height: 24px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 5px;
+            background-color: rgba(33, 159, 207, 0.1);
+        }
+    }
+}
+
+.content {
+    padding-top: 25px;
+    overflow-y: auto;
+    // height: calc(100vh - 271px);
+    height: calc(100vh - 285px);
+    background: white;
+}
+
+.chat-footer {
+    height: 40px;
+    padding: 0px 0;
+    background: #ffffff;
+    position: fixed;
+    width: calc(100% - 8px);
+    bottom: 0;
+    // border-radius: 0 0 15px 15px;
+}

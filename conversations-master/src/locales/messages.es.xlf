@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="search" datatype="html">
+        <source>Search</source>
+        <target>Buscar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/search-bar/search-bar.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">search bar button title</note>
+        <note priority="1" from="meaning">search button</note>
+      </trans-unit>
+      <trans-unit id="ready" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ (status==&apos;not-ready&apos;) ? (timer | formatTime) : &quot;Ready&quot;}}"/></source>
+        <target><x id="INTERPOLATION" equiv-text="{{ (status==&apos;not-ready&apos;) ? (timer | formatTime) : &quot;Lasta&quot;}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/muti-level-dropdown/muti-level-dropdown.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">current status is ready</note>
+        <note priority="1" from="meaning">ready status</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

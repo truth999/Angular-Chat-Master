@@ -1,0 +1,8 @@
+<div *ngIf="isActive == false" class="filterbutton" (click)="handleFilterButtonClick()">
+        <img  src="assets/img/filterbutton-icon.svg" />
+        <span>Filter</span>
+</div>
+<div *ngIf="isActive == true" class="filterbutton" [ngClass]="{'clicked': clicked}" (click)="handleFilterButtonClick()">
+    <img  src="assets/img/filterbutton-close-icon.svg" />
+    <span>Close</span>
+</div>

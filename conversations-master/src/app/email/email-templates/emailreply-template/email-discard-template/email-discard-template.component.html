@@ -1,0 +1,26 @@
+<div class="discard-template">
+    <div class="x" (click)="doAction('Close')">
+        <img  class="normal" src="assets/svg/close-icon.svg" />
+        <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+    </div>
+    <div class="template-image">
+        <img src="assets/svg/email-discard-icon.svg" />
+    </div>
+    <div class="template-letter">
+        Are you sure you want to discard this draft?<br>
+        You can not undo this action
+    </div>
+    <div class="action">
+        <div class="goback_button" (click)="doAction('Close')">
+            <div class="button__content">
+                Go Back
+            </div>
+        </div>
+        <div class="discard_button" (click)="doAction('Discard')">
+            <div class="button__content">
+                <img style="margin-bottom: -1px; margin-right: 5px;" src="assets/svg/discard-button-icon.svg" />
+                Yes, Discard
+            </div>
+        </div>
+    </div>
+</div>

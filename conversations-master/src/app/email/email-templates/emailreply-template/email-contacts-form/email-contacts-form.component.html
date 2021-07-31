@@ -1,0 +1,28 @@
+<div class="emailContactsForm">
+    <div class="header-actions">
+        <div class="search-bar">
+            <div class="search-bar__left">
+                
+                <input type="text" [(ngModel)]="contactSearchText" id="_search" placeholder="Search"/>
+                <img src="../../assets/icons/search gray.svg">
+            </div>
+        </div>
+        <div class="plusButton" (click)="addContact()">
+            <img src="assets/svg/button-plus-icon.svg" />
+        </div>
+    </div>
+    <div class="content">
+        <div class="item" *ngFor="let contact of contacts" (click)="emailAutocomplete(contact.email)">
+            <div class="item__name" *ngIf="contact.name.toLowerCase().includes(contactSearchText.toLowerCase())">
+                {{ contact.name }}
+            </div>
+            <div class="item__role" *ngIf="contact.name.toLowerCase().includes(contactSearchText.toLowerCase())">
+                {{ contact.role }}
+            </div>
+            <div class="item__email" *ngIf="contact.name.toLowerCase().includes(contactSearchText.toLowerCase())">
+                {{ contact.email }}
+            </div>
+        </div>
+    </div>
+</div>
+<app-add-email-contact *ngIf="isShowAddContactForm"> </app-add-email-contact>

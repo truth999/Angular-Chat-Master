@@ -1,0 +1,32 @@
+<button class="accordion" [ngClass]="{'active': curPanel == 1}" (click)="showPanel(1)">
+    Section 1
+    <div class="dropdown-icon">
+        <img *ngIf="curPanel != 1" src="assets/img/arrow-down-icon.svg" />
+        <img *ngIf="curPanel == 1" src="assets/img/arrow-up-icon.svg" />
+    </div>
+</button>
+<div class="panel" [ngClass]="{'active': curPanel == 1}">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion" [ngClass]="{'active': curPanel == 2}" (click)="showPanel(2)">
+    Section 2
+    <div class="dropdown-icon">
+        <img *ngIf="curPanel != 2" src="assets/img/arrow-down-icon.svg" />
+        <img *ngIf="curPanel == 2" src="assets/img/arrow-up-icon.svg" />
+    </div>
+</button>
+<div class="panel" [ngClass]="{'active': curPanel == 2}">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion" [ngClass]="{'active': curPanel == 3}" (click)="showPanel(3)">
+    Section 3
+    <div class="dropdown-icon">
+        <img *ngIf="curPanel != 3" src="assets/img/arrow-down-icon.svg" />
+        <img *ngIf="curPanel == 3" src="assets/img/arrow-up-icon.svg" />
+    </div>
+</button>
+<div class="panel" [ngClass]="{'active': curPanel == 3}">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>

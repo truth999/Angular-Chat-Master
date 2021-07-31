@@ -1,0 +1,66 @@
+
+<div class="errorsPage">
+    <div class="topbar">
+        <div class="backButton" (click)="close()">
+            <img style="margin-right: 8.07px" src="assets/svg/real-back-icon.svg" />
+            Back
+        </div>
+    </div>
+    <div class="tabs" >
+        <div class="tab_item" (click) = "changeTab(1)">
+            <p [ngClass]="tabindex == 1 ? 'tab__content--active' : 'tab__content'">Error History</p>
+        </div > 
+        <div class="tab_item" (click) = "changeTab(2)">
+            <p [ngClass]="tabindex == 2 ? 'tab__content--active' : 'tab__content'">Report Bug</p>
+        </div>
+    </div>
+    <div class="alert">
+        <app-custom-alert  *ngIf="report_success" [alert_type]="'success'" [alert_message]="alert_message" (callbackFunction)="closeAlert($event)"></app-custom-alert>
+    </div>
+    <div class="content" *ngIf="tabindex == 1">
+        <div class="period">2020 - July</div>
+        <div class="scroll-area">
+            <div class="item-row" *ngFor="let history of errorHistories;let index=index">
+                <div>
+                    <img src="assets/svg/error-history-icon.svg" />
+
+
+                    <span class="jonathan-brewer">{{history.message}}</span>
+                </div>
+                <!--<span class="errors">{{history.message}}</span>-->
+                <span class="date">{{history.time}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="content" *ngIf="tabindex == 2">
+        <div class="header">
+            Report a Problem
+        </div>
+        <div class="dataInput">
+            <div class="reportText">
+                <app-float-input [(inputModel)]="reportText" [inputLabel]="'Describe your problem'"  [type]="'textarea'"></app-float-input>
+            </div>
+        </div>
+        <div class="reportIds">
+            <div class="reportId" *ngFor="let reportId of reportIds;">
+                Release by {{reportId.releasedBy}} | Build #{{reportId.buildId}} Component {{reportId.componentId}}
+            </div>
+        </div>
+    </div>
+    <div class="footer" *ngIf="tabindex == 2">
+        <div class="btns">
+            <div class="cancel" (click)="close()">
+                <img src="assets/svg/cancel-icon.svg" />
+                <span>{{ 'Cancel' | translate }}</span>
+            </div>
+            <div  class="confirmButton" *ngIf="report_success == false" (click)="sendReport()">
+                <img src="assets/svg/confirm-icon.svg" />
+                <span>Send Report </span>
+            </div>
+            <div  class="confirmButton--success == true" *ngIf="report_success">
+                <img src="assets/svg/confirm-icon.svg" />
+                <span>Send Report </span>
+            </div>
+        </div>
+    </div>
+</div>

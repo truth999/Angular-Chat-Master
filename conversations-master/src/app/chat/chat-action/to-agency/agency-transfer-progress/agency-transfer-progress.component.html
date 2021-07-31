@@ -1,0 +1,39 @@
+<p>agency-transfer-progress works!</p>
+<div class="directTransfer-session">
+
+    <div class="directTransfer-session__body" >
+        <div class = "x" (click)="doAction('CLOSE AGENCY TRANSFER PROGRESS')">
+            <img  class="normal" src="assets/svg/close-icon.svg" />
+            <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+
+        </div>
+        <form class="transferProgressForm">
+            <div class="transferProgressForm__header">
+                <h2>Transfer In Progress</h2>
+            </div>
+            <div class="transferProgressForm__content">
+                <div class="transferProgressForm__content__details">
+                    <p class="time" >Taking {{ time }}</p>
+                    <p class="name">{{ user }}...</p>
+                    <p class="number">{{ number }}</p>
+                </div>
+                <div class="transferProgressFrom__content__action">
+                    <div class="wrapup_button" >
+                        <img  class="hover" src="assets/svg/small-button-wrapup-icon.svg" />
+                    </div>
+                    <div class="pause_button" >
+                       <img  class="hover" src="assets/svg/small-button-pause-icon.svg" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="directTransfer-session__footer">
+        <div class="btns">
+             <div class="completeButton" (click)="doAction('COMPLETE TRANSFER PROGRESS')">
+                <img src="assets/svg/confirm-icon.svg" />
+                <span>Complete Transfer</span>
+            </div>
+        </div>
+    </div>
+</div>

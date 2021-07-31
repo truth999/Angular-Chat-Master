@@ -1,0 +1,135 @@
+.call-transcript {
+    .header {
+        height: 30px;
+        width: 130px;
+        color: #1c323f;
+        font-family: 'DM Sans';
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: -0.4px;
+        line-height: 30px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 25px;
+    }
+    .content {
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin-left: 32px;
+        margin-right: 32px;
+        margin-bottom: 145px;
+        box-sizing: border-box;
+        margin-top: 20px;
+        height: 253px;
+        width: calc(100% - 64px);
+        padding-bottom: 28.5px;
+        border: 1px solid rgba(189, 204, 210, 0.5);
+        border-radius: 10px;
+        background-color: rgba(246, 250, 251, 0.6);
+        .transcript__line {
+            display: flex;
+            margin-left: 20px;
+            margin-top: 18px;
+            .content__name--first {
+                width: 55px;
+                width: calc(15%);
+                cursor: pointer;
+
+                white-space: nowrap;
+                display: inline-block;
+
+                position: relative;
+                .maintext {
+                    text-overflow: ellipsis;
+                    -webkit-line-clamp: 2;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    white-space: normal;
+                    word-break: break-all;
+                    font-family: 'DM Sans';
+                    font-size: 14px;
+                    font-weight: bold;
+                    letter-spacing: 0;
+                    color: #219fcf;
+                    overflow: hidden;
+                }
+                &:hover {
+                    overflow: visible;
+                }
+                &:hover::before {
+                    content: attr(data-title);
+                    position: absolute;
+                    bottom: -46px;
+                    padding: 10px;
+                    background: #505c62;
+                    color: #fff;
+                    font-size: 14px;
+                    white-space: nowrap;
+                    border-radius: 6px;
+                    transition: 0.1s ease-in;
+                    font-family: 'DM Sans';
+                }
+                &:hover::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -12px;
+                    left: 8px;
+                    border: 8px solid transparent;
+                    border-bottom: 8px solid #505c62;
+                    transition: 0.1s ease-in;
+                }
+            }
+            .content__name--second {
+                width: calc(15%);
+                color: #1c323f;
+                font-family: 'DM Sans';
+                font-size: 14px;
+                font-weight: bold;
+                letter-spacing: 0;
+
+                white-space: nowrap;
+                display: inline-block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                white-space: normal;
+                word-break: break-all;
+                cursor: pointer;
+            }
+            .content__time {
+                width: calc(15%);
+                color: #6d8790;
+                font-family: 'DM Sans';
+                font-size: 12px;
+                letter-spacing: 0;
+                margin-left: 10px;
+
+                white-space: nowrap;
+                display: inline-block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                white-space: normal;
+            }
+            .content__txt {
+                margin-left: 5px;
+                width: 70%;
+                color: #1c323f;
+                font-family: 'DM Sans';
+                font-size: 14px;
+                letter-spacing: 0;
+            }
+        }
+    }
+}
+.footer {
+    position: fixed;
+    bottom: 0px;
+    // width: 100%;
+    width: calc(100% - 8px);
+}

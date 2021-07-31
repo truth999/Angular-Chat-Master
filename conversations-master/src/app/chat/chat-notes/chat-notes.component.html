@@ -1,0 +1,75 @@
+<div
+    class="notes"
+    [ngClass]="{'forVoice': type=='voice'}"
+    #noteArea
+>
+    <div
+        class="item"
+        *ngFor="let note of sessionNotes;let index = index;"
+    >
+        <div class="item__avartar">
+            <img src="../../../assets/icons/avartar.svg">
+        </div>
+        <div class="content">
+            <div class="toolbutton">
+                <div
+                    class="editButton"
+                    (click)="editNote(index)"
+                >
+                    <img src="assets/svg/note-edit-icon.svg" />
+                </div>
+                <div
+                    class="removeButton"
+                    (click)="deleteNote(index)"
+                >
+                    <img src="assets/svg/note-delete-icon.svg" />
+                </div>
+            </div>
+            <div class="item__title">
+                {{ note.conversationId }}
+                <!-- , {{ note.filterName }}-->
+            </div>
+            <div class="item__time">
+
+                {{note.localDateTime.split('T', 2)[0]}} | {{note.localDateTime.split('T', 2)[1]}}
+            </div>
+            <div class="item__content">
+                {{ note.notes }}
+            </div>
+            <div class="separate-line">
+            </div>
+        </div>
+    </div>
+</div>
+<div
+    class="noteaction"
+    *ngIf="!show_add_note_template"
+>
+    <div
+        class="addbutton"
+        (click)="addNote()"
+    >
+        <p> + Add Note </p>
+    </div>
+</div>
+<div
+    class="add-note-section"
+    *ngIf="show_add_note_template"
+>
+    <app-add-note-template
+        *ngIf="add_note_template_type != 'Edit'"
+        (callBackFunction)="handleNoteText($event)"
+    > </app-add-note-template>
+    <app-add-note-template
+        *ngIf="add_note_template_type == 'Edit'"
+        [currentText]="sessionNotes[edit_note_index].notes"
+        [type]="'Edit'"
+        (callBackFunction)="handleNoteText($event)"
+    > </app-add-note-template>
+</div>
+<div class="chat-footer">
+    <app-footer-action *ngIf="openedRequest.type == 'chat'"> </app-footer-action>
+    <app-emailfooter-action *ngIf="openedRequest.type == 'email'"></app-emailfooter-action>
+    <app-voice-footer *ngIf="openedRequest.type == 'voice'"> </app-voice-footer>
+    <!-- <app-emailfooter-action *ngIf="openedRequest.type == 'email'"></app-emailfooter-action> -->
+</div>

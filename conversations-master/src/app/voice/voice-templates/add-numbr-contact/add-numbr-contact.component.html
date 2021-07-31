@@ -1,0 +1,36 @@
+<div class="addContactPage">
+    <div class="topbar">
+        <div class="backButton" (click)="close()">
+            <img style="margin-right: 8.07px" src="assets/svg/real-back-icon.svg" />
+            Back
+        </div>
+    </div>
+    <div class="content">
+        <div class="header">
+            Add New Speed Dial Number
+        </div>
+        <div class="dataInput">
+            <div class="nameInput">
+                <app-float-input [(inputModel)]="name" [inputLabel]="'Contact Name'"  [type]="'normal'"></app-float-input>
+            </div>
+            <div class="numberInput">
+                <app-float-input [(inputModel)]="number" [inputLabel]="'Contact Number'" [type]="'normal'"></app-float-input>
+            </div>
+            <div class="descriptionInput">
+                <app-float-input [(inputModel)]="description" [inputLabel]="'Contact Description'" [type]="'normal'"></app-float-input>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="btns">
+            <div class="cancel" (click)="close()">
+                <img src="assets/svg/cancel-icon.svg" />
+                <span>{{ 'Cancel' | translate }}</span>
+            </div>
+            <div  class="addButton" (click)="addContact()">
+                <img src="assets/svg/confirm-icon.svg" />
+                <span>Add New Contact </span>
+            </div>
+        </div>
+    </div>
+</div>

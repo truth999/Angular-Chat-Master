@@ -1,0 +1,39 @@
+<div class="escalate-session">
+    
+    <div class="escalate-session__body" >
+        <div class = "x" (click)="close(escalate_type)">
+            <img  class="normal" src="assets/svg/close-icon.svg" />
+            <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+
+        </div>
+        <form class="form">      
+            <h3 *ngIf="escalate_type=='Queue'" class="queue">
+                <img  src="assets/svg/escalate-queue-icon.svg" />
+            </h3>
+            <h3 *ngIf="escalate_type=='Supervisor'">
+                <img  src="assets/svg/escalate-supervisor-icon.svg" />
+            </h3>
+            <h3 >
+                <span>Are you sure you want to transfer this chat back to <br>the {{ escalate_type }}? You can not undo this action.</span>
+            </h3>
+            <div class="queueInput" (mouseleave)="autocompleteFormleave()" (mouseenter)="autocompleteFormenter()" *ngIf="escalate_type=='Queue'">
+                <app-float-input [(inputModel)]="queue" [inputLabel]="'Queue'" [type]="'dropdown'" (click)="showQueueAutocomplete()"></app-float-input> 
+                <div class="autoComplete">
+                    <app-input-autocomplete (callbackFunction)="autoCompleteQueue($event)" [data]="queueList" [type]="'QueueList'" *ngIf="isQueueAutoComplete"> </app-input-autocomplete>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="escalate-session__footer">
+        <div class="btns">
+            <div class="cancel" (click)="close(escalate_type)">
+                <img src="assets/svg/cancel-icon.svg" />
+                <span >{{ 'cancel' | translate }}</span>
+            </div>
+            <div class="save" (click)="close(escalate_type)">
+                <img src="assets/svg/confirm-icon.svg" />
+                <span >Transfer To {{ escalate_type }}</span>
+            </div>
+        </div>
+    </div>
+</div>

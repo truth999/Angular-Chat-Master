@@ -1,0 +1,123 @@
+.add-note-template {
+    width : 100%;
+    height: 100%;
+    .toolbar {
+        display : flex;
+        margin-top: 10px;
+        width: 100%;
+        .add-note-button {
+            float: right;
+            position: absolute;
+            right: 80px;
+            margin-right: 10px;
+            height: 24px;
+            width: 58px;
+            border-radius: 6px;
+            background-color: #219FCF;
+            padding-left: 15px;
+            padding-top: 2.5px;
+
+            color: #FFFFFF;
+            font-family: "DM Sans";
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 18px;
+            box-sizing: border-box;
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(32, 137, 179);
+            }
+        }
+        .cancel-button {
+            float: right;
+            position: absolute;
+            right: 10px;
+            margin-right: 10px;
+            height: 24px;
+            width: 58px;
+            border-radius: 6px;
+            background-color: #219FCF;
+            padding-left: 5.5px;
+            padding-top: 2.5px;
+
+            color: #FFFFFF;
+            font-family: "DM Sans";
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 18px;
+            box-sizing: border-box;
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(32, 137, 179);
+            }
+        }
+        .rectangle {
+            box-sizing: border-box;
+            cursor: pointer;
+            height: 24px;
+            width: 24px;
+            line-height:24px;
+            border: 1px solid rgba(109,135,144,0.2);
+            border-radius: 12px;
+            background-color: #FFFFFF;
+            vertical-align: middle;
+            display:inline-block;
+            margin-left:5px;
+            text-align: center;
+    
+            .path-1 {
+          }
+        }
+    
+      .rectangle-round {
+        box-sizing: border-box;
+        height: 24px;
+        width: 24px;
+        cursor: pointer;
+        line-height:24px;
+        // border: 1px solid rgba(33,159,207,0.67);
+        border-radius: 12px;
+        display:inline-block;
+        vertical-align: middle;
+        text-align: center;
+        margin-left:5px;
+        .icon--active {
+            .first {
+                fill: #429FCA;
+            }
+            .second {
+                fill: #429FCA;
+            }
+        }
+        .icon {
+            path {
+                fill:  #BDCCD2;
+            }
+        }   
+    
+        .fill   { color:#f00 }
+            .shape {
+                box-sizing: border-box;
+            }
+    
+            
+            
+        }
+    }
+    .add-note-textinput {
+        display: flex;
+        textarea {
+            resize: none;
+        }
+        .form-control     {
+            margin:10px 0; border:0;
+            margin-right: 1px;
+            width:calc(100% - 20px); padding:5px 10px;font-family: "DM Sans";
+            font-size: 14px;
+            letter-spacing: 0;
+            margin-top: 21px;
+            line-height: 18px; }
+    }
+}

@@ -1,0 +1,80 @@
+<div class="conference_progress">
+    <div class="header">
+        Conference In Progress
+    </div>
+    <div class="progresses">
+        <div
+            class="progress"
+            *ngFor="let call of calls; index as index;"
+        >
+            <div
+                class="content"
+                *ngIf="call.type == 'conference'"
+            >
+                <div class="progress__details">
+                    <div
+                        class="status--holding"
+                        *ngIf="call.status == 'holding'"
+                    >
+                        On Hold {{ call.holdTime | formatTime}}
+                    </div>
+                    <div
+                        class="status--talking"
+                        *ngIf="call.status == 'talking'"
+                    >
+                        Taking {{ call.talkingTime | formatTime }}
+                    </div>
+                    <div class="name">
+                        {{ call.destname }}
+                    </div>
+                    <div class="number">
+                        {{ call.phoneNumber }}
+                    </div>
+                </div>
+                <!--<div class="progress__action">
+                    <div class="action--holding" *ngIf="call.status == 'holding'">
+                        <div class="retrieve_button" (click)="retrieve(index)">
+                            <img src="assets/svg/small-button-retrieve-icon.svg" />
+                        </div>
+                    </div>
+                    <div class="action--talking" *ngIf="call.status == 'talking'">
+                        <div class="wrapup_button" (click)="wrapup(index)">
+                            <img src="assets/svg/small-button-wrapup-icon.svg" />
+                        </div>
+                        <div class="pause_button" (click)="pause(index)">
+                            <img  class="hover" src="assets/svg/small-button-pause-icon.svg" />
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div
+        class="action"
+        (click)="addAnotherCall()"
+    >
+        <div class="addCall">
+            <img src="assets/svg/add-call-icon.svg" />
+            Add Another Call
+        </div>
+        <!--<div class="mergeCall" (click)="mergeCalls()">
+            <img src="assets/svg/merge-call-icon.svg" />
+            Merge Calls({{ conferenceCallCount }})
+        </div>-->
+    </div>
+    <div class="responsive"></div>
+</div>
+<!-- <app-calldialtones-footer [type]="'ConferenceProgress'" [conferenceCallCount]="conferenceCallCount" (callbackFunction)="handleFooter($event)"></app-calldialtones-footer> -->
+<div class="footer">
+    <app-voice-footer
+        [currentPage]="'CallConferenceProgressPage'"
+        [conferenceCallCount]="conferenceCallCount"
+        (callbackFunction)="handleFooter($event)"
+    ></app-voice-footer>
+</div>
+
+<app-to-agency
+    *ngIf="show_agency"
+    (callbackFunction)="AgencyCallback($event)"
+    [type]="agencyType"
+></app-to-agency>

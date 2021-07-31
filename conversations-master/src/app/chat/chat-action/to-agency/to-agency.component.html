@@ -1,0 +1,125 @@
+<div class="toagency-session">
+
+    <div class="toagency-session__body" >
+        <div class = "x" (click)="doAction('CLOSE AGENCY')">
+            <img  class="normal" src="assets/svg/close-icon.svg" />
+            <img  class="hover" src="assets/svg/close-hover-icon.svg" />
+
+        </div>
+        <div class="agencycall">
+            <h3 >
+                Transfer Custom Chat
+            </h3>
+            <div class="number">
+                <h4>
+                    <span>{{ name }}</span>
+                </h4>
+                <!--<p > {{ this.dialNumber }}</p>-->
+                <input type="text" class="form-control" (keypress)="keyPress($event)" [(ngModel)]="dialNumber">
+            </div>
+            <div class="contacts" (click)="onContacts()" [ngClass]="{'clicked': search_modal_show}" (mouseleave)="contactsButtonleave()" (mouseenter)="contactsButtonenter()">
+                <div class="contacts__image">
+                    <img  class="normal" src="assets/svg/contact-icon.svg" />
+
+                </div>
+
+                Contacts
+                <div class="contacts__collapse">
+                    <img  src="assets/svg/arrow-down-icon.svg" />
+                </div>
+               
+            </div>
+            <div class='contactSearchForm' *ngIf="search_modal_show" >
+                <app-dial-search-modal *ngIf="search_modal_show" (callbackFunction)="phoneNumberAutoComplete($event)" (mouseleave)="contactsFormleave()" (mouseenter)="contactsFormenter()" ></app-dial-search-modal> 
+            </div>
+            <div class="numberbutton">
+                <div class="buttongroup">
+                    <div class="numberbutton__line">
+                        <div (click)="numberButtonClick('1')" class="numberbutton__line__button">
+                            1
+                        </div>
+                        <div (click)="numberButtonClick('2')" class="numberbutton__line__button">
+                            2
+                        </div>
+                        <div (click)="numberButtonClick('3')" class="numberbutton__line__button">
+                            3
+                        </div>
+                    </div>
+                </div>
+                <div class ="buttongroup">
+                    <div class ="numberbutton__line">
+                        <div (click)="numberButtonClick('4')" class="numberbutton__line__button">
+                            4
+                        </div>
+                        <div (click)="numberButtonClick('5')" class="numberbutton__line__button">
+                            5
+                        </div>
+                        <div (click)="numberButtonClick('6')" class="numberbutton__line__button">
+                            6
+                        </div>
+                    </div>
+                </div>
+                <div class="buttongroup">
+                    <div class="numberbutton__line">
+                        <div (click)="numberButtonClick('7')" class="numberbutton__line__button">
+                            7
+                        </div>
+                        <div (click)="numberButtonClick('8')" class="numberbutton__line__button">
+                            8
+                        </div>
+                        <div (click)="numberButtonClick('9')" class="numberbutton__line__button">
+                            9
+                        </div>
+                    </div>
+                </div>
+                <div class="buttongroup">
+                    <div class="numberbutton__line">
+                        <div (click)="numberButtonClick('+')" class="numberbutton__line__button">
+                            +
+                        </div>
+                        <div (click)="numberButtonClick('0')" class="numberbutton__line__button">
+                            0
+                        </div>
+                        <div (click)="numberButtonClick('*')" class="numberbutton__line__button">
+                            *
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toagency-session__footer">
+        <div class="btns">
+
+            <div class="cancel" (click)="doAction('CLOSE AGENCY')">
+                <img src="assets/svg/cancel-icon.svg" />
+                <span>{{ 'Cancel Transfer' | translate }}</span>
+            </div>
+            <div  class="save" (click)="showCallMenu()" #DialNumberButton (mouseenter)="hoverStatus()" (mouseleave)="hoveroutStatus()" *ngIf="type != 'CallCustomer'">
+                <img src="assets/svg/dialphone-icon.svg" />
+ 
+                <span>Dial Number </span>
+                <p class="collapse">
+                    <img src="assets/svg/downarrow-white-icon.svg" />
+                <p>
+
+                <ul  class="DropMenuCo" *ngIf="show_call_menu" #DropMenuCo>
+                    <li class="">
+                        <img class="normal" src="assets/svg/dialmenu-speak-to-agent-icon.svg" />
+                        <img class="hover" src="assets/svg/dialmenu-speak-to-agent-hover-icon.svg" />
+                        <span>{{ 'Speak to Agent' | translate }}</span>
+                    </li>
+                    <li class="" (click)="doAction('DIRECT TRANSFER')">
+                        <img class="normal" src="assets/svg/dialmenu-direct-transfer.svg" />
+                        <img class="hover" src="assets/svg/dialmenu-direct-transfer-hover.svg" />
+                        <span>{{ 'Direct Transfer' | translate }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div  class="save" (click)="doAction('DIRECT TRANSFER')" #DialNumberButton (mouseenter)="hoverStatus()" (mouseleave)="hoveroutStatus()" *ngIf="type == 'CallCustomer'">
+                <img src="assets/svg/dialphone-icon.svg" />
+                <span>Dial Number </span>
+            </div>
+        </div>
+    </div>
+</div>

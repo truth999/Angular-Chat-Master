@@ -1,0 +1,62 @@
+<div
+    class="chat-history"
+    [ngClass]="{'historyForVoice' : (type=='voice')}"
+>
+    <div class="main">
+        <div
+            class="card"
+            *ngFor="let history of histories"
+        >
+
+            <div class="payment-issue">
+                <div class="payment-issue__image">
+                    <img src="assets/svg/history-flag-icon.svg" />
+
+                </div>
+                <div class="payment-issue__body">
+                    <div class="title">
+                        {{ history.historytitle }}
+                    </div>
+                    <div class="date">
+                        {{ history.date }} - {{ history.passeddays }} days ago
+                    </div>
+
+                </div>
+                <div class="payment-issue__totalmin">
+                    {{ history.totaltime }} mins total
+                </div>
+            </div>
+            <div *ngFor="let historyfield of activityHistories">
+                <app-history-card
+                    [content]='historyfield'
+                    (callbackFunction)="handleChathistory($event)"
+                > </app-history-card>
+                <!-- <app-callhistory-template
+                    *ngIf="historyfield.type == 'voice'"
+                    [content]='historyfield'
+                    (callbackFunction)="handleChathistory($event)"
+                > </app-callhistory-template> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-filter-button
+    [filterLists]="filterValues"
+    (callbackFunction)="changeFilter($event)"
+> </app-filter-button>
+<div class="chat-footer">
+    <app-footer-action *ngIf="openedRequest.type == 'chat'"> </app-footer-action>
+    <app-emailfooter-action *ngIf="openedRequest.type == 'email'"></app-emailfooter-action>
+    <app-voice-footer *ngIf="openedRequest.type == 'voice'"> </app-voice-footer>
+</div>
+<app-edit-history-page
+    [type]="type"
+    *ngIf="editInteraction_page"
+    (callbackFunction)="handleEditHistory($event)"
+></app-edit-history-page>
+<app-transcript-page
+    [type]="type"
+    *ngIf="viewTranscript_page"
+    (callbackFunction)="handleTranscriptPage($event)"
+> </app-transcript-page>

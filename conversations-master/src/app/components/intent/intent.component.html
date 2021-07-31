@@ -1,0 +1,280 @@
+<div class="intentPage">
+    <div
+        class="x"
+        (click)="close()"
+    >
+        <img
+            class="normal"
+            src="assets/svg/close-icon.svg"
+        />
+        <img
+            class="hover"
+            src="assets/svg/close-hover-icon.svg"
+        />
+    </div>
+    <div class="header">
+        <div class="search-bar">
+            <div class="search-bar__left">
+
+                <img src="../../assets/icons/search gray.svg">
+
+                <input
+                    [(ngModel)]="addIntentSearchText"
+                    (ngModelChange)="searchTextChangeEvent($event)"
+                    (focus)="showSearchTextField()"
+                    (focusout)="hideSearchTextField()"
+                    (mouseleave)="hoverOutSearchInput()"
+                    (mouseenter)="hoverInSearchInput()"
+                    type="text"
+                    id="_search"
+                    [placeholder]="searchBoxPlaceholder"
+                />
+                <div
+                    class="searchType"
+                    (click)="showSearchTypeMenu()"
+                    (mouseleave)="hoverOutTypeButton()"
+                    (mouseenter)="hoverInTypeButton()"
+                >
+                    {{ searchBoxPlaceholder }}
+                    <img src="assets/svg/selection-mark.svg" />
+                </div>
+                <div
+                    class="searchTypeMenu"
+                    *ngIf="isShowSearchTypeMenu == true"
+                    (mouseleave)="hoverOutTypeMenu()"
+                    (mouseenter)="hoverInTypeMenu()"
+                >
+                    <div
+                        class="item"
+                        (click)="changeSearchType('add')"
+                    >
+                        Add intent
+                        <div
+                            class="selection_mark"
+                            *ngIf="currentSearchType == 'add'"
+                        >
+                            <img src="assets/svg/selection-mark.svg" />
+                        </div>
+                    </div>
+                    <div class="separation_line"></div>
+                    <div
+                        class="item"
+                        (click)="changeSearchType('search')"
+                    >
+                        Search Customer
+                        <div
+                            class="selection_mark"
+                            *ngIf="currentSearchType == 'search'"
+                        >
+                            <img src="assets/svg/selection-mark.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="searchField"
+                *ngIf="showSearchField == true"
+                (mouseleave)="hoverOutSearchField()"
+                (mouseenter)="hoverInSearchField()"
+            >
+                <div
+                    class="item"
+                    *ngFor="let intent of masterIntentsList"
+                    (click)="newIntent(intent)"
+                >
+                    <div
+                        class="content"
+                        *ngIf="intent.name.toLowerCase().includes(addIntentSearchText.toLowerCase()) && currentSearchType == 'add'"
+                    >
+                        <div class="item__plusIcon">
+                            <img
+                                style="margin-bottom: 5px;"
+                                src="assets/svg/intent-plus-icon.svg"
+                            />
+                        </div>
+                        <div class="item__name">
+                            {{ intent.friendlyName }}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div
+                    class="item"
+                    *ngFor="let customer of customers"
+                >
+                    <div
+                        class="content"
+                        *ngIf="customer.toLowerCase().includes(addIntentSearchText.toLowerCase()) && currentSearchType == 'search'"
+                    >
+
+                        <div class="item__name">
+                            {{ customer }}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="separation-line"></div>
+                <div
+                    class="searchField__footer"
+                    *ngIf="currentSearchType == 'add'"
+                >
+                    Can't find the intent you are looking for?
+                    <p (click)="addNewIntet()">+ Create New Intent</p>
+                </div>
+                <div
+                    class="searchField__footer"
+                    *ngIf="currentSearchType == 'search' && customers.length == 0"
+                >
+                    There's no search result
+                </div>
+            </div>
+        </div>
+        <div class="intentPlusSection">
+            <div
+                *ngFor="let intent of masterIntentsList;"
+                class="plusItem"
+                (click)="newIntent(intent)"
+            >
+                <div class="content">
+                    <img src="assets/svg/intent-plus-icon.svg" />
+
+                    {{ intent.friendlyName }}
+                </div>
+            </div>
+        </div>
+        <div class="customerIntentsHeader">
+            Customer Intents ({{ customer_intents.length }})
+        </div>
+        <div class="IntentsContent">
+            <div
+                class="intent"
+                *ngFor="let intent of customer_intents; let index=index;"
+            >
+                <div class="intent__header">
+                    {{ intent.aiName }}
+                </div>
+                <div
+                    class="intentStatusButton"
+                    (click)="toggleMenu(index)"
+                    [ngClass]="{'resolved': intent.state == 'Open'}"
+                >
+                    <img
+                        style="margin-right: 6px; margin-bottom: 4px;"
+                        class="red"
+                        src="assets/svg/intent-status-red-icon.svg"
+                    />
+                    <img
+                        style="margin-right: 6px; margin-bottom: 4px;"
+                        class="green"
+                        src="assets/svg/intent-status-green-icon.svg"
+                    />
+                    {{ intent.state }}
+
+                    <img
+                        style="position: absolute; right: 24px; margin-right: 9px;margin-top: 5px;"
+                        src="assets/svg/arrow-down-icon.svg"
+                    />
+                    <div
+                        class="menu"
+                        *ngIf="intentMenuClickCheck == true && intentMenuClickIndex == index"
+                    >
+                        <div
+                            class="item"
+                            (click)="resolveItem(index)"
+                        >
+                            Open
+                            <div
+                                class="selection_mark"
+                                *ngIf="intent.state == 'Open'"
+                            >
+                                <img src="assets/svg/selection-mark.svg" />
+                            </div>
+                        </div>
+                        <div class="separation_line"></div>
+                        <div
+                            class="item"
+                            (click)="unresolveItem(index)"
+                        >
+                            Close
+                            <div
+                                class="selection_mark"
+                                *ngIf="intent.state == 'Closed'"
+                            >
+                                <img src="assets/svg/selection-mark.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="intent__item">
+                    <div class="item__title">
+                        Intent ID
+                    </div>
+                    <div class="item__detail">
+                        {{ intent.id }}
+                    </div>
+                </div>
+                <div class="intent__item">
+                    <div class="item__title">
+                        Customer ID
+                    </div>
+                    <div class="item__detail">
+                        {{ intent.customerId }}
+                    </div>
+                </div>
+                <div class="intent__item">
+                    <div class="item__title">
+                        AI Name
+                    </div>
+                    <div class="item__detail">
+                        {{ intent.aiName }}
+                    </div>
+                </div>
+                <div class="intent__item">
+                    <div class="item__title">
+                        Last Actor
+                    </div>
+                    <div class="item__detail">
+                        {{ intent.lastActor.id }} {{ intent.lastActor.name }}
+                    </div>
+                </div>
+                <div class="intent__item">
+                    <div class="item__title">
+                        Relevance
+                    </div>
+                    <div class="item__detail">
+                        {{ intent.relevance }}
+                    </div>
+                </div>
+                <div class="intent__item">
+                    <div class="item__title">
+                        Last Comment
+                    </div>
+                    <div class="item__detail">
+                        {{ intent.lastComment }}
+                    </div>
+                </div>
+                <div class="separation-line"></div>
+                <div
+                    class="addCommentButton"
+                    (click)="addComment(index)"
+                >
+                    + Add a Comment
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="responsive"></div>
+
+</div>
+<div
+    class="add-comment-section"
+    *ngIf="isShowCommentTemplate"
+>
+    <app-add-note-template
+        (callBackFunction)="handleCommentText($event)"
+        [type]="'Comment'"
+    > </app-add-note-template>
+</div>

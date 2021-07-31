@@ -1,0 +1,46 @@
+<div class="line__input">
+    <div
+        class="floating-label"
+        (click)="showDropdown()"
+        (mouseleave)="inputMouseLeave()"
+        (mouseenter)="inputMouseEnter()"
+    >
+        <input
+            class="floating-input--normal"
+            placeholder=" "
+            type="text"
+            [(ngModel)]="autocomplete_value"
+        >
+        <label class="float-label--normal">Autocomplete</label>
+        <div class="arrow-icon">
+            <img src="assets/img/arrow-down-icon.svg" />
+        </div>
+    </div>
+    <div class="autocomplete" 
+        *ngIf="isShowDropdown == true"
+        (mouseleave)="dropdownMouseLeave()"
+        (mouseenter)="dropdownMouseEnter()"
+    >
+        <div class="autoCompleteModal">
+            <div class="search-bar">
+                <div class="search-bar__left">    
+                    <input [(ngModel)]="searchText" type="text" id="_search" placeholder="Search"/>
+                    <img src="assets/img/search gray.svg">
+                </div>
+            </div>
+            <div class="autoCompleteModal__body">
+                <div class="content" *ngFor = "let list of lists; let index = index" (click)="autoComplete(list, index)">
+                    <div class="real" *ngIf="list.name.toLowerCase().includes(searchText.toLowerCase())">
+                        <div class="content__header">
+                            {{ list.name }}
+                        </div>
+                        <div class="content__body">
+                            <p>{{ list.title }}</p>
+                            <h1>{{list.type}}, Tiket No: {{list.ticketNo}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

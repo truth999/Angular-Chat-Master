@@ -1,0 +1,436 @@
+/****  floating-Lable style start ****/
+.floating-label {
+    position: relative;
+    margin-bottom: 15px;
+    .arrow-icon {
+        position: absolute;
+        right: 10px;
+        top: 9px;
+    }
+}
+
+.floating-input {
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    border: 1px solid rgba(109, 135, 144, 0.3);
+    border-radius: 3px;
+    background-color: #ffffff;
+    padding-left: 12px;
+    color: #1c323f;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 18px;
+    &:hover {
+        border: 1px solid #6d8790;
+        label {
+            color: #203b4c;
+        }
+    }
+    &:focus {
+        outline: none;
+        border: 1px solid #219fcf;
+
+        label {
+            top: -9px;
+            left: 12px;
+            font-size: 13px;
+            color: #219fcf;
+        }
+    }
+}
+
+.floating-label-selected {
+    position: relative;
+    margin-bottom: 15px;
+    .arrow-icon {
+        position: absolute;
+        right: 10px;
+        top: 9px;
+    }
+    .floating-input--selected {
+        cursor: pointer;
+        box-sizing: border-box;
+        height: 40px;
+        width: 100%;
+        border: 1px solid rgba(109, 135, 144, 0.3);
+        border-radius: 3px;
+        background-color: #ffffff;
+        padding-left: 12px;
+        color: #1c323f;
+        font-family: 'DM Sans';
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 18px;
+        outline: none;
+        border: 1px solid #219fcf;
+        label {
+            top: -9px;
+            left: 12px;
+            font-size: 13px;
+            color: #219fcf;
+        }
+    }
+    .float-label--selected {
+        position: absolute;
+        pointer-events: none;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+        z-index: 0;
+        top: -9px;
+        left: 12px;
+        font-size: 13px;
+        color: #219fcf;
+        &:after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            height: 1px;
+            top: 9px;
+            left: -0.2em;
+            right: -0.2em;
+            z-index: -1;
+            background: #fff;
+        }
+    }
+}
+
+.floating-input--hover {
+    &:hover {
+        border: 1px solid rgba(109, 135, 144, 0.3);
+    }
+}
+.floating-input--normal {
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    border: 1px solid rgba(109, 135, 144, 0.3);
+    border-radius: 3px;
+    background-color: #ffffff;
+    padding-left: 12px;
+    color: #1c323f;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 18px;
+    &:hover {
+        border: 1px solid #6d8790;
+        label {
+            color: #203b4c;
+        }
+    }
+    &:focus {
+        outline: none;
+        border: 1px solid #219fcf;
+        label {
+            top: -9px;
+            left: 12px;
+            font-size: 13px;
+            color: #219fcf;
+        }
+    }
+}
+
+.floating-input--textarea {
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    border: 1px solid rgba(109, 135, 144, 0.3);
+    border-radius: 3px;
+    background-color: #ffffff;
+    padding-left: 12px;
+    padding-top: 12px;
+    color: #1c323f;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 18px;
+    resize: none;
+    &:hover {
+        border: 1px solid #6d8790;
+        label {
+            color: #203b4c;
+        }
+    }
+    &:focus {
+        outline: none;
+        border: 1px solid #219fcf;
+        label {
+            top: -9px;
+            left: 12px;
+            font-size: 13px;
+            color: #219fcf;
+        }
+    }
+}
+
+.floating-input--error {
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    border: 1px solid #dd5050;
+    border-radius: 3px;
+    background-color: #ffffff;
+    padding-left: 12px;
+    color: #1c323f;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 18px;
+    z-index: 1;
+
+    &:focus {
+        outline: none;
+        border: 1px solid #dd5050;
+
+        label {
+            top: -9px;
+            left: 12px;
+            font-size: 13px;
+            color: #dd5050;
+        }
+    }
+}
+
+.float-label {
+    color: #6d8790;
+    position: absolute;
+    pointer-events: none;
+    left: 12px;
+    top: 11px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    z-index: 0;
+
+    &:after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        height: 1px;
+        top: 9px;
+        left: -0.2em;
+        right: -0.2em;
+        z-index: -1;
+        background: #fff;
+    }
+}
+
+.float-label--normal {
+    color: #6d8790;
+    position: absolute;
+    pointer-events: none;
+    left: 12px;
+    top: 11px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    z-index: 0;
+
+    &:after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        height: 1px;
+        top: 9px;
+        left: -0.2em;
+        right: -0.2em;
+        z-index: -1;
+        background: #fff;
+    }
+}
+
+.float-label--error {
+    color: #dd5050;
+    position: absolute;
+    pointer-events: none;
+    left: 12px;
+    top: 11px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    z-index: 0;
+
+    &:after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        height: 1px;
+        top: 9px;
+        left: -0.2em;
+        right: -0.2em;
+        z-index: -1;
+        background: #fff;
+    }
+}
+
+.floating-input:hover ~ label {
+    color: #203b4c;
+}
+.floating-input:focus ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+    color: #219fcf;
+    &:hover {
+        color: #219fcf;
+    }
+}
+
+.floating-input--normal:hover ~ label {
+    color: #203b4c;
+}
+.floating-input--normal:focus ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+    color: #219fcf;
+}
+
+.floating-input--textarea:hover ~ label {
+    color: #203b4c;
+}
+.floating-input--textarea:focus ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+    color: #219fcf;
+}
+
+.floating-input--normal:not(:placeholder-shown) ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+}
+.floating-input--textarea:not(:placeholder-shown) ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+}
+.floating-input:not(:placeholder-shown) ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+}
+.floating-input--error:focus ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+    color: #dd5050;
+}
+
+.floating-input--error:not(:placeholder-shown) ~ label {
+    top: -9px;
+    left: 12px;
+    font-size: 13px;
+}
+
+//   .floating-select:focus ~ label , .floating-select:not([value=""]):valid ~ label {
+//     top: -9px;
+//     left: 12px;
+//     font-size: 13px;
+//     // color: #219FCF;
+//   }
+
+/***   Body style start  ***/
+
+html {
+    font-family: 'Helvetica Neue', Helvetica, 'Noto Sans', sans-serif, Arial,
+        sans-serif;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #949494;
+    background-color: #ffffff;
+}
+/***   Body style end  ***/
+
+/***   daniel - Fork me friend - style   ***/
+.floating-credit {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 13px;
+    font-family: arial, sans-serif;
+}
+.floating-credit a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+.floating-credit a:hover {
+    border-bottom: 1px dotted #f8f8f8;
+}
+.floating-heading {
+    position: fixed;
+    color: #aaa;
+    font-size: 20px;
+    font-family: arial, sans-serif;
+}
+/***  daniel - Fork me friend - style  ***/
+
+input[type='date'] {
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator {
+        -webkit-appearance: none;
+        position: absolute;
+        right: 0;
+        opacity: 0;
+    }
+    width: 100%;
+}
+input[type='time'] {
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator {
+        -webkit-appearance: none;
+        position: absolute;
+        right: 0;
+        opacity: 0;
+    }
+    width: 100%;
+}
+
+.non-cursor {
+    cursor: default !important;
+}
+
+.disabled {
+    color: #6d8790;
+    &:hover {
+        input {
+            border: 1px solid rgba(109, 135, 144, 0.3);
+        }
+        label {
+            color: #6d8790;
+        }
+    }
+}

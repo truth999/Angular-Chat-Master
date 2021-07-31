@@ -1,0 +1,103 @@
+.actions-tab {
+    height: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+    box-shadow: 0 2px 12px 0 rgba(17, 30, 38, 0.1),
+        0 2px 18px 0 rgba(4, 45, 69, 0.31);
+    z-index: 1;
+    position: relative;
+    display: flex;
+    & > li.actions-tab__item {
+        display: inline-block;
+        height: 40px;
+        flex-basis: 100%;
+        background-color: #ffffff;
+        vertical-align: middle;
+        text-align: center;
+        border-bottom: solid #ffffff 2px;
+        cursor: pointer;
+
+        &:hover {
+            .actions-tab__contain span {
+                color: #219fcf;
+            }
+            .actions-tab__contain .normal {
+                display: none;
+            }
+            .actions-tab__contain .hover {
+                display: block;
+            }
+        }
+
+        &:first-child {
+            border-top-left-radius: 4px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 4px;
+        }
+
+        & > .actions-tab__contain {
+            vertical-align: middle;
+            display: flex;
+            width: auto;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+
+            & > svg {
+                color: #bdccd2;
+            }
+
+            & > span {
+                color: #6d8790;
+                font-family: 'DM Sans';
+                font-size: 16px;
+                font-weight: bold;
+                letter-spacing: -0.5px;
+                line-height: 21px;
+                padding-left: 7px;
+            }
+            .normal {
+                display: block;
+            }
+            .hover {
+                display: none;
+            }
+            .icon {
+                path {
+                    fill: #bdccd2;
+                }
+            }
+            .icon--active {
+                path {
+                    fill: #429fca;
+                }
+            }
+        }
+
+        &.actions-tab__item--active {
+            background: #ebf9ff;
+            border-bottom: 2px solid #219fcf;
+
+            & > .actions-tab__contain {
+                & > svg {
+                    path {
+                        fill: #219fcf;
+                    }
+                }
+
+                & > span {
+                    color: #219fcf;
+                }
+                .normal {
+                    display: none;
+                }
+                .hover {
+                    display: block;
+                }
+            }
+        }
+    }
+}

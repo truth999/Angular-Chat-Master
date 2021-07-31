@@ -1,0 +1,133 @@
+<div class="history-email">
+    <div class="email__image">
+        <img  *ngIf="content.channel == 'EMail'" src="assets/svg/history-email-icon.svg" />
+        <img  *ngIf="content.channel == 'Voice'" src="assets/svg/history-call-icon.svg" />
+        <img  *ngIf="content.channel == 'Chat'" src="assets/svg/history-chat-icon.svg" />
+    </div>
+    <div class="email__body">
+        <div class="header">
+            {{ content.channel }}
+        </div>
+        <div class="content">
+            <div class="item">
+                <div class="item__title">
+                    Ticket No.
+                </div>
+                <div class="item__content--normal">
+                    {{ content.id }}
+                </div>
+            </div>
+            <div class="item" *ngIf="activity != null && activity.value != ''">
+                <div class="item__title">
+                    Activity
+                </div>
+                <div class="item__content--normal" [ngClass]="{'underline': activity.isValidUrl == true}">
+                    {{ activity.value }}
+                </div>
+            </div>
+            <div class="item" *ngIf="agent != null && agent.value != ''">
+                <div class="item__title">
+                    Agent
+                </div>
+                <div class="item__content--normal" [ngClass]="{'underline': agent.isValidUrl == true}">
+                    {{ agent.value }}
+                </div>
+            </div>
+            <div class="item">
+                <div class="item__title">
+                    Notes
+                </div>
+                <div class="item__content--normal">
+                    {{ content.notenumber }} Session Notes
+                </div>
+            </div>
+            <div class="item" *ngIf="intent != null && intent.value != ''">
+                <div class="item__title">
+                    Intent
+                </div>
+                <div class="item__content--normal" [ngClass]="{'underline': intent.isValidUrl == true}">
+                    {{ intent.value }}
+                </div>
+            </div>
+            <div class="item" *ngIf="duration != null && duration.value != ''">
+                <div class="item__title">
+                    Duration
+                </div>
+                <div class="item__content--normal" [ngClass]="{'underline': duration.isValidUrl == true}">
+                    {{ duration.value }}
+                </div>
+            </div>
+            <div class="item" *ngIf="status != null && status.value != ''">
+                <div class="item__title">
+                    Status
+                </div>
+                <div class="item__content--normal" [ngClass]="{'underline': status.isValidUrl == true}">
+                    {{ status.value }}
+                </div>
+            </div>
+        </div>
+        <div class="expand">
+            <div class="expand__line">
+                
+            </div>
+            <div *ngIf="expanded == false" class="expand__button" (click)="expand()">
+                <div>
+                    Expand
+                    <img src="assets/svg/history-expand-icon.svg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+</div>
+<div  class="history__email-expanded" [ngClass]="{'showMore' : expanded}" >
+    <div class="header">
+        <div class="header__note">
+            Note (0)
+        </div>
+        <div class="header__addbutton">
+            <div class="button">
+                <img  src="assets/svg/button-plus-icon.svg" />
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="item" *ngFor="let note of content.notes">
+            <div class="item-image">
+                <img  src="assets/svg/history-item-icon.svg" />
+            </div>
+            <div class="item-content">
+                <div class="content__title">
+                    {{ note.user }}
+                </div>
+                <div class="content__time">
+                    {{ note.date }}
+                </div>
+                <div class="content__data">
+                    {{ note.info }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="edit-button" (click)="editInteraction()">    
+            <img  style="margin-bottom: 8px;" src="assets/svg/history-edit-interaction-icon.svg" />
+            <p>Edit Interaction</p>
+        </div>
+        <div class="transcript-button" (click)="viewTranscript()">
+            <p>View Transcript</p>
+        </div>
+        
+    </div>
+    <div class="collapse" >
+            <div class="collapse__line">           
+            </div>
+            <div class="collapse__button" (click)="collapse()">
+                <div>
+                    Collapse
+                    <img  src="assets/svg/history-collapse-icon.svg" />
+                </div>
+            </div>
+    </div>
+</div>

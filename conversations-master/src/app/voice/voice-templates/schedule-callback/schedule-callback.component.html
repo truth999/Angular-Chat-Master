@@ -1,0 +1,117 @@
+<div class="schedule-callback-page">
+    <div class="phoneNumberToCall">
+        <!-- <div class="sectionTitle">Phone Number to call</div> -->
+        <div class="enterManually">
+            <div class="option">
+                <input
+                    type="radio"
+                    class="enterManuallyOption"
+                    id="manualOption"
+                    name="enterManuallyOption"
+                    value="manual"
+                    [(ngModel)]="enterManualOption"
+                > <label for="manualOption">Enter Manually</label>
+            </div>
+            <app-float-input
+                [(inputModel)]="manualName"
+                [inputLabel]="'Name'"
+                [type]="enterManualOption === 'manual' ? 'normal' : 'disabled'"
+            ></app-float-input>
+            <app-float-input
+                [(inputModel)]="manualNumber"
+                [inputLabel]="'Number'"
+                [type]="enterManualOption === 'manual' ? 'normal' : 'disabled'"
+            ></app-float-input>
+        </div>
+        <div class="useCurrentNumber">
+            <div class="option">
+                <input
+                    type="radio"
+                    class="useCurrentNumberOption"
+                    id="useCurrentNumberOption"
+                    name="enterManuallyOption"
+                    value="useCurrentNumber"
+                    [(ngModel)]="enterManualOption"
+                > <label for="useCurrentNumberOption">Use Current Number</label>
+            </div>
+            <app-float-input
+                [(inputModel)]="currentNumber"
+                [inputLabel]="'Number'"
+                [type]="enterManualOption === 'useCurrentNumber' ? 'normal' : 'disabled'"
+            ></app-float-input>
+        </div>
+    </div>
+    <div class="timeToCall">
+        <div class="specificDateTime">
+            <div class="option">
+                <input
+                    type="radio"
+                    class="specificTimeOption"
+                    id="specifcTimeOption"
+                    name="specificDateTimeOption"
+                    value="specificTime"
+                    [(ngModel)]="specificTimeOption"
+                > <label for="specifcTimeOption">Specific Date/Time </label>
+            </div>
+            <app-float-input
+                [(inputModel)]="timeToCallDate"
+                [inputLabel]="'Date - Calender'"
+                [type]="'date'"
+                [isDisabled]="specificTimeOption == 'specificTime' ? false : true"
+            ></app-float-input>
+            <app-float-input
+                [(inputModel)]="timeToCallTime"
+                [inputLabel]="'Time'"
+                [type]="'time'"
+                [isDisabled]="specificTimeOption == 'specificTime' ? false : true"
+            ></app-float-input>
+        </div>
+        <div class="timePeriodFromNow">
+            <div class="option">
+                <input
+                    type="radio"
+                    class="timePeriodFromNowOption"
+                    id="timePeriodFromNowOption"
+                    name="specificDateTimeOption"
+                    value="timePeriodFromNow"
+                    [(ngModel)]="specificTimeOption"
+                > <label for="timePeriodFromNowOption">Time period from now </label>
+            </div>
+            <div class="periodTime">
+                <app-float-input
+                    [(inputModel)]="timePeriodFromNowHour"
+                    [inputLabel]="'Hour(s)'"
+                    [type]="'number'"
+                    [isDisabled]="specificTimeOption == 'timePeriodFromNow' ? false : true"
+                ></app-float-input>
+            </div>
+            <div class="periodTime">
+                <app-float-input
+                    [(inputModel)]="timePeriodFromNowMinute"
+                    [inputLabel]="'Minute(s)'"
+                    [type]="'number'"
+                    [isDisabled]="specificTimeOption == 'timePeriodFromNow' ? false : true"
+                ></app-float-input>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="btns">
+        <div
+            class="cancel"
+            (click)="cancelSchedule()"
+        >
+            <img src="assets/svg/cancel-icon.svg" />
+            <span>{{ 'Cancel' | translate }}</span>
+        </div>
+        <div
+            class="saveButton"
+            (click)="saveSchedule()"
+        >
+            <img src="assets/svg/confirm-icon.svg" />
+            <span>Save Schedule </span>
+        </div>
+    </div>
+</div>

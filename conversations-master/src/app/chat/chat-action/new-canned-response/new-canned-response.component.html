@@ -1,0 +1,37 @@
+<div class="new-canned-response">
+    <div class="action" [ngClass]="{'active': isHeaderActive}">
+        <div class="action__backbutton" (click)="close()">
+            <img style="margin-right: 8.07px" src="assets/svg/real-back-icon.svg" />
+            <p>
+                Back
+            <p>
+        </div>
+
+    </div>
+    <div class="content" (scroll)="onScroll($event)">
+        <div class="content__header">
+            <p> Add New Canned Response </p>
+        </div>
+        <div class="content__displaytext">
+            <app-float-input [(inputModel)]="textHeader" [inputLabel]="'Display Text'" [type]="'normal'"></app-float-input> 
+        </div>
+        <div class="content__cannedresponse">
+            <div class="canned-response-input">
+                <app-float-input [(inputModel)]="textContent" [inputLabel]="'Canned Response'"  [type]="'textarea'"></app-float-input>
+            </div>
+            <p> {{textContent.length}}characters</p>
+        </div>
+    </div>
+    <div class="footer">
+            <div class="btns">
+                <div (click)="close()" class="cancel">
+                    <img src="assets/svg/cancel-icon.svg" />
+                    <span>{{ 'cancel' | translate }}</span>
+                </div>
+                <div (click)="addNewCannedText()" class="save">
+                    <img src="assets/svg/confirm-icon.svg" />
+                    <span> Add New Response</span>
+                </div>
+            </div>
+        </div>
+</div>

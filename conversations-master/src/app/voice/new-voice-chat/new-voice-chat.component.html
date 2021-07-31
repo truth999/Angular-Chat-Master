@@ -1,0 +1,231 @@
+<div class="new-voice-chat">
+    <div
+        class="x"
+        (click)="close()"
+    >
+        <img
+            class="normal"
+            src="assets/svg/close-icon.svg"
+        />
+        <img
+            class="hover"
+            src="assets/svg/close-hover-icon.svg"
+        />
+    </div>
+    <div class="new-voice-chat__body">
+        <div class="form">
+            <div class="header">
+                Start New Call
+            </div>
+            <div class="number">
+                <h4>
+                    <span>{{ name }}</span>
+                </h4>
+                <!--<p > {{ this.dialNumber }}</p>-->
+                <div class="dialNumber">
+                    <input
+                        type="text"
+                        (keypress)="keyPress($event)"
+                        class="form-control"
+                        [(ngModel)]="dialNumber"
+                    >
+                    <div
+                        class="delete-button"
+                        (click)="deleteDialNumber()"
+                    >
+                        <img
+                            class="normal"
+                            src="assets/svg/dial-number-delete-icon.svg"
+                        />
+                        <img
+                            class="hover"
+                            src="assets/svg/dial-number-delete-hover-icon.svg"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div
+                #contactsButton
+                class="contacts"
+                [ngClass]="{'clicked':search_modal_show}"
+                (click)="onContacts()"
+            >
+                <div class="contacts__image">
+                    <img src="assets/svg/contact-icon.svg" />
+                </div>
+                Contacts
+                <div class="contacts__collapse">
+                    <img src="assets/svg/arrow-down-icon.svg" />
+                </div>
+                <div
+                    #contactsForm
+                    class='contactSearchForm'
+                    *ngIf="search_modal_show"
+                >
+                    <app-dial-search-modal
+                        (callbackFunction)="phoneNumberAutoComplete($event)"
+                        (mouseleave)="contactsFormleave()"
+                        (mouseenter)="contactsFromenter()"
+                        *ngIf="search_modal_show"
+                    ></app-dial-search-modal>
+                </div>
+            </div>
+
+            <div
+                class="content"
+                *ngIf="currentVoice.btns.makecall == true"
+            >
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick(1)"
+                >
+                    <div class="button__number">
+                        1
+                    </div>
+                    <div class="button__character">
+
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick(2)"
+                >
+                    <div class="button__number">
+                        2
+                    </div>
+                    <div class="button__character">
+                        ABC
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick(3)"
+                >
+                    <div class="button__number">
+                        3
+                    </div>
+                    <div class="button__character">
+                        DEF
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick(4)"
+                >
+                    <div class="button__number">
+                        4
+                    </div>
+                    <div class="button__character">
+                        GHI
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick(5)"
+                >
+                    <div class="button__number">
+                        5
+                    </div>
+                    <div class="button__character">
+                        JKL
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick(6)"
+                >
+                    <div class="button__number">
+                        6
+                    </div>
+                    <div class="button__character">
+                        MNO
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick(7)"
+                >
+                    <div class="button__number">
+                        7
+                    </div>
+                    <div class="button__character">
+                        PQRS
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick(8)"
+                >
+                    <div class="button__number">
+                        8
+                    </div>
+                    <div class="button__character">
+                        TUV
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick(9)"
+                >
+                    <div class="button__number">
+                        9
+                    </div>
+                    <div class="button__character">
+                        WXYZ
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick('*')"
+                >
+                    <div class="button__number">
+                        *
+                    </div>
+                    <div class="button__character">
+
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick(0)"
+                >
+                    <div class="button__number">
+                        0
+                    </div>
+                    <div class="button__character">
+
+                    </div>
+                </div>
+                <div
+                    class="number-button"
+                    (click)="numberButtonClick('#')"
+                >
+                    <div class="button__number">
+                        #
+                    </div>
+                    <div class="button__character">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="new-voice-chat__footer">
+        <!-- <div class="btns">
+            <div  class="closebutton" (click)="close()" >
+                <img src="assets/svg/cancel-icon.svg" />
+                <span> {{ 'Close Dialpad' | translate }}</span>
+            </div>
+            <div class="dialbutton" (click)="dial()">
+                <img src="assets/svg/dial-number-icon.svg" />
+                <span>Dial Number</span> 
+            </div>
+        </div> -->
+        <app-voice-footer
+            [currentPage]="'NewVoicePage'"
+            [name]="name"
+            [dialNumber]="dialNumber"
+        >
+        </app-voice-footer>
+    </div>
+</div>

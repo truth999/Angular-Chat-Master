@@ -1,0 +1,104 @@
+.filterbutton {
+    position: fixed;
+    box-sizing: border-box;
+    bottom: 50px;
+    right: 20px;
+    height: 32px;
+    width: 85px;
+    cursor: pointer;
+    border-radius: 16px;
+    background-color: #219FCF;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    box-shadow: 0 4px 4px 0 rgba(109,135,144,0.1), 0 7px 14px 0 rgba(0,153,211,0.5);
+    display: flex;
+    color: #FFFFFF;
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 14px;
+    span {
+        margin-left: 4px;
+    }
+    &.clicked {
+        span {
+            margin-left: 0px;
+            // color: red;
+        }
+    }
+    &:hover {
+        background-color: rgb(32, 137, 179);
+        cursor: pointer;
+    }
+}
+
+
+.filterMenu {
+    position: fixed;
+    bottom: 87px;
+    right: 12px;
+    width: 534px;
+    height: 252px;
+    z-index: 2000;
+    border: 1px solid rgba(109,135,144,0.15);
+    border-radius: 10px 0 0 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 2px 0 rgba(109,135,144,0.06), 0 15px 25px 0 rgba(109,135,144,0.45);
+    box-sizing: border-box;
+    display: flex;
+    .filterMenu__left {
+        height: 222px;
+        width: 33%;
+        margin-top: 14.5px;
+        margin-left: 15.5px;
+        
+    }
+    .header {
+        height: 16px;
+        width: 85px;
+        color: #1C323F;
+        font-family: "DM Sans";
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0;
+        margin-bottom: 8px;
+        margin-left: 5.5px;
+    }
+    input {
+        margin-bottom: 4px;
+    }
+    .item {
+        // cursor: pointer;
+        margin-bottom: 6px;
+        label {
+            cursor: pointer;
+            width: 160px;
+            color: #07090a;
+            font-family: "DM Sans";
+            font-size: 12px;
+            letter-spacing: 0;
+            
+            margin-left: 8px;
+        }
+        input {
+            cursor: pointer;
+        }
+    }
+    .filterMenu__middle {
+        height: 222px;
+        width: 33%;
+        margin-top: 14.5px;
+        margin-left: 15.5px;
+    }
+    .filterMenu__right
+    {
+        height: 222px;
+        width: 33%;
+        margin-top: 14.5px;
+        margin-left: 15.5px;
+    }
+}

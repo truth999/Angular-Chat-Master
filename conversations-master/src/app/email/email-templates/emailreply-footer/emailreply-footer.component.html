@@ -1,0 +1,117 @@
+<div
+    class="footer-actions"
+    (mouseenter)="hoverinFooter()"
+    (mouseleave)="hoveroutFooter()"
+>
+    <div class="center">
+        <button
+            class="saveDraftButton"
+            (click)="saveDraft()"
+        >
+            <img src="assets/svg/save-draft-icon.svg" />
+            <span>Save Draft</span>
+        </button>
+    </div>
+    <div class="first">
+        <button
+            class="discard_button"
+            (click)="doAction('Discard')"
+        >
+            <img src="assets/svg/discard-icon.svg" />
+            <span>Discard</span>
+        </button>
+    </div>
+    <div class="right">
+        <button
+            class="send_button"
+            (click)="sendEmail()"
+            *ngIf="blockedWordsCheck == false"
+        >
+            <img src="assets/svg/send-icon.svg" />
+            <b>Send Email</b>
+        </button>
+        <button
+            class="send_button disabled"
+            *ngIf="blockedWordsCheck == true"
+        >
+            <img src="assets/svg/send-icon.svg" />
+            <b>Send Email</b>
+        </button>
+    </div>
+</div>
+<div class="footer_tooltip">
+    <div class="tool">
+        <div
+            class="tool__plusbutton"
+            [ngClass]="{'clicked': isShowPlusMenu}"
+            (click)="togglePlusMenu()"
+            (mouseenter)="hoverInPlusMenu()"
+            (mouseleave)="hoverOutPlusMenu()"
+        >
+            <!--<img src="assets/svg/button-plus-icon.svg" />-->
+            <img
+                *ngIf="!isShowPlusMenu"
+                style="margin-left: -1px; margin-bottom: 3px;"
+                src="assets/svg/up-arrow-black-icon.svg"
+            />
+            <img
+                *ngIf="isShowPlusMenu"
+                style="margin-left: -6px; margin-top: -2px; margin-bottom: -3px;"
+                src="assets/svg/close-black-icon.svg"
+            />
+            <ul
+                class="plusMenu"
+                *ngIf="isShowPlusMenu"
+            >
+                <li
+                    class=""
+                    (click)="goToPlainText()"
+                >
+                    <span *ngIf="!isPlainText">{{ 'Plain Text' | translate }}</span>
+                    <span *ngIf="isPlainText">{{ 'Rich Text' | translate }}</span>
+                </li>
+                <li
+                    class=""
+                    (click)="toggleBlockedWords()"
+                >
+                    <span *ngIf="blockedWordsEnabled == false">{{ 'Enable Blocked Words' | translate }}</span>
+                    <span *ngIf="blockedWordsEnabled == true">{{ 'Disable Blocked Words' | translate }}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div
+            class="tool__attachbutton"
+            (click)="showFileSelector()"
+        >
+            <img src="assets/svg/attachment-icon.svg" />
+        </div>
+
+        <div
+            #letterToolbox
+            class="tool__lettertoolbutton"
+            [ngClass]="{'clicked': isLetterToolbox}"
+            (click)="showLetterToolbox()"
+            *ngIf="!isPlainText"
+        >
+            <img
+                #letterToolboxIcon
+                src="assets/svg/letter-tool-box-icon.svg"
+            />
+        </div>
+        <!--<div class="PlainTextButton" (click)="goToPlainText()">
+           Plain Text
+        </div>-->
+    </div>
+
+</div>
+<input
+    #FileSelectInputDialog
+    type="file"
+    multiple
+    style="visibility: hidden; display: none;"
+    (change)="onFileChange($event)"
+/>
+<!-- <div class="letter_toolbox" *ngIf="isLetterToolbox" >
+    <app-letter-toolbox (mouseenter)="hoverInLetterToolbox()" (mouseleave)="hoveroutLetterToolbox()"> </app-letter-toolbox >
+</div> -->

@@ -1,0 +1,9 @@
+<div class="header">
+    <app-actions-tab (callbackFunction)="handleActionsTab($event)"></app-actions-tab>
+</div>
+
+<app-queue *ngIf="curTab == 0"></app-queue>
+<app-history *ngIf="curTab == 1"></app-history>
+<app-my-status *ngIf="curTab == 2 && curSubTab == 0"></app-my-status>
+<app-team-status *ngIf="curTab == 2 && curSubTab != 0"></app-team-status>
+<app-help *ngIf="curTab == 3"></app-help>

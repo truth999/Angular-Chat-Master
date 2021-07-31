@@ -1,0 +1,13 @@
+<div class="open-chatbox">
+    <div class="open-chatbox__header">
+        <app-nav-bar></app-nav-bar>
+        <active-request-tab></active-request-tab>
+    </div>
+    <div class="open-chatbox__body" [ngStyle]="{'height': length === 0? 'calc(100% - 44px)': arDetailOpened? ( openedRequest.callStatus != 'accepted' ? 'calc(100% - 91px)' : 'calc(100% - 177px)'): 'calc(100% - 92px)'}">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="open-chatbox__footer">
+    
+    </div>
+    <div class="block__elem"></div>
+</div>

@@ -1,0 +1,119 @@
+<div
+    class="call_tabs"
+    *ngIf="emailTranscript.mainCallFlag == false"
+>
+    <div
+        class="tab_item"
+        (click)="changeTab(1)"
+        *ngIf="!isTranscriptDisabled"
+    >
+        <p [ngClass]="tabindex == 1 ? 'tab__content--active' : 'tab__content'">Transcript</p>
+    </div>
+    <div
+        class="tab_item"
+        (click)="changeTab(2)"
+    >
+        <p [ngClass]="tabindex == 2 ? 'tab__content--active' : 'tab__content'">Dial Tones</p>
+    </div>
+    <div
+        class="tab_item"
+        [ngClass]="{'transcriptDisabled' : isTranscriptDisabled}"
+        *ngIf="(emailTranscript.transferCallFlag == 0 || emailTranscript.transferCallFlag == 4 || openedRequest.callStatus != 'transfer') && currentVoice.btns.conf == true"
+        (click)="changeTab(3)"
+    >
+        <p [ngClass]="tabindex == 3 ? 'tab__content--active' : 'tab__content'">Conference</p>
+    </div>
+    <div
+        class="tab_item"
+        [ngClass]="{'transcriptDisabled' : isTranscriptDisabled}"
+        *ngIf="(emailTranscript.transferCallFlag != 0 && emailTranscript.transferCallFlag != 4 && openedRequest.callStatus == 'transfer') && currentVoice.btns.conf == true"
+    >
+        <p class="tab__content--deactive">Conference</p>
+    </div>
+    <div
+        class="tab_item"
+        [ngClass]="{'transcriptDisabled' : isTranscriptDisabled}"
+        *ngIf="(emailTranscript.conferenceCallFlag == 0 || emailTranscript.conferenceCallFlag == 4 || openedRequest.callStatus != 'conference') && currentVoice.btns.xfer == true"
+        (click)="changeTab(4)"
+    >
+        <p [ngClass]="tabindex == 4 ? 'tab__content--active' : 'tab__content'">Transfer</p>
+    </div>
+    <div
+        class="tab_item"
+        [ngClass]="{'transcriptDisabled' : isTranscriptDisabled}"
+        *ngIf="(emailTranscript.conferenceCallFlag != 0 && emailTranscript.conferenceCallFlag != 4 && openedRequest.callStatus == 'conference') && currentVoice.btns.xfer == true"
+    >
+        <p class="tab__content--deactive">Transfer</p>
+    </div>
+    <div
+        class="tab_item"
+        (click)="changeTab(5)"
+        *ngIf="currentVoice.btns.schedule_callback == true"
+    >
+        <p [ngClass]="tabindex == 5 ? 'tab__content--active' : 'tab__content'">Schedule</p>
+    </div>
+</div>
+<div>
+    <app-custom-alert
+        *ngIf="emailTranscript.isHolded && tabindex == 1"
+        [alert_type]="'HoldAlert'"
+        [alert_message]="alert_message + ' ' + (this.calls[0].holdTime | formatTime)"
+        (callbackFunction)="retreiveCall($event)"
+    ></app-custom-alert>
+    <app-custom-alert
+        *ngIf="success_transfer_alert_flag && tabindex == 1"
+        [alert_type]="'success'"
+        [alert_message]="success_transfer_alert_message"
+        (callbackFunction)="closeTransferSuccessAlert($event)"
+    ></app-custom-alert>
+    <app-custom-alert
+        *ngIf="emailTranscript.isHolded && tabindex == 3 && emailTranscript.conferenceCallFlag == 1"
+        [alert_type]="'HoldAlert'"
+        [show_retrieve]="false"
+        [alert_message]="conference_alert_message + ' ' + (this.calls[0].holdTime | formatTime)"
+        (callbackFunction)="retreiveCall($event)"
+    ></app-custom-alert>
+</div>
+
+<div
+    class="content"
+    *ngIf="emailTranscript.mainCallFlag == false"
+>
+    <app-call-transcript *ngIf="tabindex == 1"> </app-call-transcript>
+    <app-call-dialtones *ngIf="tabindex == 2"> </app-call-dialtones>
+    <app-call-conference
+        *ngIf="tabindex == 3 && (emailTranscript.conferenceCallFlag == 0 || openedRequest.callStatus != 'conference')"
+    > </app-call-conference>
+    <app-conference-calling-screen
+        *ngIf="tabindex == 3 && emailTranscript.conferenceCallFlag == 1 && openedRequest.callStatus == 'conference'"
+    ></app-conference-calling-screen>
+    <app-conference-progress
+        *ngIf="tabindex == 3 && emailTranscript.conferenceCallFlag == 2 && mergedCalls == false && openedRequest.callStatus == 'conference'"
+        (callbackFunction)="handleConferenceProgress($event)"
+    ></app-conference-progress>
+    <app-merge-calls-screen *ngIf="tabindex == 3 && mergedCalls == true && openedRequest.callStatus == 'conference'">
+    </app-merge-calls-screen>
+    <app-call-transfer
+        *ngIf="tabindex == 4 && (emailTranscript.transferCallFlag == 0 || openedRequest.callStatus != 'transfer')"
+    ></app-call-transfer>
+    <app-conference-calling-screen
+        *ngIf="tabindex == 4 && emailTranscript.transferCallFlag == 1 && openedRequest.callStatus == 'transfer'"
+        [type]="'transfer'"
+    ></app-conference-calling-screen>
+    <app-transfer-progress
+        *ngIf="tabindex == 4 && emailTranscript.transferCallFlag == 2 && openedRequest.callStatus == 'transfer'"
+        (callbackFunction)="completeTransferProgress($event)"
+    ></app-transfer-progress>
+    <!-- <app-schedule-callback *ngIf="tabindex == 5"></app-schedule-callback> -->
+    <app-schedule-callback-lists *ngIf="tabindex == 5 && currentScheduleCallbackPage == 'scheduleCallbackListPage'">
+    </app-schedule-callback-lists>
+    <app-schedule-callback *ngIf="tabindex == 5 && currentScheduleCallbackPage == 'newScheduleCallbackPage'">
+    </app-schedule-callback>
+
+    <app-schedule-callback-edit *ngIf="tabindex == 5 && currentScheduleCallbackPage == 'editScheduleCallbackPage'">
+    </app-schedule-callback-edit>
+</div>
+
+<div *ngIf="emailTranscript.mainCallFlag == true">
+    <app-calling-screen></app-calling-screen>
+</div>

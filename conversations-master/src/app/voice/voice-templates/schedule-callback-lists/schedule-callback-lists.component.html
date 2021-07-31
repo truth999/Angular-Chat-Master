@@ -1,0 +1,28 @@
+<!-- <app-actions-tab class="actions-bar"></app-actions-tab> -->
+<div class="scheduleCallback-lists">
+    <div class="title">Scheduled Callbacks({{scheduleCallbacks.length}})</div>
+    <div>
+        <div *ngFor="let dayCallbacks of filteredCallbacks; let index = index;">
+            <div class="period">{{ dayCallbacks[0].date }}</div>
+            <div
+                class="item-row"
+                *ngFor="let callback of dayCallbacks"
+                (click)="editScheduleCallback(callback.id)"
+            >
+                <div class="left-column">
+                    <img src="assets/svg/queue-call-icon.svg" />
+
+                    <span class="jonathan-brewer">{{callback.name}}</span>
+                </div>
+                <div class="right-column">
+                    <span class="account-balance">{{callback.callId}}</span>
+                    <span class="date">{{callback.time}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <app-voice-footer [currentPage]="'ScheduleCallbackListPage'"></app-voice-footer>
+</div>

@@ -1,0 +1,28 @@
+<div class="rectangle">
+    <div>
+        <img *ngIf="item.type === 'Chats'" src="assets/svg/queue-chat-icon.svg" />
+        <img *ngIf="item.type === 'Emails'" src="assets/svg/queue-email-icon.svg" />
+        <img *ngIf="item.type === 'Calls'" src="assets/svg/queue-call-icon.svg" />
+        <span class="chats">{{item.type | translate }}</span>
+    </div>
+    <div class="dir-row">
+        <div class="in-queue-set">
+            <div class="in-queue">{{ 'in_queue' | translate }}</div>
+            <div class="number">{{item.num}}</div>
+        </div>
+        <div>
+            <div class="in-queue">{{ 'longest_waiting_time' | translate }}</div>
+            <div class="number">
+                <span class="color-orange" *ngIf="item.type === 'Chats'">{{item.time}}</span>
+                <span class="color-green" *ngIf="item.type === 'Calls'">{{item.time}}</span>
+                <span class="color-red" *ngIf="item.type === 'Emails'">{{item.time}}</span>
+                <span class="arrow" *ngIf="item.up">↑</span>
+                <span class="arrow" *ngIf="!item.up">↓</span>
+            </div>
+        </div>
+    </div>
+    <div class="skills">{{ 'skills' | translate}}</div>
+    <div>
+        <span class="skill-tag" *ngFor="let skill of item.skills">{{skill}}</span>
+    </div>
+</div>

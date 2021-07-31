@@ -1,0 +1,164 @@
+.dial-tones {
+    .header {
+        height: 30px;
+        width: 250px;
+        color: #1c323f;
+        font-family: 'DM Sans';
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: -0.4px;
+        line-height: 30px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 25px;
+        margin-bottom: 4px;
+    }
+    .dialnumber {
+        color: #1c323f;
+        font-family: 'DM Sans';
+        font-size: 27.2px;
+        letter-spacing: 0;
+
+        text-align: center;
+        line-height: 35px;
+        height: 35px;
+        margin-bottom: 2px;
+        margin-left: calc(50% - 105px);
+        display: flex;
+        .form-control1 {
+            border: none;
+            font-family: 'DM Sans';
+            font-size: 27.2px;
+            letter-spacing: 0;
+
+            text-align: center;
+            line-height: 35px;
+            width: 205px;
+            background-color: none;
+        }
+
+        .delete-button {
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 10px;
+            .normal {
+                display: block;
+            }
+            .hover {
+                display: none;
+            }
+            &:hover {
+                .normal {
+                    display: none;
+                }
+                .hover {
+                    display: block;
+                }
+            }
+        }
+    }
+    .contacts {
+        cursor: pointer;
+        margin-top: 0px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        height: 32px;
+        width: 172px;
+        border: 1px solid rgba(109, 135, 144, 0.2);
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 4px 0 rgba(109, 135, 144, 0.1);
+        padding-left: 44px;
+        padding-top: 5.49px;
+        padding-bottom: 7.51px;
+        padding-right: 53px;
+        display: flex;
+        font-family: 'DM Sans';
+        font-size: 14px;
+        color: #517785;
+        margin-bottom: 15px;
+        .contacts__collapse {
+            // width: 172px;
+            margin-left: 30px;
+            float: right;
+            margin-top: 6px;
+        }
+        .contacts__image {
+            margin-right: 5px;
+            width: 70px;
+            height: 70px;
+            margin-top: 2px;
+        }
+        &.clicked {
+            background-color: rgba(33, 159, 207, 0.2);
+        }
+        .contactSearchForm {
+            // position: absolute;
+            position: relative;
+            // top: 178px;
+            left: calc(50% - 253px);
+            top: 26px;
+            z-index: 1;
+            width: 278px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: calc(100vh - 356px);
+        }
+    }
+    .contacts:hover {
+        background-color: rgba(33, 159, 207, 0.2);
+    }
+    .content {
+        height: 230px;
+        width: 190px;
+        margin-left: auto;
+        margin-right: auto;
+        // margin-top: 20px;
+        margin-bottom: 145px;
+        display: flex;
+        flex-wrap: wrap;
+        .number-button {
+            cursor: pointer;
+            box-sizing: border-box;
+            height: 52px;
+            width: 52px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(109, 135, 144, 0.2);
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 4px 0 rgba(109, 135, 144, 0.1);
+            .button__number {
+                color: #517785;
+                font-family: 'DM Sans';
+                font-size: 21.6px;
+                letter-spacing: 0;
+                line-height: 28px;
+                text-align: center;
+                margin-top: 9px;
+            }
+            .button__character {
+                width: 52px;
+                color: #517785;
+                font-family: 'DM Sans';
+                font-size: 11px;
+                font-weight: bold;
+                letter-spacing: 0.5px;
+                line-height: 14px;
+                text-align: center;
+            }
+        }
+        .number-button:hover {
+            background-color: rgba(33, 159, 207, 0.2);
+        }
+    }
+}
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: calc(100% - 8px);
+}

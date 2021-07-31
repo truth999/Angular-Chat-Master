@@ -1,0 +1,53 @@
+<ul class="actions-tab">
+    <li class="actions-tab__item" [ngClass]="{'actions-tab__item--active': curTab == 0? true: false}" (click)="setActionTab(0)" (mouseenter)="hoverStatusQueue()" (mouseleave)="hoveroutStatusQueue()">
+        <span class="actions-tab__contain">
+            <img  class="hover" src="assets/svg/tab-queue-hover-icon.svg" />
+            <img  class="normal" src="assets/svg/tab-queue-icon.svg" />
+            <span>{{ 'queue' | translate }}</span>
+        </span>
+    </li>
+    <li class="actions-tab__item" [ngClass]="{'actions-tab__item--active': curTab == 1? true: false}" (click)="setActionTab(1)" (mouseenter)="hoverStatusHistory()" (mouseleave)="hoveroutStatusHistory()">
+        <span class="actions-tab__contain">
+            <img  class="hover" src="assets/svg/tab-history-hover-icon.svg" />
+            <img  class="normal" src="assets/svg/tab-history-icon.svg" />
+            <span>{{ 'history' | translate }}</span>
+        </span>
+    </li>
+    <li class="actions-tab__item" [ngClass]="{'actions-tab__item--active': curTab == 2? true: false}" (click)="setActionTab(2)" (mouseenter)="hoverStatusAnalytics()" (mouseleave)="hoveroutStatusAnalytics()">
+        <span class="actions-tab__contain">
+            <img  class="hover" src="assets/svg/tab-analytics-hover-icon.svg" />
+            <img  class="normal" src="assets/svg/tab-analytics-icon.svg" />
+            <span>{{ 'analytics' | translate }}</span>
+            <div *ngIf="subTabOpen" class="arrow-down"></div>
+        </span>
+    </li>
+    <li class="actions-tab__item" [ngClass]="{'actions-tab__item--active': curTab == 3? true: false}" (click)="setActionTab(3)" (mouseenter)="hoverStatusHelp()" (mouseleave)="hoveroutStatusHelp()">
+        <span class="actions-tab__contain">
+            <img  class="hover" src="assets/svg/tab-help-hover-icon.svg" />
+            <img  class="normal" src="assets/svg/tab-help-icon.svg" />
+            <span>{{ 'help' | translate }}</span>
+        </span>
+    </li>
+</ul>
+<ul *ngIf="curTab == 2" class="actions-sub-tab">
+    <li class="actions-tab__item" [ngClass]="{'actions-tab__item--active': curSubTab == 0? true: false}" (click)="setActionSubTab(0)">
+        <span class="actions-tab__contain">
+            <span>{{ 'my_status' | translate }}</span>
+        </span>
+    </li>
+    <li class="actions-tab__item" [ngClass]="{'actions-tab__item--active': curSubTab == 1? true: false}" (click)="setActionSubTab(1)">
+        <span class="actions-tab__contain">              
+            <span>{{ 'team_status' | translate }}</span>
+        </span>
+    </li>
+    <li class="actions-tab__item" [ngClass]="{'actions-tab__item--active': curSubTab == 2? true: false}" (click)="setActionSubTab(2)">
+        <span class="actions-tab__contain">  
+            <span>{{ 'productivity' | translate }}</span>
+        </span>
+    </li>
+    <li class="actions-tab__item" [ngClass]="{'actions-tab__item--active': curSubTab == 3? true: false}" (click)="setActionSubTab(3)">
+        <span class="actions-tab__contain">
+            <span>{{ 'customers' | translate}}</span>
+        </span>
+    </li>
+</ul>

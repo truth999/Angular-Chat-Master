@@ -1,0 +1,85 @@
+.chat-history {
+    // margin-top: 10px;
+    // background-color: #F0F5F7;
+    margin-bottom: 50px;
+    height: calc(100vh - 279px);
+    // overflow-y: auto;
+    position: relative;
+    padding-top: 10px;
+    &.historyForVoice {
+        height: calc(100vh - 193px);
+    }
+    .main {
+        overflow-y: auto;
+        height: 100%;
+        .card {
+            // overflow-y: auto;
+            width: calc(100%)-30px;
+            margin: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 1px 2px 0 rgba(174, 197, 206, 0.3);
+
+            .line {
+                position: absolute;
+                height: 100%;
+                left: 43px;
+            }
+            .payment-issue {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                margin-bottom: 15px;
+
+                .payment-issue__image {
+                    // width: 8%;
+                    margin-right: 13px;
+                }
+                .payment-issue__body {
+                    width: 72%;
+                    .title {
+                        height: 18px;
+                        width: 196px;
+                        color: #1c323f;
+                        font-family: 'DM Sans';
+                        font-size: 14px;
+                        font-weight: bold;
+                        letter-spacing: 0;
+                        line-height: 18px;
+                    }
+                    .date {
+                        height: 16px;
+                        width: 139px;
+                        color: #517785;
+                        font-family: 'DM Sans';
+                        font-size: 12px;
+                        font-weight: 500;
+                        letter-spacing: -0.2px;
+                        line-height: 16px;
+                    }
+                }
+                .payment-issue__totalmin {
+                    width: 20%;
+                    height: 14px;
+                    opacity: 0.6;
+                    color: #1c323f;
+                    font-family: 'DM Sans';
+                    font-size: 11px;
+                    letter-spacing: 0.2px;
+                    line-height: 14px;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+.chat-footer {
+    height: 40px;
+    padding: 0px 0;
+    background: #ffffff;
+    position: fixed;
+    width: calc(100% - 8px);
+    bottom: 0;
+    // border-radius: 0 0 15px 15px;
+}

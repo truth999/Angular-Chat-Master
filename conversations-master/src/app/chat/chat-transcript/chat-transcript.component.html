@@ -1,0 +1,191 @@
+<app-custom-alert
+    *ngIf="show_alert"
+    [alert_type]="alert_type"
+    [alert_message]="alert_message"
+    [closeAlert]="closeAlert"
+></app-custom-alert>
+<app-new-canned-response
+    *ngIf="show_add_new_text"
+    (callbackFunction)="handleAddNewText($event)"
+> </app-new-canned-response>
+<div class="chat">
+    <div
+        class="chat-area"
+        #chatArea
+    >
+        <div
+            *ngFor="let transcript of transcripts"
+            class="chat-block"
+        >
+            <!-- show action buttons on chat transcript if chat block is for action buttons-->
+            <div
+                *ngIf="transcript.hasOwnProperty('action')"
+                class="action"
+                [ngClass]="{'user':transcript.raisedBy == 'user', 'agent':transcript.raisedBy != 'user'}"
+            >
+                <div
+                    class="action-button"
+                    *ngIf="transcript.type == 'link'"
+                >
+                    <a
+                        [href]="transcript.action"
+                        target="_blank"
+                    >
+                        <p>{{ transcript.display }}</p>
+                    </a>
+                </div>
+                <div
+                    class="action-button"
+                    *ngIf="transcript.type != 'link'"
+                >
+                    <p>{{ transcript.display }}</p>
+                </div>
+
+            </div>
+
+            <div
+                class="card"
+                *ngIf="transcript.hasOwnProperty('price')"
+                [ngClass]="{'user':transcript.raisedBy == 'user', 'agent':transcript.raisedBy != 'user'}"
+            >
+                <div class="carousel">
+                    <div class="carousel__image">
+                        <img src="../../assets/icons/card.svg">
+                    </div>
+                    <div class="carousel__description">
+                        {{ transcript.description}}
+                    </div>
+                    <div class="carousel__price">
+                        ${{ transcript.price }}
+                    </div>
+                    <div class="carousel__viewdetails">
+                        <a>View Details</a>
+                    </div>
+                    <div class="carousel__shop">
+                        <a>Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div
+                *ngIf="!(transcript.hasOwnProperty('action')) && !(transcript.hasOwnProperty('price')) && transcript.messageType != 'attachment'"
+                class="text"
+                [ngClass]="{'user':transcript.raisedBy == 'user', 'agent':transcript.raisedBy != 'user', 'divider':transcript.raisedBy == 'divider'}"
+            >
+
+                <div
+                    *ngIf="transcript.type != 'divider'"
+                    class="chat-area_txt"
+                >{{transcript.message}}<span class="time">{{transcript.timestamp.split('T').join(' ').split('.')[0]}}</span></div>
+                <span *ngIf="transcript.type == 'divider'">{{transcript.message}} - {{transcript.timestamp}}</span>
+            </div>
+            <div class="attachment" *ngIf="transcript.messageType == 'attachment'" [ngClass]="{'user':transcript.raisedBy == 'user', 'agent':transcript.raisedBy != 'user'}">
+                <a
+                    href="abc"
+                    target="_blank"
+                    *ngIf="transcript.type == 'data'"
+                > {{transcript.name}}<br></a>
+                <!-- <div><img [src]="transcript.url" *ngIf="transcript.type == 'image'"></div> -->
+                <!-- {{transcript.url}} -->
+                <div class="transcript__screenshot" *ngIf="transcript.type == 'image'">
+                    <div class="screenshot">
+                        <img [src]="transcript.url">
+                    </div>
+                    <div class="footer">
+                        <img src="../../assets/svg/attachment-image-icon.svg">
+                        <p>{{ transcript.name }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layoutDesign"></div>
+    </div>
+
+    <div class="chat-footer">
+
+        <span class="rectangle" (click)="showAttachmentSelector()"><span class="path-1">
+                <img src="assets/svg/attachment-icon.svg" />
+                <input
+                    #FileSelectInputDialog
+                    type="file"
+                    multiple
+                    style="visibility: hidden; display: none;"
+                    (change)="onFileChange($event)"
+                />
+        </span></span>
+        <span
+            class="rectangle-round"
+            *ngIf="!chat_hover_state && !show_insert_template"
+            (click)="handleChatTemplate('Open')"
+            (mouseover)="chatHover('hover')"
+            (mouseleave)="chatHover('leavehover')"
+        ><span class="path-1">
+                <img src="assets/svg/canned-message-icon.svg" />
+            </span></span>
+        <span
+            class="rectangle-round"
+            *ngIf="chat_hover_state || show_insert_template"
+            (click)="handleChatTemplate('Open')"
+            (mouseover)="chatHover('hover')"
+            (mouseleave)="chatHover('leavehover')"
+        ><span class="path-1">
+                <img src="assets/svg/canned-message-active-icon.svg" />
+            </span></span>
+
+        <span *ngFor="let cannedResponse of quickCannedResponses; let index=index;">
+            <span
+                (click)="quickTextCannedResponseClick()"
+                class="rectangle-blue"
+                *ngIf="cannedResponse.hasOwnProperty('name')"
+                on-mouseover="showAccountDetailsTemplate(cannedResponse, index)"
+                on-mouseleave="hideAccountDetailsTemplate()"
+            ><span class="please-send-account">{{ cannedResponse.name }}
+                    <app-account-details
+                        *ngIf="show_account_details && index == accountDetailsIndex"
+                        [accountDetailsHeader]="accountDetailsHeader"
+                        [accountDetailsContent]="accountDetailsContent"
+                    ></app-account-details>
+                </span></span>
+            <span
+                *ngIf="cannedResponse.hasOwnProperty('action')"
+                (click)="quickActionCannedResponseClick(cannedResponse)"
+                class="rectangle-blue"
+            ><span class="please-send-account">{{ cannedResponse.display }}</span></span>
+        </span>
+
+        <div
+            *ngIf="showSendButton"
+            class="gradient-layer"
+        ></div>
+        <button
+            class="send-button"
+            *ngIf="showSendButton"
+            (click)="send()"
+        >
+            <img
+                class="normal"
+                src="assets/svg/chat-send-button-icon.svg"
+            />&nbsp;Send
+        </button>
+        <div class="chat-footer-responseInput">
+            <textarea
+                type="text"
+                class="form-control"
+                [(ngModel)]="new_message"
+                (ngModelChange)="newMessageEvent($event)"
+                id=""
+                placeholder="Type your response here..."
+            ></textarea>
+        </div>
+
+        <app-footer-action> </app-footer-action>
+    </div>
+</div>
+<app-chat-template
+    *ngIf="show_insert_template"
+    (insertTemplate)="insertTemplate($event)"
+    (callbackFunction)="handleChatTemplate($event)"
+> </app-chat-template>
+
+
+<!-- <app-wrapup-chat> </app-wrapup-chat> -->
+<!-- <app-wrapup-before> </app-wrapup-before> -->

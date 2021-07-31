@@ -1,0 +1,14 @@
+.chart-sideline:after {
+    position: absolute !important;
+    content: '';
+    left: 0;
+    width: 22px;
+    background: #fff;
+    /* border: 49px solid red; */
+    top: 0;
+    bottom: 21px;
+}
+.chart-sideline {
+    position: relative;
+    // border: 1px solid red;
+}

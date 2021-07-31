@@ -1,0 +1,23 @@
+<div class="tracking_tabs">
+    <div
+        class="tab_item"
+        (click)="changeTab(1)"
+    >
+        <p [ngClass]="tabindex == 1 ? 'tab__content--active' : 'tab__content'">browser</p>
+    </div>
+    <div
+        class="tab_item"
+        (click)="changeTab(2)"
+    >
+        <p [ngClass]="tabindex == 2 ? 'tab__content--active' : 'tab__content'">behavior</p>
+    </div>
+</div>
+
+<div class="content">
+    <app-chat-tracking-browser *ngIf="tabindex == 1"></app-chat-tracking-browser>
+    <app-chat-tracking-behavior *ngIf="tabindex == 2"></app-chat-tracking-behavior>
+</div>
+
+<div class="chat-footer">
+    <app-footer-action> </app-footer-action>
+</div>

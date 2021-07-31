@@ -1,0 +1,87 @@
+<div class="dial-tones" >
+    <div class="header">
+        Send Dial Tones
+    </div>
+    <div class="dialnumber">
+        {{ this.dialNumber }}
+        <!--<input type="text" class="form-control" [(ngModel)]="dialNumber">-->
+    </div>
+    <div class="content">
+        <div class="number-button" (click)="numberButtonClick(1)">
+            <div class="button__number">
+                1
+            </div>
+          
+        </div>
+        <div class="number-button" (click)="numberButtonClick(2)">
+            <div class="button__number">
+                2
+            </div>
+           
+        </div>
+        <div class="number-button" (click)="numberButtonClick(3)">
+            <div class="button__number">
+                3
+            </div>
+           
+        </div>
+        <div class="number-button" (click)="numberButtonClick(4)">
+            <div class="button__number">
+                4
+            </div>
+           
+        </div>
+        <div class="number-button" (click)="numberButtonClick(5)">
+            <div class="button__number">
+                5
+            </div>
+            
+        </div>
+        <div class="number-button" (click)="numberButtonClick(6)">
+            <div class="button__number">
+                6
+            </div>
+           
+        </div>
+        <div class="number-button" (click)="numberButtonClick(7)">
+            <div class="button__number">
+                7
+            </div>
+           
+        </div>
+        <div class="number-button" (click)="numberButtonClick(8)">
+            <div class="button__number">
+                8
+            </div>
+            
+        </div>
+        <div class="number-button" (click)="numberButtonClick(9)">
+            <div class="button__number">
+                9
+            </div>
+           
+        </div>
+        <div class="number-button" (click)="numberButtonClick('*')">
+            <div class="button__number">
+                *
+            </div>
+          
+        </div>
+        <div class="number-button" (click)="numberButtonClick(0)">
+            <div class="button__number">
+                0
+            </div>
+           
+        </div>
+        <div class="number-button" (click)="numberButtonClick('#')">
+            <div class="button__number">
+                #
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!--<app-calldialtones-footer></app-calldialtones-footer>-->
+<div class="footer">
+    <app-voice-footer [currentPage]="'CallDialtonesPage'"> </app-voice-footer>
+</div>

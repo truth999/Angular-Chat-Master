@@ -1,0 +1,36 @@
+<div class="contacts-modal">
+    <div class="contacts__header">
+        <div class="search-bar">
+            <div class="search-bar__left">
+                
+                <input [(ngModel)]="contactSearchText" type="text" id="_search" placeholder="Search"/>
+                <img src="../../assets/icons/search gray.svg">
+            </div>
+        </div>
+        <!--<div class="assistButton"> 
+            <img src="assets/svg/button-assist.svg" />
+        </div>-->
+        <div class="plusButton" (click)="createContact()">
+            <img src="assets/svg/button-plus-icon.svg" />
+
+        </div>
+    </div>
+    <div class="contacts__body">
+        <div class="content" *ngFor="let contact of contacts">
+            <div class="contentTotal" *ngIf="contact.name.toLowerCase().includes(contactSearchText.toLowerCase())">
+                <div >
+                    {{ contact.name }}
+                </div>
+                <div  class="content__body">
+                    <p>{{ contact.role }}</p>
+                    <h1 (click)="numberAutoComplete(contact.mobilenumber, contact.name)">Work: {{ contact.worknumber }}</h1>
+                    <h1 (click)="numberAutoComplete(contact.homenumber, contact.name)">Home: {{ contact.homenumber }}</h1>
+                    <h1 (click)="numberAutoComplete(contact.mobilenumber, contact.name)">Mobile: {{ contact.mobilenumber }}</h1>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<app-add-numbr-contact *ngIf="isShowAddNumberContactForm" (callbackFunction)="handleAddContactForm($event)"></app-add-numbr-contact>

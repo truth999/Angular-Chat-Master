@@ -1,0 +1,32 @@
+<div class="header" [ngClass]="{'active': isHeaderActive}">
+    <div class="arrow-back" (click)="back()">
+        <img  src="assets/svg/back-icon.svg" />
+        <span class="back" >{{ 'back' | translate }}</span>
+    </div>
+    
+</div>
+<div class="result-box" (scroll)="onScroll($event)">
+    <div class="search-results">{{ 'Timeline' | translate}}</div>
+    <div>
+        <div class="period">Yesterday</div>
+        <div class="item-row" *ngFor="let item of data" (click)="historyDetail(item)">
+            <div class="left-column">
+                <img class="normal" *ngIf="item.type === 'logedin' || item.type === 'logedout'" src="assets/svg/loged-in-icon.svg" />
+                <img class="normal" *ngIf="item.type === 'chat'" src="assets/icons/interaction-tab-chat-icon.svg" />
+                <img class="normal" *ngIf="item.type === 'email'" src="assets/icons/interaction-tab-email-icon.svg" />
+                <img class="normal" *ngIf="item.type === 'voice'" src="assets/icons/interaction-tab-voice-icon.svg" />
+
+                <img class="hover" *ngIf="item.type === 'logedin' || item.type === 'logedout'" src="assets/svg/loged-in-active-icon.svg" />
+                <img class="hover" *ngIf="item.type === 'chat'" src="assets/icons/interaction-tab-chat-active-icon.svg" />
+                <img class="hover" *ngIf="item.type === 'email'" src="assets/icons/interaction-tab-email-active-icon.svg" />
+                <img class="hover" *ngIf="item.type === 'voice'" src="assets/icons/interaction-tab-voice-active-icon.svg" />
+
+                <span class="jonathan-brewer">{{item.name}}</span>
+            </div>
+            <div class="right-column">
+                <span class="account-balance">{{item.content}}</span>
+                <span class="date">{{item.date}}</span>
+            </div>
+        </div>
+    </div>
+</div>

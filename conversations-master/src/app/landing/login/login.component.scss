@@ -1,0 +1,121 @@
+.login-container{
+    width: calc(100% - 2px);
+    background: #111E26;
+    height: calc(100vh - 2px);
+    padding: 1px;
+
+    .login-container__header{
+        padding: 10px 0 11px 10px;
+        display: flex;
+        align-items: center;
+
+         .convergeone {
+             margin-left: 10px;
+         }
+    }
+
+    .login-container__body {
+        background-color: #FFFFFF;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        height: calc(100% - 80px);;
+        margin: 0 3px;
+        padding: 0 3px;    
+        
+        .logo-img {
+            width: 100px;
+            height: 50px;
+        }
+        .form {
+            text-align: center;
+            width:60%;
+            min-width: 320px;
+            margin: auto;
+            .c1-logo {
+                width: 300px; height: auto;
+                padding-top: 70px;
+                padding-bottom: 20px;
+            }
+            .please-log-in-to-con {
+                color: #1C323F;
+                font-family: "DM Sans";
+                font-size: 20px;
+                font-weight: 500;
+                letter-spacing: 0;
+                line-height: 30px;
+                text-align: center;
+                // padding-top: 100px;
+                margin-bottom: 30px;
+              }
+        }
+
+        .forgot-password {
+            margin-left: 20%;
+            margin-top: 18.9px;
+            color: #1C323F;
+            font-family: "DM Sans";
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 17px;
+            cursor: pointer;
+            text-decoration-line: underline;
+            &:hover {
+                color: #219FCF;
+            }
+        }
+        .forgot-password--focus {
+            margin-top: 18.9px;
+            margin-left: 20%;
+            color: #219FCF;
+            font-family: "DM Sans";
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 17px;
+            text-decoration-line: underline;
+            cursor: pointer;
+        }
+
+    }
+
+    .login-container__footer {
+        margin: 0 3px;
+        position: absolute;
+        bottom: 4px;
+        width: calc(100% - 8px);
+
+        .rectangle {
+            height: 40px;
+            width: 100%;
+            border-radius: 0 0 10px 10px;
+            background-color: #219FCF;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            .group-23 {
+                display: flex;
+                align-items: center;
+
+                .log-in {
+                    color: #FFFFFF;
+                    font-family: "DM Sans";
+                    font-size: 14px;
+                    font-weight: 500;
+                    letter-spacing: 0;
+                    line-height: 18px;
+                    margin-left: 6px;
+                  }
+              }
+            &:hover {
+                background-color: rgb(32, 137, 179);
+            }
+            &.disabled {
+                background-color: rgb(31, 115, 149);
+            }
+        }
+    }
+}

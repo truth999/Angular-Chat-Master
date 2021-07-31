@@ -1,0 +1,147 @@
+<div class="chat-info">
+    <div class="line">
+        <div class="line__input">
+            <app-float-input
+                [(inputModel)]="name"
+                [inputLabel]="'Name'"
+                [type]="'disabled'"
+            ></app-float-input>
+        </div>
+        <div class="line__input">
+            <app-float-input
+                #Associatedto
+                *ngIf="!isAssociatedAutoComplete"
+                [(inputModel)]="associated_to"
+                [inputLabel]="'Associated To'"
+                (click)="showAssociatedAutoCompleteForm()"
+                [type]="'dropdown'"
+                [place_holder]="'Established'"
+                (mouseleave)="associatedtoInputleave()"
+                (mouseenter)="associatedtoInputenter()"
+            ></app-float-input>
+            <app-float-input
+                #Associatedto
+                *ngIf="isAssociatedAutoComplete"
+                [(inputModel)]="associated_to"
+                [inputLabel]="'Associated To'"
+                (click)="showAssociatedAutoCompleteForm()"
+                [type]="'dropup'"
+                [place_holder]="'Established'"
+                (mouseleave)="associatedtoInputleave()"
+                (mouseenter)="associatedtoInputenter()"
+            ></app-float-input>
+            <div class="autocomplete">
+                <app-input-autocomplete
+                    #menu
+                    (callbackFunction)="autoCompleteAssociatedTo($event)"
+                    [data]="displayData"
+                    [type]="'Info'"
+                    [currentIndex]="associated_to_currentId"
+                    *ngIf="isAssociatedAutoComplete"
+                    (mouseleave)="autocompleteFormleave()"
+                    (mouseenter)="autocompleteFormenter()"
+                > </app-input-autocomplete>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="line">
+
+        <div class="line__input">
+            <app-float-input
+                [(inputModel)]="channel"
+                [inputLabel]="'Channel'"
+                [type]="'disabled'"
+            ></app-float-input>
+        </div>
+
+        <div class="line__input">
+            <app-float-input
+                [(inputModel)]="state"
+                [inputLabel]="'State'"
+                [type]="'disabled'"
+            ></app-float-input>
+        </div>
+    </div>
+
+    <div class="line">
+        <div class="line__input">
+            <app-float-input
+                #linkedto
+                *ngIf="!isAutoCompleteForm"
+                [(inputModel)]="linked_to"
+                [inputLabel]="'Linked to'"
+                (click)="showAutoCompleteForm()"
+                [place_holder]="'Established'"
+                [type]="'dropdown'"
+                (mouseleave)="linkedtoInputleave()"
+                (mouseenter)="linkedtoInputenter()"
+            ></app-float-input>
+            <app-float-input
+                #linkedto
+                *ngIf="isAutoCompleteForm"
+                [(inputModel)]="linked_to"
+                [inputLabel]="'Linked to'"
+                (click)="showAutoCompleteForm()"
+                [place_holder]="'Established'"
+                [type]="'dropup'"
+                (mouseleave)="linkedtoInputleave()"
+                (mouseenter)="linkedtoInputenter()"
+            ></app-float-input>
+            <div class="autocomplete">
+                <app-input-autocomplete
+                    #menu
+                    (callbackFunction)="autoCompleteLinkedTo($event)"
+                    [data]="displayData"
+                    [type]="'InfoLinkedTo'"
+                    [currentIndex]="linked_to_currentId"
+                    *ngIf="isAutoCompleteForm"
+                    (mouseleave)="autocompleteFormleave()"
+                    (mouseenter)="autocompleteFormenter()"
+                > </app-input-autocomplete>
+            </div>
+        </div>
+        <div class="line__input">
+            <app-float-input
+                *ngIf="displayData[0].type != 'timer'"
+                [(inputModel)]="displayData[0].value"
+                [inputLabel]="displayData[0].name"
+                [type]="'disabled'"
+            ></app-float-input>
+            <app-float-input
+                *ngIf="displayData[0].type == 'timer'"
+                [(inputModel)]="displayData[0].value"
+                [inputLabel]="displayData[0].name"
+                [type]="'timer'"
+            ></app-float-input>
+        </div>
+    </div>
+    <div class="displayData">
+        <div
+            class="line__input"
+            *ngFor="let data of displayData | slice:1;"
+        >
+            <app-float-input
+                *ngIf="data.type != 'timer'"
+                [(inputModel)]="data.value"
+                [inputLabel]="data.name"
+                [type]="'disabled'"
+            ></app-float-input>
+            <app-float-input
+                *ngIf="data.type == 'timer'"
+                [(inputModel)]="data.value"
+                [inputLabel]="data.name"
+                [type]="'timer'"
+            ></app-float-input>
+        </div>
+    </div>
+
+    <div class="responsive">
+    </div>
+</div>
+<div class="chat-footer">
+    <app-footer-action *ngIf="openedRequest.type == 'chat'"> </app-footer-action>
+    <app-emailfooter-action *ngIf="openedRequest.type == 'email'"></app-emailfooter-action>
+    <app-voice-footer *ngIf="openedRequest.type == 'voice'"> </app-voice-footer>
+</div>

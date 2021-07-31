@@ -1,0 +1,159 @@
+<div
+    class="floating-label"
+    *ngIf="type == 'login'"
+>
+    <input
+        [disabled]='isDisabled'
+        [ngClass]="{ 'floating-input': status=='normal', 'floating-input--error': status=='error', 'floating-input--hover' : isDisabled, 'disabled': isDisabled}"
+        placeholder=" "
+        type="{{inputType}}"
+        [(ngModel)]="inputModel"
+        (ngModelChange)="inputModelChange.emit(inputModel)"
+    >
+    <label [ngClass]="{ 'float-label': status=='normal', 'float-label--error': status=='error' }">{{ inputLabel
+        }}</label>
+</div>
+<div
+    class="floating-label"
+    *ngIf="type == 'dropdown'"
+>
+    <input
+        class="floating-input--normal"
+        placeholder=" "
+        type="{{inputType}}"
+        [(ngModel)]="inputModel"
+        (ngModelChange)="inputModelChange.emit(inputModel)"
+        disabled="true"
+    >
+    <label class="float-label--normal">{{ inputLabel }}</label>
+    <div class="arrow-icon">
+        <img src="assets/svg/arrow-down-icon.svg" />
+    </div>
+</div>
+<div
+    class="floating-label-selected"
+    *ngIf="type == 'dropup'"
+>
+    <input
+        class="floating-input--selected"
+        placeholder=" "
+        type="{{inputType}}"
+        [(ngModel)]="inputModel"
+        (ngModelChange)="inputModelChange.emit(inputModel)"
+        disabled="true"
+    >
+    <label class="float-label--selected">{{ inputLabel }}</label>
+    <div
+        class="arrow-icon"
+        *ngIf="inputModel == ''"
+    >
+        <img src="assets/svg/arrow-up-icon.svg" />
+    </div>
+</div>
+
+<div
+    class="floating-label"
+    *ngIf="type == 'normal'"
+>
+    <input
+        class="floating-input--normal"
+        placeholder=" "
+        type="{{inputType}}"
+        [(ngModel)]="inputModel"
+        (ngModelChange)="inputModelChange.emit(inputModel)"
+    >
+    <label class="float-label--normal">{{ inputLabel }}</label>
+</div>
+
+<div
+    class="floating-label"
+    [ngClass]="{'disabled': true}"
+    *ngIf="type == 'disabled'"
+>
+    <input
+        disabled='true'
+        class="floating-input--normal non-cursor disabled"
+        placeholder=" "
+        type="{{inputType}}"
+        [(ngModel)]="inputModel"
+        (ngModelChange)="inputModelChange.emit(inputModel)"
+    >
+    <label class="float-label--normal">{{ inputLabel }}</label>
+</div>
+
+<div
+    class="floating-label"
+    [ngClass]="{'disabled': true}"
+    *ngIf="type == 'timer'"
+>
+    <input
+        disabled='true'
+        class="floating-input--normal non-cursor disabled"
+        placeholder=" "
+        type="{{inputType}}"
+        [(ngModel)]="time"
+    >
+    <label class="float-label--normal">{{ inputLabel }}</label>
+</div>
+
+<div
+    class="floating-label"
+    *ngIf="type == 'textarea'"
+    style="height: 100%;"
+>
+    <textarea
+        class="floating-input--textarea"
+        placeholder=" "
+        [(ngModel)]="inputModel"
+        (ngModelChange)="inputModelChange.emit(inputModel)"
+    >    </textarea>
+    <label class="float-label--normal">{{ inputLabel }}</label>
+</div>
+
+<div
+    class="floating-label"
+    *ngIf="type == 'date'"
+>
+    <input
+        class="floating-input--normal"
+        placeholder=" "
+        type="date"
+        [ngClass]="{'disabled': isDisabled}"
+        [(ngModel)]="inputModel"
+        (ngModelChange)="inputModelChange.emit(inputModel)"
+        [disabled]="isDisabled"
+    >
+    <label class="float-label--normal">{{ inputLabel }}</label>
+</div>
+
+<div
+    class="floating-label"
+    *ngIf="type == 'time'"
+>
+    <input
+        class="floating-input--normal"
+        placeholder=" "
+        type="time"
+        [ngClass]="{'disabled': isDisabled}"
+        [(ngModel)]="inputModel"
+        (ngModelChange)="inputModelChange.emit(inputModel)"
+        [disabled]="isDisabled"
+    >
+    <label class="float-label--normal">{{ inputLabel }}</label>
+</div>
+
+<div
+    class="floating-label"
+    *ngIf="type == 'number'"
+>
+    <input
+        class="floating-input--normal"
+        placeholder=" "
+        type="number"
+        [(ngModel)]="inputModel"
+        [ngClass]="{'disabled': isDisabled}"
+        (ngModelChange)="inputModelChange.emit(inputModel)"
+        [disabled]="isDisabled"
+    >
+    <label class="float-label--normal">{{ inputLabel }}</label>
+</div>

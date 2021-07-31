@@ -1,0 +1,14 @@
+<div class="select_language_form">
+    <div class="item" *ngFor="let language of languages" (click)="selectLaguage(language)">
+        <div class="main">
+            <div class="languageName">
+                {{ language }}
+            </div>
+            <div class="selection_mark" *ngIf = "language == selectedLanguage">
+                <img src="assets/svg/selection-mark.svg" />
+            </div>
+        </div>
+        <div class="separation_line">
+        </div>
+    </div>
+</div>

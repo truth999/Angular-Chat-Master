@@ -1,0 +1,18 @@
+<div class="body">
+    <div class="mergeText">
+        In Conference With<br>
+        <div *ngFor="let call of calls">
+            <div *ngIf="call.type == 'conference'">
+                {{call.destname}} - {{call.phoneNumber}}
+            </div>
+        </div>
+    </div>
+    <div class="mergedTime">
+        {{totalTime | formatTime}}
+    </div>
+</div>
+<!-- <app-calltranscript-footer> </app-calltranscript-footer> -->
+
+<div class="footer">
+    <app-voice-footer [currentPage]="'MergedCallsScreen'"></app-voice-footer>
+</div>

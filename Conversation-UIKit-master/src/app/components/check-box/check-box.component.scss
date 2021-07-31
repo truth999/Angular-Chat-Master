@@ -1,0 +1,27 @@
+.setting_checkbox {
+    display: flex;
+    cursor: pointer;
+    .icon__unselected {
+        margin-right: 10px;
+    }
+    .icon__selected {
+        margin-right: 10px;
+    }
+    .content--blue {
+        height: 18px;
+        width: 301px;
+        color: #219FCF;
+        font-family: "DM Sans";
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 18px;
+    }
+    .content--normal {
+        width: 300px;
+        color: #1C323F;
+        font-family: "DM Sans";
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+}

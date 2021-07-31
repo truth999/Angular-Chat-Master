@@ -1,0 +1,149 @@
+<ul class="actions-tab">
+    <li
+        class="actions-tab__item"
+        [ngClass]="{'actions-tab__item--active': curTab == 0? true: false}"
+        (click)="setActionTab(0)"
+        (mouseenter)="hoverStatusQueue()"
+        (mouseleave)="hoveroutStatusQueue()"
+    >
+        <span class="actions-tab__contain">
+            <img
+                *ngIf="openedRequest.type === 'chat'"
+                class="icon normal"
+                src="assets/icons/interaction-tab-chat-icon.svg"
+            />
+            <img
+                *ngIf="openedRequest.type === 'chat'"
+                class="icon hover"
+                src="assets/icons/interaction-tab-chat-active-icon.svg"
+            />
+
+            <img
+                *ngIf="openedRequest.type === 'voice'"
+                class="icon normal"
+                src="assets/icons/interaction-tab-voice-icon.svg"
+            />
+            <img
+                *ngIf="openedRequest.type === 'voice'"
+                class="icon hover"
+                src="assets/icons/interaction-tab-voice-active-icon.svg"
+            />
+
+            <img
+                *ngIf="openedRequest.type === 'email'"
+                class="icon normal"
+                src="assets/icons/interaction-tab-email-icon.svg"
+            />
+            <img
+                *ngIf="openedRequest.type === 'email'"
+                class="icon hover"
+                src="assets/icons/interaction-tab-email-active-icon.svg"
+            />
+
+            <span *ngIf="openedRequest.type==='chat'">{{ 'chat' | translate }}</span>
+            <span *ngIf="openedRequest.type==='voice'">{{ 'call' | translate }}</span>
+            <span *ngIf="openedRequest.type==='email'">{{ 'email' | translate }}</span>
+        </span>
+    </li>
+    <li
+        class="actions-tab__item"
+        [ngClass]="{'actions-tab__item--active': curTab == 2? true: false}"
+        (click)="setActionTab(2)"
+        (mouseenter)="hoverStatusInfo()"
+        (mouseleave)="hoveroutStatusInfo()"
+    >
+        <span class="actions-tab__contain">
+            <img
+                class="icon normal"
+                src="assets/icons/interaction-tab-info-icon.svg"
+            />
+            <img
+                class="icon hover"
+                src="assets/icons/interaction-tab-info-active-icon.svg"
+            />
+
+            <span>{{ 'info' | translate }}</span>
+        </span>
+    </li>
+
+    <li
+        class="actions-tab__item"
+        [ngClass]="{'actions-tab__item--active': curTab == 4? true: false}"
+        (click)="setActionTab(4)"
+        (mouseenter)="hoverStatusInfo()"
+        (mouseleave)="hoveroutStatusInfo()"
+        *ngIf="isEnableTracking == true"
+    >
+        <span class="actions-tab__contain">
+
+            <img
+                class="icon normal"
+                src="assets/icons/tracking-tab-icon.svg"
+            >
+            <img
+                class="icon hover"
+                src="assets/icons/tracking-tab-hover-icon.svg"
+            >
+
+            <span>{{ 'tracking' | translate }}</span>
+        </span>
+    </li>
+
+    <li
+        class="actions-tab__item"
+        [ngClass]="{'actions-tab__item--active': curTab == 1? true: false}"
+        (click)="setActionTab(1)"
+        (mouseenter)="hoverStatusHistory()"
+        (mouseleave)="hoveroutStatusHistory()"
+    >
+        <span class="actions-tab__contain">
+            <img
+                class="icon normal"
+                src="assets/icons/interaction-tab-history-icon.svg"
+            />
+            <img
+                class="icon hover"
+                src="assets/icons/interaction-tab-history-active-icon.svg"
+            />
+
+            <span>{{ 'history' | translate }}</span>
+        </span>
+    </li>
+
+    <li
+        class="actions-tab__item"
+        [ngClass]="{'actions-tab__item--active': curTab == 3? true: false}"
+        (click)="setActionTab(3)"
+        (mouseenter)="hoverStatusNotes()"
+        (mouseleave)="hoveroutStatusNotes()"
+    >
+        <span class="actions-tab__contain">
+            <img
+                class="icon normal"
+                src="assets/icons/interaction-tab-notes-icon.svg"
+            />
+            <img
+                class="icon hover"
+                src="assets/icons/interaction-tab-notes-active-icon.svg"
+            />
+            <span>{{ 'notes' | translate }}</span>
+        </span>
+    </li>
+</ul>
+<app-chat-transcript *ngIf="curTab == 0 && openedRequest.type==='chat'"></app-chat-transcript>
+<app-voice-transcript *ngIf="curTab == 0 && openedRequest.type==='voice'"></app-voice-transcript>
+<app-email-transcript *ngIf="curTab == 0 && openedRequest.type==='email' && openedRequest.callStatus==='accepted'">
+</app-email-transcript>
+<!-- <app-compose-email *ngIf="curTab == 0 && openedRequest.type==='email' && openedRequest.callStatus==='new'"></app-compose-email> -->
+<app-emailreply-template *ngIf="curTab == 0 && openedRequest.type==='email' && openedRequest.callStatus==='new'">
+</app-emailreply-template>
+
+<app-emailreply-template
+    *ngIf="curTab == 0 && openedRequest.type==='email' && (openedRequest.callStatus==='reply' || openedRequest.callStatus==='replyAll' || openedRequest.callStatus==='forward')"
+></app-emailreply-template>
+
+
+<app-chat-info *ngIf="curTab == 2 "></app-chat-info>
+<app-chat-history *ngIf="curTab == 1 "></app-chat-history>
+<app-chat-notes *ngIf="curTab == 3 "> </app-chat-notes>
+<app-chat-tracking *ngIf="curTab == 4 "> </app-chat-tracking>

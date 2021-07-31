@@ -1,0 +1,49 @@
+<div>
+    <div class="alert-danger" *ngIf="alert_type=='danger'">
+        <div class="error" *ngFor="let error of errors; let index= index;">
+            <div class="error-content" *ngIf="error.flash == true">
+                <div class="alert__header">
+                    <img src="assets/svg/alert-danger-icon.svg" />
+
+                </div>
+                <div class="alert__content" role="alert">
+                    <div class="alert_content_body">
+                        <span class="alert__content__text"> {{ error.message }}
+                        </span>
+                    </div>
+                    <div class="alert__content__close" data-dismiss="alert" aria-label="Close" (click)="close(index)">
+                            <img src="assets/svg/close-red-icon.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert-holdCall" style="position: relative; margin-top: -1px; left:0px;width: calc(100%);" *ngIf="alert_type=='HoldAlert'">
+            <div class="alert__header">
+                <img src="assets/svg/alert-danger-icon.svg" />
+
+            </div>
+            <div class="alert__content" role="alert">
+                <div class="alert_content_body">
+                    <span class="alert__content__text"> {{ alert_message }} &nbsp;&nbsp;<span *ngIf="show_retrieve" class="retrievelink" (click)="retreive()">Retrieve</span></span>
+                    
+                </div>
+            </div>
+    </div>
+
+    <div class="alert-success" *ngIf="alert_type=='success'">
+            <div class="alert__header">
+               <img src="assets/svg/alert-success-icon.svg" />
+            </div>
+            <div class="alert__content" role="alert">
+                <div class="alert_content_body">
+                    <span class="alert__content__text"> {{ alert_message }}
+                    </span>
+                </div>
+                <div class="alert__content__close" data-dismiss="alert" aria-label="Close" (click)="closeSuccess()">
+                        <img src="assets/svg/close-green-icon.svg" />
+                </div>
+            </div>
+    </div>
+</div>

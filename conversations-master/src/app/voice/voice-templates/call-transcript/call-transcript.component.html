@@ -1,0 +1,33 @@
+<div class="call-transcript">
+    <div class="header">
+        Answered Call
+    </div>
+    <div
+        class="content"
+        #transcriptArea
+    >
+        <div
+            *ngFor="let transcript of transcripts"
+            class="transcript__line"
+        >
+            <div
+                [attr.data-title]="transcript.senderId"
+                [ngClass]="transcript.raisedBy == 'user' ? 'content__name--first' : 'content__name--second'"
+            >
+                <div class="maintext">{{ transcript.senderId }}</div>
+            </div>
+            <div class="content__time">
+                {{ transcript.timestamp }}
+                <!--{{ transcript.timestamp.split('T', 2)[1] }}-->
+            </div>
+            <div class="content__txt">
+                {{ transcript.message }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <app-calltranscript-footer> </app-calltranscript-footer> -->
+<div class="footer">
+    <app-voice-footer [currentPage]="'CallTranscriptPage'"> </app-voice-footer>
+</div>

@@ -1,0 +1,48 @@
+<div class="behaviorContent">
+    <div
+        class="behavioritem"
+        *ngFor="let behavioritem of behaviorData; let index=index;"
+    >
+        <div class="behavioritem__header">
+            {{ behavioritem.date }}
+        </div>
+
+        <div class="item">
+            <div class="item__title">
+                Url
+            </div>
+            <div class="item__detail">
+                {{ behavioritem.url }}
+            </div>
+        </div>
+        <div *ngFor="let subDataItem of behavioritem.subdata">
+            <div class="item">
+                <div class="item__title">
+                    Class Name
+                </div>
+                <div class="item__detail">
+                    {{ subDataItem.className }}
+                </div>
+            </div>
+            <div class="item">
+                <div class="item__title">
+                    Showing
+                </div>
+                <div class="item__detail">
+                    {{ subDataItem.showing }}
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item__title">
+                Time Spent
+            </div>
+            <div class="item__detail">
+                {{ behavioritem.timespent }}
+            </div>
+        </div>
+
+        <!-- <div class="separation-line"></div> -->
+
+    </div>
+</div>

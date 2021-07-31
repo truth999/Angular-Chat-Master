@@ -1,0 +1,15 @@
+<div class="chart-sideline">
+    <canvas
+        baseChart
+        #myChart
+        style="max-height: 400px;"
+        [datasets]="lineChartFilterData"
+        [labels]="lineChartDisplayLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartFilterColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins"
+    >
+    </canvas>
+</div>

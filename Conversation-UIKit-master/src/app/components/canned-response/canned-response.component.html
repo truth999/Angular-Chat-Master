@@ -1,0 +1,230 @@
+<div class="chat-template">
+    <div class="navcontent">
+        <ul>
+            <li
+                (click)="changeTab(1)"
+                [className]="tabindex == 1 ? 'tabactive' : 'tabinactive'"
+            >Text</li>
+            <li
+                (click)="changeTab(2)"
+                [className]="tabindex == 2 ? 'tabactive' : 'tabinactive'"
+            >Actions</li>
+            <li
+                (click)="changeTab(3)"
+                [className]="tabindex == 3 ? 'tabactive' : 'tabinactive'"
+            >Cards</li>
+        </ul>
+        <div class="tab-divider"></div>
+        <div class="navcontent__action">
+            <div
+                class="text-action"
+                *ngIf="tabindex==1"
+            >
+                <div class="search-bar">
+                    <div class="search-bar__left">
+
+                        <input
+                            type="text"
+                            [(ngModel)]="textSearchText"
+                            id="_search"
+                            placeholder="Search"
+                        />
+                        <img src="assets/img/search gray.svg">
+                    </div>
+                </div>
+                <div
+                    class="plusButton"
+                >
+                    <img src="assets/img/button-plus-icon.svg" />
+
+                </div>
+            </div>
+            <div
+                class="other-action"
+                *ngIf="tabindex == 2"
+            >
+                <div class="search-bar1">
+                    <div class="search-bar__left">
+
+                        <input
+                            type="text"
+                            [(ngModel)]="actionSearchText"
+                            id="_search"
+                            placeholder="Search"
+                        />
+                        <img src="assets/img/search gray.svg">
+                    </div>
+                </div>
+            </div>
+            <div
+                class="other-action"
+                *ngIf="tabindex == 3"
+            >
+                <div class="search-bar1">
+                    <div class="search-bar__left">
+
+                        <input
+                            type="text"
+                            [(ngModel)]="cardSearchText"
+                            id="_search"
+                            placeholder="Search"
+                        />
+                        <img src="assets/img/search gray.svg">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div
+            class="navcontent__list"
+            *ngIf="tabindex == 1"
+        >
+            <div
+                class="item"
+                [ngClass]="{'clicked': index == currentTextIndex}"
+                *ngFor="let text of texts; let index=index;"
+                (click)="selectTextItem(index)"
+            >
+                <p
+                    class="item__header"
+                    *ngIf="text.title.toLowerCase().includes(textSearchText.toLowerCase())"
+                >{{ text.title }}</p>
+                <p
+                    class="item__content"
+                    *ngIf="text.content.toLowerCase().includes(textSearchText.toLowerCase())"
+                >{{ text.content.substring(0, 35) }}...</p>
+                <div class="separate-line"></div>
+            </div>
+        </div>
+        <div
+            class="navcontent__list"
+            *ngIf="tabindex == 2"
+        >
+            <div
+                class="item"
+                *ngFor="let action of actions;let index=index;"
+                [ngClass]="{'clicked': index == currentActionIndex}"
+                (click)="selectActionItem(index)"
+            >
+                <p
+                    class="item__header"
+                    *ngIf="action.title.toLowerCase().includes(actionSearchText.toLowerCase())"
+                >{{ action.title }}</p>
+                <p
+                    class="item__content"
+                    *ngIf="action.title.toLowerCase().includes(actionSearchText.toLowerCase())"
+                >{{action.buttons.length}} Action Buttons</p>
+                <div class="separate-line"></div>
+            </div>
+
+        </div>
+        <div
+            class="navcontent__list"
+            *ngIf="tabindex == 3"
+        >
+            <div
+                class="item"
+                *ngFor="let card of cards;let index=index;"
+                [ngClass]="{'clicked': index == currentCardIndex}"
+                (click)="selectCardItem(index)"
+            >
+                <p
+                    class="item__header"
+                    *ngIf="card.name.toLowerCase().includes(cardSearchText.toLowerCase())"
+                >{{ card.name }}</p>
+                <p
+                    class="item__content"
+                    *ngIf="card.name.toLowerCase().includes(cardSearchText.toLowerCase())"
+                >$ {{ card.price }}</p>
+                <div class="separate-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="maincontent">
+        <div
+            class="x"
+        >
+            <img src="assets/img/close-icon.svg" />
+
+        </div>
+        <div class="maincontent__header">
+
+            <p *ngIf="tabindex==1"> {{ texts[currentTextIndex].title }} </p>
+            <p *ngIf="tabindex==2"> {{ actions[currentActionIndex].title }} </p>
+            <p *ngIf="tabindex==3"> {{ cards[currentCardIndex].name }} </p>
+        </div>
+        <div
+            class="textcontent__content"
+            *ngIf="tabindex==1"
+        >
+            <p>
+                {{ texts[currentTextIndex].content }}
+            </p>
+        </div>
+
+        <div
+            class="maincontent__content"
+            *ngIf="tabindex == 2"
+        >
+            <div
+                class="action_button"
+                *ngFor="let message of actions[currentActionIndex].buttons"
+            >
+                <p>{{ message.name }}</p>
+            </div>
+        </div>
+        <div
+            class="maincontent__content"
+            *ngIf="tabindex==3"
+        >
+            <div
+                class="carousel"
+                *ngFor="let card of cards[currentCardIndex].products; let index = index"
+                (click)="selectCard(index)"
+            >
+                <div class="carousel__image">
+                    <img src="assets/img/card.svg">
+                    <div class="carousel__image__selector">
+                        <img
+                            *ngIf="hover==1 && !(selectedCardIndexes.includes(index))"
+                            (mouseenter)="CarouselHover()"
+                            (mouseleave)="CarouselLeave()"
+                            src="assets/img/carousel-selection-icon.svg"
+                        />
+                        <img
+                            *ngIf="hover==2 || selectedCardIndexes.includes(index)"
+                            (mouseenter)="CarouselHover()"
+                            (mouseleave)="CarouselLeave()"
+                            src="assets/img/carousel-selection-hover-icon.svg"
+                        />
+                    </div>
+
+                </div>
+                <div class="carousel__description">
+                    {{ card.description}}
+                </div>
+                <div class="carousel__price">
+                    ${{ card.price }}
+                </div>
+                <div class="carousel__viewdetails">
+                    <a>View Details</a>
+                </div>
+                <div class="carousel__shop">
+                    <a>Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="maincontent__footer">
+            <div class="btns">
+                <div
+                    class="insertbutton"
+                >
+                    <span> Insert Selected</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

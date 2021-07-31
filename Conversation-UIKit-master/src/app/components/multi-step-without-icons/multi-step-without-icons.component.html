@@ -1,0 +1,42 @@
+<div class="stepper">
+    <div class="stepper__container">
+        <div class="stepper__step" [ngClass]="{'active': step >= 1}">
+            <div class="round-tab">
+                <!-- <img src="assets/icons/user.png" /> -->
+                <div class="complted-range" *ngIf="step >= 1"></div>
+                <img class="completed-mark" *ngIf="step >= 1" src="assets/icons/complted-mark.png" />
+                <span>Project</span>
+            </div>
+        </div>
+        <div class="stepper__step" [ngClass]="{'active': step >= 2}">
+            <div class="round-tab">
+                <!-- <img src="assets/icons/group-user.png" /> -->
+                <div class="complted-range" *ngIf="step >= 2"></div>
+                <img class="completed-mark" *ngIf="step >= 2" src="assets/icons/complted-mark.png" />
+                <span>Group</span>
+            </div>
+        </div>
+        <div class="stepper__step" [ngClass]="{'active': step >= 3}">
+            <div class="round-tab">
+                <!-- <img src="assets/icons/user.png" /> -->
+                <div class="complted-range" *ngIf="step >= 3"></div>
+                <img class="completed-mark" *ngIf="step >= 3" src="assets/icons/complted-mark.png" />
+                <span>User</span>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div *ngIf="step == 0">
+            Project Section
+            <button class="action-button" (click)="nextStep()">Next</button>
+        </div>
+        <div *ngIf="step == 1">
+            Group Section
+            <button class="action-button" (click)="nextStep()">Next</button>
+        </div>
+        <div *ngIf="step == 2">
+            User Section
+            <button class="action-button" (click)="nextStep()">Next</button>
+        </div>
+    </div>
+</div>

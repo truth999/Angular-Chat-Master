@@ -1,0 +1,34 @@
+<div class="login-container" (keyup.enter)="login()">
+
+    <div class="login-container__header">
+    
+        <img src="../../assets/icons/logo.svg" />
+        <img src="../../assets/img/title.png" class="convergeone" width="96" height="15" />       
+    </div>
+
+    <app-custom-alert  *ngIf="show_alert" [alert_type]="alert_type"  (callbackFunction)="closeAlert($event)"></app-custom-alert>
+    
+    <div class="login-container__body">
+        <form class="form">
+            <img class="c1-logo" src="../../assets/img/imgpsh_fullsize_anim.png">
+            <div class="please-log-in-to-con">{{ 'please_log_in_to_continue' | translate}}</div>
+            <app-float-input [(inputModel)]="username" [isDisabled]='isLogin' [inputLabel]="'Username'" [type]="'login'"></app-float-input>            
+            <app-float-input [(inputModel)]="password" [isDisabled]='isLogin' [inputLabel]="'Password'" [inputType] = "'password'" [status] = "login_failed == true ? 'error':'normal'" [type]="'login'"></app-float-input>
+            <app-float-input [(inputModel)]="extension" [isDisabled]='isLogin' [inputLabel]="'Extension'" [type]="'login'"></app-float-input>
+        </form>
+    
+        <div [ngClass]="login_failed ? 'forgot-password--focus' : 'forgot-password'">
+            {{ 'forgot_password' | translate }}?
+        </div>
+        <app-spinner *ngIf="show_spinner"></app-spinner>
+    </div>
+    <div class="login-container__footer">
+        <div class="rectangle" [ngClass]="{'disabled': isLogin}" (click)="login()">
+            <div class="group-23">
+                <img src="../../assets/icons/login.svg" class="convergeone" width="16" height="16" />                       
+                <span class="log-in">{{ 'log_in' | translate }}</span>                
+            </div>
+        </div>
+    </div>
+    <div class="block__elem"></div>
+</div>
